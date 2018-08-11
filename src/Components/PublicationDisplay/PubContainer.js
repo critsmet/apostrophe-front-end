@@ -18,7 +18,7 @@ export default class PubContainer extends React.Component {
 
   render(){
     return(
-      <div id="wrapper" className="avenir ml5 mr5">
+     <div id="wrapper" className="avenir ml5 mr5">
      <PubList pubs={this.state.pubs.data} />
      </div>
      )
