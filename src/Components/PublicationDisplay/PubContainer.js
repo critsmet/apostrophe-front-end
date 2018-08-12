@@ -11,16 +11,14 @@ export default class PubContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3090/api/v1/publications')
+    fetch('http://localhost:3000/api/v1/publications')
     .then(resp => resp.json())
     .then(pubs => this.setState({ pubs }))
   }
 
   render(){
     return(
-     <div id="wrapper" className="avenir ml5 mr5">
      <PubList pubs={this.state.pubs.data} />
-     </div>
      )
   }
 }

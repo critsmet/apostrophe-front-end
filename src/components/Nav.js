@@ -7,10 +7,9 @@ render() {
   let logo = require(`../Images/logo.png`);
 
   return (
-    <div id="nav-wrapper" className="w-100 mt1">
       <nav id="nav-bar" className="flex justify-between ml5 mr5 avenir bg-white">
         <div className="w-20 pt3 pb3 f6 tc">
-          search / browse
+          <span>search</span> / <span onClick={this.props.toggleBrowse}>browse</span>
         </div>
         <div className="w-25 pt2 pb1 tc f3">
           <img alt="logo" src={logo} className="w-80" />
@@ -19,6 +18,5 @@ render() {
           login / sign up
         </div>
       </nav>
-    </div>
   )}
 }
