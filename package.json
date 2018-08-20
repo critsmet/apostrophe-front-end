@@ -1,17 +1,25 @@
 {
-  "name": "apostrophe-front-end",
+  "name": "apostrophe-fe",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "connected-react-router": "^4.4.1",
+    "history": "^4.7.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
-    "react-transition-group": "^1.2.1"
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.5"
   }
 }

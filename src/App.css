@@ -1,24 +1,28 @@
-
-input[type="checkbox"],
-input[type="radio"] {
-  position: absolute;
-  clip: rect(0, 0, 0, 0);
+.App {
+  text-align: center;
 }
 
-input[type="checkbox"] + label::before,
-input[type="radio"] + label::before {
-  content: '\a0';
-  display: inline-block;
-  margin: .55em .2em .55em .3em;
-  width: .6em;
-  height: .6em;
-  line-height: .4em;
-  transition: all .2s;
-  border: 1.1px solid silver;
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
 }
 
-input[type="checkbox"]:checked + label::before,
-input[type="radio"]:checked + label::before {
-  content: '\a0';
-  background: silver;
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
