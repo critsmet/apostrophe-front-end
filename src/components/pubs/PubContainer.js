@@ -1,19 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import PubList from './PubList'
+import { fetchPublications } from './pubMod'
+import Pub from './Pub'
 
-export default class PubContainer extends React.Component{
+class PubContainer extends React.Component{
 
   componentDidMount(){
-    this.props.fetch()
+    this.props.fetchPublications()
   }
 
   render(){
+    const { pubs } = this.props.pub
+
     return(
-      <div>
-      hi
+      <div id="allpubs" className="flex flex-wrap justify-center mt1 ml5 mr5 ttl avenir">
+      { pubs.map(pub => <Pub pub={pub.attributes} />) }
       </div>
     )
   }
 }
+
+const mapStateToProps = ({ pub }) => {
+  return {
+    pub
+  }
+}
+
+export default connect(mapStateToProps, { fetchPublications })(PubContainer);

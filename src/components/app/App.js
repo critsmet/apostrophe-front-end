@@ -4,14 +4,13 @@ import { Route, Link } from 'react-router-dom';
 import NavContainer from '../nav/NavContainer'
 import BrowseContainer from '../browse/BrowseContainer'
 import PubContainer from '../pubs/PubContainer'
-import { fetchPublications } from '../app/appMod'
+import { toggleBrowse } from './appMod'
 
-const App = (props) => (
+const App = ({app, toggleBrowse}) => (
   <div>
-    <NavContainer />
-    {props.app.showBrowse? <BrowseContainer /> : null}
-    <PubContainer pubs={props.app.pubs.data} fetch={props.fetchPublications}/>
-    {console.log(props)}
+    <NavContainer toggleBrowse={toggleBrowse}/>
+    {app.showBrowse ? <BrowseContainer /> : null}
+    <PubContainer/>
   </div>
 )
 
@@ -21,4 +20,4 @@ const mapStateToProps = ({ app }) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchPublications })(App);
+export default connect(mapStateToProps, { toggleBrowse })(App);
