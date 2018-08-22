@@ -1,5 +1,5 @@
 import React from 'react'
-import Emoji from '../media/Emoji'
+import Emoji from '../../media/Emoji'
 
 const Pub = ({ pub }) => {
   return(
