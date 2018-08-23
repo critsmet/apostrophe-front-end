@@ -1,0 +1,56 @@
+
+input[type="checkbox"],
+input[type="radio"] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+input[type="checkbox"] + label::before,
+input[type="radio"] + label::before {
+  content: '\a0';
+  display: inline-block;
+  margin: .55em .2em .55em .3em;
+  width: .6em;
+  height: .6em;
+  line-height: .4em;
+  transition: all .2s;
+  border: 1.1px solid silver;
+}
+
+input[type="checkbox"]:checked + label::before,
+input[type="radio"]:checked + label::before {
+  content: '\a0';
+  background: silver;
+}
+
+.slide-enter {
+  position: relative;
+  transform: translateY(-4rem);
+  opacity: 0;
+  z-index: -1;
+  height: 0px;
+}
+
+.slide-enter-active {
+  transform: translateY(0rem);
+  height: 4rem;
+  opacity: 1;
+  transition: 300ms ease-in;
+}
+
+.slide-exit {
+  position: relative;
+  transform: translateY(0rem);
+  z-index: -1;
+  opacity: 1;
+  height: 4rem;
+}
+
+.slide-exit-active {
+  position: relative;
+  transform: translateY(-4rem);
+  z-index: -1;
+  opacity: 0;
+  height: 0;
+  transition: 300ms ease-in;
+}

@@ -1,7 +1,7 @@
 import React from 'react'
+const Browse = () => (
 
-const Browse = ( ) => (
-  <div id="browse" className="flex justify-between avenir mt1 ttl ml6 mr6">
+  <div id="browse" className="flex justify-between avenir mt1 ttl ml6 mr6 slide">
     <div className="f6 dib pt1 tl bg-washed-green tc br3 h3 w-50">
       <div className="dib">genres:</div>
         <div className="dib"><input type="checkbox" id="art-design" /><label htmlFor="art-design">Art & Design</label></div>
@@ -15,6 +15,7 @@ const Browse = ( ) => (
       <div className="ml3 mt2 lt dib">tags: add</div>
     </div>
   </div>
+
   )
 
 export default Browse

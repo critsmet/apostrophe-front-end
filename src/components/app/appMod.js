@@ -9,6 +9,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'TOGGLE_BROWSE':
+    console.log(!state.showBrowse)
     return {
       ...state,
       showBrowse: !state.showBrowse
