@@ -16,15 +16,15 @@ const BrowseContainer = ({ browse, updateFilter }) => {
       <div className="f6 dib pt1 tl bg-washed-green tc br3 h3 w-50">
         <div className="dib">genres: &nbsp; </div>
         {browse.filters.map((filter, index) => {
-          return
+          return (
             <BrowseFilter
               key={filter[0]}
               index={index}
               name={filter[0]}
               update={updateFilter} c
               hecked={filter[1]} />
-            })
-        }
+            )}
+        )}
       </div>
       <div className="f6 dib tl bg-washed-yellow br3 h3 w-50">
           <div className="dib ml3 mt2 br3 lt ">tags: add</div>

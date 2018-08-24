@@ -59,12 +59,22 @@ span:hover {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 input {
-  width: 250px;
+  width: 200px;
   outline: none;
   border: 0px;
 }
 
 input:focus{
     outline: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
 }

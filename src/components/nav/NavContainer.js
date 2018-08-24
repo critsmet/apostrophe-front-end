@@ -10,18 +10,18 @@ import logo from '../../logo.png'
 
 const NavContainer = ({ nav, updateSearch, toggleBrowse, toggleSearch }) => {
 
-  const searchField = <NavSearch toggle={toggleSearch} value={nav.search} update={updateSearch}/>
-  const searchBrowseOptions = <div><span onClick={toggleSearch}>search</span> / <span onClick={toggleBrowse}>browse</span></div>
+  const searchField = <NavSearch toggle={toggleSearch} update={updateSearch}/>
+  const browseButton = <span onClick={toggleBrowse}>browse / </span>
 
   return (
-   <nav id="nav-bar" className="flex justify-between h2 mb3 ml5 mr5 avenir bg-white">
-    <div className="w-20 pt3 pb3 f6 tc">
-      { nav.showSearch ? searchField : searchBrowseOptions }
+   <nav id="nav-bar" className="flex justify-center h2 mb3 ml5 mr5 avenir bg-white">
+    <div className="w-40 pt3 pb3 pl2 f6 tc">
+      {browseButton}{searchField}
     </div>
-    <div className="w-25 pt2 pb1 tc f3">
+    <div className="w-30 pt2 pb1 tc f3">
       <img alt="logo" src={logo} className="w-80" />
     </div>
-    <div className="w-20 pt3 pb3 tc f6">
+    <div className="w-40 pt3 pb3 pl6 tc f6">
       login / sign up
     </div>
   </nav>

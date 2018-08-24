@@ -1,18 +1,15 @@
 import React from 'react'
 
-const NavSearch = ({ value, update, toggle }) => {
-  console.log(value)
+const NavSearch = ({ update, toggle }) => {
   return (
-        <div className="ml4">
+        <div className="dib">
           <form>
             <input
-              autoFocus
               onMouseLeave={toggle}
               onChange={update}
-              value={value}
               type="text"
-              placeholder="?"
-              maxLength="30">
+              placeholder="search"
+              maxLength="25">
               </input>
             </form>
           </div>

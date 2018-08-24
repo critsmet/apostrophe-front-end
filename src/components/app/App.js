@@ -14,7 +14,7 @@ class App extends React.Component {
   render() {
     const { browse } = this.props
      return (
-      <div style={{width: '1240px', margin: 'auto'}}>
+      <div className="pt1" style={{width: '1240px', margin: 'auto'}}>
           <NavContainer />
           <CSSTransition in={browse.showBrowse} timeout={300} classNames="slide" unmountOnExit>
           <BrowseContainer />
