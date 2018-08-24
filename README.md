@@ -4,7 +4,7 @@ This project is still underway! Visit this link for a preview of the index page:
 
 To check it out in its current form, follow these instructions:
 
-1) Check out the steps for hosting the back-end on your local server: https://github.com/critsmet/apostrophe-back-end
+1) Visit this repo for how to get Apostrophe/s back-end hosted on your local server: https://github.com/critsmet/apostrophe-back-end
 
 2) Fork and clone this respository, 'run npm install', and then 'npm start'. If you use yarn I'm sure you already know what to do.
 
