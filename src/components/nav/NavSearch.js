@@ -3,7 +3,19 @@ import React from 'react'
 const NavSearch = ({ value, update, toggle }) => {
   console.log(value)
   return (
-        <div className="ml4"><form><input onMouseLeave={toggle} autoFocus onChange={update} value={value} type="text" placeholder="search apostrophe" maxLength="30"></input></form></div>
+        <div className="ml4">
+          <form>
+            <input
+              autoFocus
+              onMouseLeave={toggle}
+              onChange={update}
+              value={value}
+              type="text"
+              placeholder="?"
+              maxLength="30">
+              </input>
+            </form>
+          </div>
     )
   }
 

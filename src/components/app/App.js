@@ -14,14 +14,12 @@ class App extends React.Component {
   render() {
     const { browse } = this.props
      return (
-      <div>
-        <div style={{width: '100%', margin: 'auto'}}>
+      <div style={{width: '1240px', margin: 'auto'}}>
           <NavContainer />
           <CSSTransition in={browse.showBrowse} timeout={300} classNames="slide" unmountOnExit>
           <BrowseContainer />
           </CSSTransition>
-        </div>
-        <PubContainer />
+          <PubContainer />
       </div>
     )
   }
