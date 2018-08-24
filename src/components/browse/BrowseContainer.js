@@ -11,7 +11,7 @@ const BrowseContainer = ({ browse, updateFilter }) => {
 
 
   return(
-  <div id="browse" className="flex justify-between avenir mt1 ttl ml6 mr6 slide">
+  <div id="browse" className="flex justify-between avenir mt2 ttl ml6 mr6 slide">
     <div className="f6 dib pt1 tl bg-washed-green tc br3 h3 w-50">
       <div className="dib">genres: &nbsp; </div>
       {browse.filters.map((filter, index) => <BrowseFilter key={filter[0]} index={index} name={filter[0]} update={updateFilter} checked={filter[1]} />)}

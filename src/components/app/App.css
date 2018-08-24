@@ -59,6 +59,12 @@ span:hover {
   cursor: pointer;
 }
 
-.filter:hover {
-    cursor: pointer;
+input {
+  width: 250px;
+  outline: none;
+  border: 0px;
+}
+
+input:focus{
+    outline: none;
 }

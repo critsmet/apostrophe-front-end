@@ -4,7 +4,7 @@ const initialState = {
   showBrowse: false,
   filters: [
     ["art-&-design", false],
-    ["writing-&-poetry", false],
+    ["creative-writing-&-poetry", false],
     ["culture-&-lifestyle", false],
     ["gender-&-sexuality", false],
     ["science-&-technology", false],
