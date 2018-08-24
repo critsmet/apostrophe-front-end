@@ -1,37 +1,34 @@
 import React from 'react';
 
 import {connect} from 'react-redux';
-import { Route, Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import NavContainer from '../nav/NavContainer'
-import Browse from '../browse/Browse'
+import BrowseContainer from '../browse/BrowseContainer'
 import PubContainer from '../pubs/PubContainer'
 
-import { toggleBrowse } from './appMod'
 import './App.css'
 
 
 class App extends React.Component {
-
   render() {
-    const { app, toggleBrowse } = this.props
+    const { browse } = this.props
      return (
       <div>
-        <NavContainer toggleBrowse={toggleBrowse}/>
-        <CSSTransition in={app.showBrowse} timeout={300} classNames="slide" unmountOnExit>
-        <div><Browse /></div>
+        <NavContainer />
+        <CSSTransition in={browse.showBrowse} timeout={300} classNames="slide" unmountOnExit>
+        <BrowseContainer />
         </CSSTransition>
-        <PubContainer/>
+        <PubContainer />
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ app }) => {
+const mapStateToProps = ({ browse }) => {
   return {
-    app
+    browse
   }
 }
 
-export default connect(mapStateToProps, { toggleBrowse })(App);
+export default connect(mapStateToProps, null)(App);

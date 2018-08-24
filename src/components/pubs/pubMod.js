@@ -21,7 +21,6 @@ export default (state = initialState, action) => {
 //actions
 
 export const fetchPublications = () => dispatch => {
-  console.log("fetching!");
   fetch('http://localhost:3000/api/v1/publications')
     .then(resp => resp.json())
     .then(pubs => dispatch({

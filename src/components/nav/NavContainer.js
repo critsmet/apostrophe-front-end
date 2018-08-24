@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { toggleBrowse } from '../app/appMod'
 import Nav from './Nav'
+import { toggleBrowse } from '../browse/browseMod'
 
 export default connect(null, { toggleBrowse })(Nav)
