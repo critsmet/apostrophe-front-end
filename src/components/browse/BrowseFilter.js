@@ -1,18 +1,19 @@
 import React from 'react'
 
-const BrowseFilter = ({ name, index, update, checked }) => {
+const BrowseFilter = ({ genre, index, update, checked }) => {
 
   return (
         <div className="dib mr1">
-          <input type="checkbox"
-            defaultChecked={checked}
+          <input type="radio"
+            name="genres"
+            defaultChecked={genre === checked ? "checked" : ''}
             onClick={update}
             data-index={index}
-            id={name} />
+            id={genre} />
           <label
-            htmlFor={name}
+            htmlFor={genre}
             className="filter">
-            {name.split("-").join(" ")}
+            {genre.split("-").join(" ")}
           </label>
         </div>
     )

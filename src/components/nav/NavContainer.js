@@ -15,7 +15,7 @@ const NavContainer = ({ nav, updateSearch, toggleBrowse, toggleSearch }) => {
 
   return (
    <nav id="nav-bar" className="flex justify-center h2 mb3 ml5 mr5 avenir bg-white">
-    <div className="w-40 pt3 pb3 pl2 f6 tc">
+    <div className="w-40 pt3 pb3 ml3 pl1 f6 tc">
       {browseButton}{searchField}
     </div>
     <div className="w-30 pt2 pb1 tc f3">

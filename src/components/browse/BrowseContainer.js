@@ -10,24 +10,29 @@ import '../app/App.css'
 
 const BrowseContainer = ({ browse, updateFilter }) => {
 
+  const filters = [
+    "all",
+    "art-&-design",
+    "writing-&-poetry",
+    "culture-&-lifestyle",
+    "gender-&-sexuality",
+    "science-&-technology",
+    "society-&-capitalism"
+    ]
 
   return (
     <div id="browse" className="flex justify-between avenir ttl mt2 ml6 mr6">
-      <div className="f6 dib pt1 tl bg-washed-green tc br3 h3 w-50">
-        <div className="dib">genres: &nbsp; </div>
-        {browse.filters.map((filter, index) => {
+      <div className="f6 dib pt1 tl bg-washed-green tc br3 h2 w-100">
+        {filters.map((genre, index) => {
           return (
             <BrowseFilter
-              key={filter[0]}
+              key={genre}
               index={index}
-              name={filter[0]}
-              update={updateFilter} c
-              hecked={filter[1]} />
+              genre={genre}
+              update={updateFilter}
+              checked={browse.filter} />
             )}
         )}
-      </div>
-      <div className="f6 dib tl bg-washed-yellow br3 h3 w-50">
-          <div className="dib ml3 mt2 br3 lt ">tags: add</div>
       </div>
     </div>
   )

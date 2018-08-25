@@ -2,14 +2,7 @@
 
 const initialState = {
   showBrowse: false,
-  filters: [
-    ["art-&-design", false],
-    ["creative-writing-&-poetry", false],
-    ["culture-&-lifestyle", false],
-    ["gender-&-sexuality", false],
-    ["science-&-technology", false],
-    ["society-&-capitalism", false]
-  ]
+  filter: 'all'
 }
 
 //reducers
@@ -22,12 +15,9 @@ export default (state = initialState, action) => {
       showBrowse: !state.showBrowse
     }
     case 'UPDATE_FILTER':
-    let index = action.payload
-    let updated = [...state.filters]
-    updated[index][1] = !state.filters[index][1]
     return {
       ...state,
-      filters: updated
+      filter: action.payload
   }
     default:
     return state;
@@ -45,6 +35,6 @@ export const toggleBrowse = () => {
 export const updateFilter = (e) => {
   return {
     type: 'UPDATE_FILTER',
-    payload: e.target.dataset.index
+    payload: e.target.id
   }
 }

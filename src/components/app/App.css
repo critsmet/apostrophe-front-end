@@ -14,6 +14,7 @@ input[type="radio"] + label::before {
   height: .6em;
   line-height: .4em;
   transition: all .2s;
+  border-radius: 50%;
   border: 1.1px solid silver;
 }
 
@@ -25,7 +26,7 @@ input[type="radio"]:checked + label::before {
 
 .slide-enter {
   position: relative;
-  transform: translateY(-4rem);
+  transform: translateY(-2rem);
   opacity: 0;
   z-index: -1;
   height: 0px;
@@ -33,7 +34,7 @@ input[type="radio"]:checked + label::before {
 
 .slide-enter-active {
   transform: translateY(0rem);
-  height: 4rem;
+  height: 2rem;
   opacity: 1;
   transition: 300ms ease-in;
 }
@@ -43,12 +44,12 @@ input[type="radio"]:checked + label::before {
   transform: translateY(0rem);
   z-index: -1;
   opacity: 1;
-  height: 4rem;
+  height: 2rem;
 }
 
 .slide-exit-active {
   position: relative;
-  transform: translateY(-4rem);
+  transform: translateY(-2rem);
   z-index: -1;
   opacity: 0;
   height: 0;
