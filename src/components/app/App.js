@@ -1,12 +1,11 @@
+//packages
 import React from 'react';
-
 import {connect} from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
-
+//components
 import NavContainer from '../nav/NavContainer'
 import BrowseContainer from '../browse/BrowseContainer'
 import PubContainer from '../pubs/PubContainer'
-
 import './App.css'
 
 

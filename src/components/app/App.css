@@ -43,7 +43,7 @@ input[type="radio"]:checked + label::before {
   position: relative;
   transform: translateY(0rem);
   z-index: -1;
-  opacity: 1;
+  opacity: 0.5;
   height: 2rem;
 }
 
@@ -54,6 +54,11 @@ input[type="radio"]:checked + label::before {
   opacity: 0;
   height: 0;
   transition: 300ms ease-in;
+}
+
+.logo {
+  font-family: 'Poiret One', cursive;
+  font-size: 1.75rem;
 }
 
 span:hover {

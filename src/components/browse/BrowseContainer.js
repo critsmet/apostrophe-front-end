@@ -13,7 +13,7 @@ const BrowseContainer = ({ browse, updateFilter }) => {
   const filters = [
     "all",
     "art-&-design",
-    "writing-&-poetry",
+    "creative-writing-&-poetry",
     "culture-&-lifestyle",
     "gender-&-sexuality",
     "science-&-technology",

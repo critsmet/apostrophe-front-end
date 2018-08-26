@@ -18,7 +18,7 @@ class PubContainer extends React.Component{
     return (
       <div
         id="allpubs"
-        className="flex flex-wrap justify-center mt1 ml5 mr5 ttl avenir">
+        className="flex flex-wrap justify-center ml5 mr5 ttl avenir">
           { pubs.map(pub => {
             return(
               <Pub

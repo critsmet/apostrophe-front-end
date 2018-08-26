@@ -18,8 +18,8 @@ const NavContainer = ({ nav, updateSearch, toggleBrowse, toggleSearch }) => {
     <div className="w-40 pt3 pb3 ml3 pl1 f6 tc">
       {browseButton}{searchField}
     </div>
-    <div className="w-30 pt2 pb1 tc f3">
-      <img alt="logo" src={logo} className="w-80" />
+    <div className="w-30 pt2 pb3 tc logo">
+      apostrophe
     </div>
     <div className="w-40 pt3 pb3 pl6 tc f6">
       login / sign up
