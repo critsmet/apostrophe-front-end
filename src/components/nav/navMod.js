@@ -15,6 +15,7 @@ export default (state = initialState, action) => {
       showSearch: !state.showSearch
     }
     case 'UPDATE_SEARCH':
+    console.log(action.payload)
     return {
       ...state,
       search: action.payload
@@ -32,9 +33,9 @@ export const toggleSearch = () => {
   }
 }
 
-export const updateSearch = (e) =>{
+export const updateSearch = (search) =>{
   return {
     type: 'UPDATE_SEARCH',
-    payload: e.target.value
+    payload: search
   }
 }

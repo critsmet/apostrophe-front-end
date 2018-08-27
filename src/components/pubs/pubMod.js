@@ -1,6 +1,7 @@
 //initial state
 
 const initialState = {
+  showDefault: true,
   pubs: []
 }
 
