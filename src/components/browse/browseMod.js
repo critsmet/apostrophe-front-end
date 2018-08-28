@@ -18,7 +18,12 @@ export default (state = initialState, action) => {
     return {
       ...state,
       filter: action.payload
-  }
+    }
+    case 'RESET_FILTER':
+    return {
+      ...state,
+      filter: ''
+    }
     default:
     return state;
   }
@@ -37,4 +42,10 @@ export const updateFilter = (id) => {
     type: 'UPDATE_FILTER',
     payload: id
   }
+}
+
+export const resetFilter = () => {
+  return new Promise(function(resolve, reject) {
+    type: 'RESET_FILTER'
+  });
 }

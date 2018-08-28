@@ -10,7 +10,7 @@ import NavSearch from './NavSearch'
 import logo from '../../logo.png'
 
 
-const NavContainer = ({ nav, browseFilter, updateSearch, toggleBrowse, setPublications, hideDefault }) => {
+const NavContainer = ({ nav, browseFilter, updateSearch, toggleBrowse, setPublications, hideDefault, showDefault }) => {
 
   const browseButton = <span onClick={toggleBrowse}>browse / </span>
   const searchField = <NavSearch hideDefault={hideDefault} searchTerm={nav.search} browseFilter={browseFilter} updateSearch={updateSearch} setPubs={setPublications}/>
@@ -20,7 +20,7 @@ const NavContainer = ({ nav, browseFilter, updateSearch, toggleBrowse, setPublic
     <div className="w-40 pt3 pb3 ml3 pl1 f6 tc">
       {browseButton}{searchField}
     </div>
-    <div className="w-30 pt2 pb3 tc logo">
+    <div className="w-30 pt2 pb3 tc logo" onClick={showDefault}>
       apostrophe
     </div>
     <div className="w-40 pt3 pb3 pl6 tc f6">
@@ -37,4 +37,4 @@ const mapStateToProps = ({ nav, browse }) => {
   }
 }
 
-export default connect(mapStateToProps, { toggleBrowse, updateSearch, setPublications, hideDefault })(NavContainer)
+export default connect(mapStateToProps, { toggleBrowse, updateSearch, setPublications, hideDefault, showDefault })(NavContainer)

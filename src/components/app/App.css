@@ -61,6 +61,22 @@ input[type="radio"]:checked + label::before {
   font-size: 1.75rem;
 }
 
+.logo:hover {
+  cursor: pointer;
+}
+
+.learn {
+  position: absolute;
+  bottom: 60px;
+  right: 35%;
+}
+
+#default {
+  position: relative;
+  font-family: 'Poiret One', cursive;
+  font-size: 1.75rem;
+}
+
 span:hover {
   cursor: pointer;
 }

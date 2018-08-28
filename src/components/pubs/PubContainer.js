@@ -15,7 +15,7 @@ class PubContainer extends React.Component{
     const { pub } = this.props
 
     return (
-      pub.showDefault ? <PubDefault /> : <PubList pubs={pub.pubs} />
+      pub.showDefault ? <PubDefault setPublications={this.props.setPublications} pubs={pub.pubs}/> : <PubList pubs={pub.pubs} />
     )
   }
 }

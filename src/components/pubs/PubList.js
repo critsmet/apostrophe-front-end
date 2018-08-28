@@ -6,7 +6,8 @@ import Pub from './Pub'
 
 export default class PubContainer extends React.Component{
 
-  render(props){
+  render(){
+
     const { pubs } = this.props
     return (
       <div
