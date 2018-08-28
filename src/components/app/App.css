@@ -65,12 +65,6 @@ input[type="radio"]:checked + label::before {
   cursor: pointer;
 }
 
-.learn {
-  position: absolute;
-  bottom: 60px;
-  right: 35%;
-}
-
 #default {
   position: relative;
   font-family: 'Poiret One', cursive;

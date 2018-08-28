@@ -16,12 +16,9 @@ class PubDefault extends React.Component{
   render(){
     const DefaultSquare = () => {
       return(
-        <div id="default" className="w-25 mt4 pl4 pr4 ilb">
-          apostrophe is a library for digital publications.
+        <div id="default" className="w-25 h6 mt4 pl4 pr4 ilb">
+          apostrophe is an index for digital publications.
           these are some of our favorites.
-          <div className="learn avenir f6">
-            learn more
-          </div>
         </div>
     )}
 
