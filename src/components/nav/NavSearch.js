@@ -1,8 +1,14 @@
+//packages
 import React from 'react'
+import { connect } from 'react-redux'
+//actions
+import { updateSearch } from './navMod'
+import { setPublications, hideDefault } from '../pubs/pubMod'
 
-const NavSearch = ({ searchTerm, browseFilter, updateSearch, setPubs, hideDefault }) => {
 
-var timeout
+const NavSearch = ({ searchTerm, browseFilter, updateSearch, setPublications, hideDefault }) => {
+
+let timeout
 
 const triggerUpdate = (e) => {
   clearTimeout(timeout)
@@ -19,7 +25,7 @@ const handleUpdate = (searchTerm) => {
 }
 
 const directSearch = (searchTerm) => {
-  setPubs([searchTerm, browseFilter])
+  setPublications([searchTerm, browseFilter])
 }
 
   return (
@@ -36,4 +42,12 @@ const directSearch = (searchTerm) => {
     )
   }
 
-export default NavSearch
+
+  const mapStateToProps = ({ nav, browse }) => {
+      return {
+      searchTerm: nav.search,
+      browseFilter: browse.filter
+    }
+  }
+
+  export default connect(mapStateToProps, { updateSearch, setPublications, hideDefault })(NavSearch)

@@ -1,21 +1,24 @@
 //packages
 import React from 'react'
+import { connect } from 'react-redux'
 //actions
+import { setPublications } from './pubMod'
 //components
 import Pub from './Pub'
 
-export default class PubDefault extends React.Component{
+
+class PubDefault extends React.Component{
 
   componentDidMount(){
     this.props.setPublications(["default", ''])
   }
 
   render(){
-
-    const DefaultSquare = (props) => {
+    const DefaultSquare = () => {
       return(
-        <div id="default" className="w-25 h5 mt4 pl4 pr4 ilb">
-          apostrophe is a library for digital publications. These are some of our favorites.
+        <div id="default" className="w-25 mt4 pl4 pr4 ilb">
+          apostrophe is a library for digital publications.
+          these are some of our favorites.
           <div className="learn avenir f6">
             learn more
           </div>
@@ -39,3 +42,11 @@ export default class PubDefault extends React.Component{
     )
   }
 }
+
+const mapStateToProps = ({ pub }) => {
+  return {
+    pubs: pub.pubs
+  }
+}
+
+export default connect(mapStateToProps, { setPublications })(PubDefault)

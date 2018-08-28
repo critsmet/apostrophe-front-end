@@ -11,11 +11,16 @@ import './App.css'
 
 class App extends React.Component {
   render() {
-    const { browse } = this.props
+    const { showBrowse } = this.props
      return (
       <div className="pt1" style={{width: '1240px', margin: 'auto'}}>
           <NavContainer />
-          <CSSTransition in={browse.showBrowse} timeout={300} classNames="slide" unmountOnExit>
+          <CSSTransition
+            in={showBrowse}
+            timeout={300}
+            classNames="slide"
+            unmountOnExit
+            >
           <BrowseContainer />
           </CSSTransition>
           <PubContainer />
@@ -26,7 +31,7 @@ class App extends React.Component {
 
 const mapStateToProps = ({ browse }) => {
   return {
-    browse
+    showBrowse: browse.showBrowse
   }
 }
 

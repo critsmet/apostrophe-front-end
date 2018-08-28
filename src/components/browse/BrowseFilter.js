@@ -1,11 +1,16 @@
+//packages
 import React from 'react'
+import { connect } from 'react-redux'
+//actions
+import { updateFilter } from './browseMod'
+import { setPublications, hideDefault } from '../pubs/pubMod'
 
-const BrowseFilter = ({ genre, index, update, checked, setPubs, searchTerm, hideDefault }) => {
 
+const BrowseFilter = ({ genre, index, checked, searchTerm, updateFilter, setPublications, hideDefault }) => {
   const select = (e) => {
     let browseFilter = e.target.id
-    update(browseFilter)
-    setPubs([searchTerm, browseFilter])
+    updateFilter(browseFilter)
+    setPublications([searchTerm, browseFilter])
     hideDefault()
   }
 
@@ -26,4 +31,11 @@ const BrowseFilter = ({ genre, index, update, checked, setPubs, searchTerm, hide
     )
   }
 
-export default BrowseFilter
+const mapStateToProps = ({ browse, nav }) => {
+  return {
+    checked: browse.filter,
+    searchTerm: nav.search
+  }
+}
+
+export default connect(mapStateToProps, { updateFilter, setPublications, hideDefault })(BrowseFilter)

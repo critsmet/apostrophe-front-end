@@ -1,15 +1,10 @@
 //packages
 import React from 'react'
-import { connect } from 'react-redux'
-//actions
-import { updateFilter } from './browseMod'
-import { setPublications, hideDefault } from '../pubs/pubMod'
 //components
 import BrowseFilter from './BrowseFilter'
-import '../app/App.css'
 
 
-const BrowseContainer = ({ browse, updateFilter, searchTerm, setPublications, hideDefault }) => {
+const BrowseContainer = () => {
 
   const filters = [
     "all",
@@ -30,11 +25,7 @@ const BrowseContainer = ({ browse, updateFilter, searchTerm, setPublications, hi
               key={genre}
               index={index}
               genre={genre}
-              update={updateFilter}
-              searchTerm={searchTerm}
-              setPubs={setPublications}
-              hideDefault={hideDefault}
-              checked={browse.filter} />
+              />
             )}
         )}
       </div>
@@ -42,11 +33,4 @@ const BrowseContainer = ({ browse, updateFilter, searchTerm, setPublications, hi
   )
 }
 
-const mapStateToProps = ({ browse, nav }) => {
-  return {
-    browse,
-    searchTerm: nav.search
-  }
-}
-
-export default connect(mapStateToProps, { updateFilter, setPublications, hideDefault })(BrowseContainer)
+export default BrowseContainer

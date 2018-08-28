@@ -45,7 +45,7 @@ export const updateFilter = (id) => {
 }
 
 export const resetFilter = () => {
-  return new Promise(function(resolve, reject) {
+  return {
     type: 'RESET_FILTER'
-  });
+  }
 }

@@ -1,8 +1,6 @@
 //packages
 import React from 'react'
 import { connect } from 'react-redux'
-//actions
-import { setPublications } from './pubMod'
 //components
 import Pub from './Pub'
 import PubDefault from './PubDefault'
@@ -12,18 +10,18 @@ import PubList from './PubList'
 class PubContainer extends React.Component{
 
   render(){
-    const { pub } = this.props
+    const { showDefault } = this.props
 
     return (
-      pub.showDefault ? <PubDefault setPublications={this.props.setPublications} pubs={pub.pubs}/> : <PubList pubs={pub.pubs} />
+      showDefault ? <PubDefault /> : <PubList />
     )
   }
 }
 
 const mapStateToProps = ({ pub }) => {
   return {
-    pub
+    showDefault: pub.showDefault
   }
 }
 
-export default connect(mapStateToProps, { setPublications })(PubContainer);
+export default connect(mapStateToProps)(PubContainer);

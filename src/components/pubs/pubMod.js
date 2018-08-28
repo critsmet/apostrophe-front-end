@@ -57,33 +57,3 @@ export const setPublications = (terms) => dispatch => {
     })
   );
 }
-
-/*
-
----
-fetch('http://localhost:3000/api/v1/publications')
-  .then(resp => resp.json())
-  .then(pubs => dispatch({
-  ---
-
-
-On load, render default publications component.
-On search or browse change, render publications component
-If browse is all, get all publications
-
-export const fetchPublications = (direction, parameter) => dispatch => {
-  fetch('http://localhost:3000/api/v1/publications/' + direction,
-  {method: 'POST',
-      headers: {"Content-Type": "application/json", "Accept": "application/json"},
-      body: JSON.stringify({term: parameter})
-    })
-    .then(resp => resp.json())
-    .then(pubs => dispatch({
-      type: 'SET_PUBLICATIONS',
-      payload: pubs.data
-    })
-  );
-}
-
-
-*/

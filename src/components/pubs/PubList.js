@@ -1,13 +1,12 @@
 //packages
 import React from 'react'
+import { connect } from 'react-redux'
 //actions
 //components
 import Pub from './Pub'
 
-export default class PubContainer extends React.Component{
-
+class PubList extends React.Component{
   render(){
-
     const { pubs } = this.props
     return (
       <div
@@ -25,3 +24,10 @@ export default class PubContainer extends React.Component{
     )
   }
 }
+
+const mapStateToProps = ({ pub }) => {
+  return {
+    pubs: pub.pubs
+  }
+}
+export default connect(mapStateToProps)(PubList)
