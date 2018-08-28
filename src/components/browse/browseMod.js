@@ -14,6 +14,11 @@ export default (state = initialState, action) => {
       ...state,
       showBrowse: !state.showBrowse
     }
+    case 'HIDE_BROWSE':
+    return {
+      ...state,
+      showBrowse: false
+    }
     case 'UPDATE_FILTER':
     return {
       ...state,
@@ -37,15 +42,21 @@ export const toggleBrowse = () => {
   }
 }
 
-export const updateFilter = (id) => {
+export const hideBrowse = () => {
   return {
-    type: 'UPDATE_FILTER',
-    payload: id
+    type: 'HIDE_BROWSE'
   }
 }
 
 export const resetFilter = () => {
   return {
     type: 'RESET_FILTER'
+  }
+}
+
+export const updateFilter = (id) => {
+  return {
+    type: 'UPDATE_FILTER',
+    payload: id
   }
 }
