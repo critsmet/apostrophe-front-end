@@ -65,10 +65,20 @@ input[type="radio"]:checked + label::before {
   cursor: pointer;
 }
 
+.pubcard {
+  position: relative;
+}
+
+.pubtagline {
+  position: absolute;
+  left: 17.5%;
+  width: 66%;
+}
+
 #default {
   position: relative;
   font-family: 'Poiret One', cursive;
-  font-size: 1.75rem;
+  font-size: 1.6rem;
 }
 
 span:hover {
@@ -78,6 +88,10 @@ span:hover {
 a {
   text-decoration: none;
   color: black;
+}
+
+img:hover {
+  opacity: 0.25;
 }
 
 input {
