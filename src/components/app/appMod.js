@@ -2,4 +2,4 @@
 
 //reducers
 
-//actions & creators
+//action creators

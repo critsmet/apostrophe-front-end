@@ -1,13 +1,20 @@
 import React from 'react'
 
-const BrowseFilter = ({ genre, index, update, checked }) => {
+const BrowseFilter = ({ genre, index, update, checked, setPubs, searchTerm, hideDefault }) => {
+
+  const select = (e) => {
+    let browseFilter = e.target.id
+    update(browseFilter)
+    setPubs([searchTerm, browseFilter])
+    hideDefault()
+  }
 
   return (
         <div className="dib mr1">
           <input type="radio"
             name="genres"
             defaultChecked={genre === checked ? "checked" : ''}
-            onClick={update}
+            onClick={select}
             data-index={index}
             id={genre} />
           <label

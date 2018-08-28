@@ -1,22 +1,31 @@
 import React from 'react'
 
-const NavSearch = ({ update, toggle }) => {
+const NavSearch = ({ searchTerm, browseFilter, updateSearch, setPubs, hideDefault }) => {
 
 var timeout
 
 const triggerUpdate = (e) => {
-  clearTimeout(timeout);
-  let search = e.target.value;
+  clearTimeout(timeout)
+  let search = e.target.value
   timeout = setTimeout(function() {
-    update(search)
+    handleUpdate(search)
   }, 500);
+}
+
+const handleUpdate = (searchTerm) => {
+  updateSearch(searchTerm)
+  directSearch(searchTerm)
+  hideDefault()
+}
+
+const directSearch = (searchTerm) => {
+  setPubs([searchTerm, browseFilter])
 }
 
   return (
         <div className="dib">
           <form>
             <input
-              onMouseLeave={toggle}
               onKeyUp={triggerUpdate}
               type="text"
               placeholder="search"

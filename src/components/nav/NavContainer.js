@@ -3,15 +3,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 //actions
 import { toggleBrowse } from '../browse/browseMod'
-import { updateSearch, toggleSearch } from './navMod'
+import { setPublications, hideDefault, showDefault } from '../pubs/pubMod'
+import { updateSearch } from './navMod'
 //components
 import NavSearch from './NavSearch'
 import logo from '../../logo.png'
 
-const NavContainer = ({ nav, updateSearch, toggleBrowse, toggleSearch }) => {
 
-  const searchField = <NavSearch toggle={toggleSearch} update={updateSearch}/>
+const NavContainer = ({ nav, browseFilter, updateSearch, toggleBrowse, setPublications, hideDefault }) => {
+
   const browseButton = <span onClick={toggleBrowse}>browse / </span>
+  const searchField = <NavSearch hideDefault={hideDefault} searchTerm={nav.search} browseFilter={browseFilter} updateSearch={updateSearch} setPubs={setPublications}/>
 
   return (
    <nav id="nav-bar" className="flex justify-center h2 mb3 ml5 mr5 avenir bg-white">
@@ -28,10 +30,11 @@ const NavContainer = ({ nav, updateSearch, toggleBrowse, toggleSearch }) => {
   )
 }
 
-const mapStateToProps = ({ nav }) => {
+const mapStateToProps = ({ nav, browse }) => {
     return {
-    nav
+    nav,
+    browseFilter: browse.filter
   }
 }
 
-export default connect(mapStateToProps, { toggleBrowse, updateSearch, toggleSearch })(NavContainer)
+export default connect(mapStateToProps, { toggleBrowse, updateSearch, setPublications, hideDefault })(NavContainer)

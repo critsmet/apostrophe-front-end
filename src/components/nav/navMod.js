@@ -1,7 +1,6 @@
 //initial state
 
 const initialState = {
-  showSearch: false,
   search: ''
 }
 
@@ -9,13 +8,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'SHOW_SEARCH':
-    return {
-      ...state,
-      showSearch: !state.showSearch
-    }
     case 'UPDATE_SEARCH':
-    console.log(action.payload)
     return {
       ...state,
       search: action.payload
@@ -25,13 +18,7 @@ export default (state = initialState, action) => {
   }
 }
 
-//actions & creators
-
-export const toggleSearch = () => {
-  return {
-    type: 'SHOW_SEARCH',
-  }
-}
+//action creators
 
 export const updateSearch = (search) =>{
   return {

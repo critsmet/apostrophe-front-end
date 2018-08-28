@@ -1,11 +1,14 @@
+//packages
 import React from 'react'
+//actions
+//components
+import Pub from './Pub'
 
-export default class PubList extends React.Component {
-  componentDidMount(){
-    this.props.fetchPublications()
-  }
+export default class PubContainer extends React.Component{
+
   render(props){
-    return(
+    const { pubs } = this.props
+    return (
       <div
         id="allpubs"
         className="flex flex-wrap justify-center ml5 mr5 ttl avenir">

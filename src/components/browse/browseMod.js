@@ -2,7 +2,7 @@
 
 const initialState = {
   showBrowse: false,
-  filter: 'all'
+  filter: ''
 }
 
 //reducers
@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
   }
 }
 
-//actions & creators
+//action creators
 
 export const toggleBrowse = () => {
   return {
@@ -32,9 +32,9 @@ export const toggleBrowse = () => {
   }
 }
 
-export const updateFilter = (e) => {
+export const updateFilter = (id) => {
   return {
     type: 'UPDATE_FILTER',
-    payload: e.target.id
+    payload: id
   }
 }

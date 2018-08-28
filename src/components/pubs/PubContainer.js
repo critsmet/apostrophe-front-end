@@ -2,32 +2,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
 //actions
-import { fetchPublications } from './pubMod'
+import { setPublications } from './pubMod'
 //components
 import Pub from './Pub'
+import PubDefault from './PubDefault'
+import PubList from './PubList'
+
 
 class PubContainer extends React.Component{
 
-  componentDidMount(){
-    this.props.fetchPublications()
-  }
-
   render(){
-    const { pubs } = this.props.pub
+    const { pub } = this.props
 
     return (
-      <div
-        id="allpubs"
-        className="flex flex-wrap justify-center ml5 mr5 ttl avenir">
-          { pubs.map(pub => {
-            return(
-              <Pub
-                key={pub.attributes.title + ' card'}
-                pub={pub.attributes} />
-              )
-            })
-          }
-      </div>
+      pub.showDefault ? <PubDefault /> : <PubList pubs={pub.pubs} />
     )
   }
 }
@@ -38,4 +26,4 @@ const mapStateToProps = ({ pub }) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchPublications })(PubContainer);
+export default connect(mapStateToProps, { setPublications })(PubContainer);
