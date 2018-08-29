@@ -33,9 +33,9 @@ class PubDefault extends React.Component{
     const { pubs } = this.props
     const breakPoints = {
       default: 4,
-      1100: 3,
-      860: 2,
-      620: 1
+      1000: 3,
+      700: 2,
+      480: 1
     };
 
     return (

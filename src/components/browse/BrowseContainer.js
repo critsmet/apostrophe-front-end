@@ -18,7 +18,7 @@ const BrowseContainer = () => {
 
   return (
     <div id="browse" className="flex justify-center avenir ttl mt2">
-      <div className="f6 dib pt1 tl bg-washed-green tc br3 w-80">
+      <div className="f6 dib pt1 tl bg-washed-green tc br3 w-100">
         {filters.map((genre, index) => {
           return (
             <BrowseFilter

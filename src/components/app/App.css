@@ -56,15 +56,6 @@ input[type="radio"]:checked + label::before {
   transition: 300ms ease-in;
 }
 
-.logo {
-  font-family: 'Poiret One', cursive;
-  font-size: 1.75rem;
-}
-
-.logo:hover {
-  cursor: pointer;
-}
-
 .pubtagline {
   background-color: black;
   color: white;
@@ -78,7 +69,7 @@ input[type="radio"]:checked + label::before {
   font-size: 2rem;
   width: 95%;
   height: 21rem;
-  padding-top: 20%;
+  padding-top: 10%;
 }
 
 #main {
@@ -131,14 +122,58 @@ input:focus{
   margin-bottom: 30px;
 }
 
-@media screen and (max-width: 620px) {
-  #main {
-    width: 80%;
-  }
+.logo {
+  width: 20%;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.words {
+  font-family: 'Poiret One', cursive;
+  font-size: 1.75rem;
+}
+
+.symbol {
+  font-family: 'Nixie One', cursive;
+}
+
+.bs {
+  width: 40%;
+}
+
+.ls {
+  width: 40%;
+}
+
+@media screen and (max-width: 480px) {
   .grid {
-    margin-left: 0px;
+    margin-left: -20px;
   }
   .grid-column {
-    padding-left: 0px;
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .grid {
+    margin-left: -20px;
+  }
+  .grid-column {
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .bs {
+    width: 47.5%;
+  }
+  .ls {
+    width: 47.5%;
+  }
+  .logo {
+    width: 5%;
+    font-size: 80px;
   }
 }
