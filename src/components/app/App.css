@@ -65,20 +65,26 @@ input[type="radio"]:checked + label::before {
   cursor: pointer;
 }
 
-.pubcard {
-  position: relative;
-}
-
 .pubtagline {
+  background-color: black;
+  color: white;
   position: absolute;
   left: 17.5%;
   width: 66%;
 }
 
 #default {
-  position: relative;
   font-family: 'Poiret One', cursive;
-  font-size: 1.6rem;
+  font-size: 2rem;
+  width: 95%;
+  height: 21rem;
+  padding-top: 20%;
+}
+
+#main {
+  max-width: 1400px;
+  width: 90%;
+  margin: auto;
 }
 
 span:hover {
@@ -90,8 +96,9 @@ a {
   color: black;
 }
 
-img:hover {
-  opacity: 0.25;
+u {
+  text-decoration: none;
+  border-bottom: 1px solid black;
 }
 
 input {
@@ -107,4 +114,31 @@ input:focus{
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: black;
     opacity: 1; /* Firefox */
+}
+
+.grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -50px; /* gutter size offset */
+}
+.grid-column {
+  padding-left: 50px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.grid-column > div { /* change div to reference your elements you put in <Masonry> */
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 620px) {
+  #main {
+    width: 80%;
+  }
+  .grid {
+    margin-left: 0px;
+  }
+  .grid-column {
+    padding-left: 0px;
+  }
 }

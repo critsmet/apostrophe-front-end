@@ -1,6 +1,7 @@
 //packages
 import React from 'react'
 import { connect } from 'react-redux'
+import Masonry from 'react-masonry-css'
 //actions
 import { setPublications } from './pubMod'
 //components
@@ -16,9 +17,9 @@ class PubDefault extends React.Component{
   render(){
     const DefaultSquare = () => {
       return(
-        <div id="default" className="w-25 h6 mt4 pl4 pr4 ilb">
+        <div id="default">
           apostrophe is an index of digital publications.
-          here are some user favorites. <u>learn more</u>
+          these are some user favorites. <u>learn more</u>
         </div>
     )}
 
@@ -30,12 +31,20 @@ class PubDefault extends React.Component{
       )}
 
     const { pubs } = this.props
+    const breakPoints = {
+      default: 4,
+      1100: 3,
+      860: 2,
+      620: 1
+    };
+
     return (
-      <div
-        id="allpubs"
-        className="flex flex-wrap justify-center ml5 mr5 ttl avenir">
+        <Masonry
+          breakpointCols={breakPoints}
+          className="grid mt4"
+          columnClassName="grid-column">
           {pubs.map((pub, index) => pub.id === '9' ? <DefaultSquare /> : <NormalSquare pub={pub}/>)}
-      </div>
+        </Masonry>
     )
   }
 }

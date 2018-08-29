@@ -13,7 +13,7 @@ class App extends React.Component {
   render() {
     const { showBrowse } = this.props
      return (
-      <div className="pt1" style={{width: '1240px', margin: 'auto'}}>
+      <div id="main">
           <NavContainer />
           <CSSTransition
             in={showBrowse}
