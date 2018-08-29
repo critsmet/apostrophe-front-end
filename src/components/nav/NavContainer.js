@@ -4,18 +4,18 @@ import { connect } from 'react-redux'
 import MediaQuery from 'react-responsive';
 //actions
 import { toggleBrowse, hideBrowse, resetFilter } from '../browse/browseMod'
-import { showDefault } from '../pubs/pubMod'
+import { showDefault, setPublications } from '../pubs/pubMod'
 //components
 import NavSearch from './NavSearch'
-import logo from '../../logo.png'
 
 
-const NavContainer = ({ toggleBrowse, hideBrowse, resetFilter, showDefault }) => {
+const NavContainer = ({ toggleBrowse, hideBrowse, resetFilter, showDefault, setPublications }) => {
 
   const resetPage = () => {
     hideBrowse()
     resetFilter()
     showDefault()
+    setPublications(["default", ''])
   }
 
   return (
@@ -55,4 +55,4 @@ const NavContainer = ({ toggleBrowse, hideBrowse, resetFilter, showDefault }) =>
 }
 
 
-export default connect(null, { toggleBrowse, hideBrowse, resetFilter, showDefault })(NavContainer)
+export default connect(null, { toggleBrowse, hideBrowse, resetFilter, showDefault, setPublications })(NavContainer)
