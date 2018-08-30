@@ -9,38 +9,27 @@ import { setPublications, hideDefault } from '../pubs/pubMod'
 
 const BrowseFilter = ({ genre, index, checked, searchTerm, updateFilter, setPublications, hideDefault, hideBrowse }) => {
 
-  const select = (e) => {
-    console.log(e)
+  const setFilterPubs = (e) => {
     let browseFilter = e.target.id
     updateFilter(browseFilter)
     setPublications([searchTerm, browseFilter])
     hideDefault()
   }
 
-  const smallSelect = (e) => {
+  const handleSelect = (e) => {
     e.persist()
     setTimeout(() => hideBrowse(), 150)
-    setTimeout(() => select(e), 300)
+    setTimeout(() => setFilterPubs(e), 450)
   }
 
   return (
         <div className="db mr1">
-        <MediaQuery query="(min-width: 769px)">
           <input type="radio"
             name="genres"
             defaultChecked={genre === checked ? "checked" : ''}
-            onClick={select}
+            onClick={handleSelect}
             data-index={index}
             id={genre} />
-        </MediaQuery>
-        <MediaQuery query="(max-width: 768px)">
-          <input type="radio"
-            name="genres"
-            defaultChecked={genre === checked ? "checked" : ''}
-            onClick={smallSelect}
-            data-index={index}
-            id={genre} />
-        </MediaQuery>
         <label
           htmlFor={genre}
           className="filter"

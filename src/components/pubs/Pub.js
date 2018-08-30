@@ -5,7 +5,7 @@ const Pub = ({ pub }) => {
       <div id={pub.title} className="ttl pubcard">
           <img
             alt={pub.title}
-            className="w-100 mb2 center db"
+            className="mb2 center db"
             src={pub['cover-image-url']}
             />
           <div className="mt2 pt1 bg-washed-blue center flex justify-between">
