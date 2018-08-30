@@ -1,5 +1,7 @@
 //packages
 import React from 'react'
+import MediaQuery from 'react-responsive';
+import { CSSTransition } from 'react-transition-group';
 //components
 import BrowseFilter from './BrowseFilter'
 
@@ -18,7 +20,7 @@ const BrowseContainer = ({ hideBrowse }) => {
 
   return (
     <div id="browse"
-      className="f1 pl2 tl br3"
+      className="pt4 f1 pl2 tl"
       onMouseLeave={hideBrowse}
       >
       {filters.map((genre, index) => {

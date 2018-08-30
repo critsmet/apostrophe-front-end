@@ -23,7 +23,8 @@ class App extends React.Component {
           classNames="browse-menu"
           unmountOnExit
           >
-        <BrowseContainer hideBrowse={hideBrowse}/>
+        <BrowseContainer
+          hideBrowse={hideBrowse}/>
         </CSSTransition>
         </div>
         <CSSTransition

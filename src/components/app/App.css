@@ -25,6 +25,28 @@ input[type="radio"]:checked + label::before {
   background: black;
 }
 
+.fade-enter {
+	opacity: 1.0;
+}
+
+.fade-enter-active {
+	opacity: 0.0;
+  transition: 300ms ease-in;
+}
+
+.fade-enter-done {
+  opacity: 0.0
+}
+
+.fade-exit {
+  opacity: 0.0;
+}
+
+.fade-exit-active {
+	opacity:1.0;
+  transition: 300ms ease-in;
+}
+
 .browse-menu-enter {
 	left: -250px;
 }
@@ -89,9 +111,6 @@ input[type="radio"]:checked + label::before {
   font-family: 'Lato', cursive;
 }
 
-label {
-  font-size: 100px;
-}
 
 #navbar {
   font-family: 'Lato', sans-serif;
@@ -104,6 +123,10 @@ label {
   height: 100%;
   top: 0;
   z-index: 1000;
+}
+
+#browse-button:hover{
+  color: grey;
 }
 
 #default {
@@ -151,9 +174,18 @@ input:focus{
     outline: none;
 }
 
+label {
+  font-size: 100px;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: black;
     opacity: 1; /* Firefox */
+}
+
+:hover::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: silver;
+    cursor: pointer;
 }
 
 .logo {
@@ -185,6 +217,12 @@ input:focus{
   height: 13px;
   width: 13px;
   transform: translateY(1px) rotate(-15deg)
+}
+
+.exit-browse {
+  position: absolute;
+  top: 0;
+  right: -10px;
 }
 
 @media screen and (max-width: 480px) {
