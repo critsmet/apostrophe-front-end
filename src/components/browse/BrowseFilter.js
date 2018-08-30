@@ -15,7 +15,7 @@ const BrowseFilter = ({ genre, index, checked, searchTerm, updateFilter, setPubl
   }
 
   return (
-        <div className="dib mr1">
+        <div className="db mr1">
           <input type="radio"
             name="genres"
             defaultChecked={genre === checked ? "checked" : ''}
@@ -24,7 +24,8 @@ const BrowseFilter = ({ genre, index, checked, searchTerm, updateFilter, setPubl
             id={genre} />
           <label
             htmlFor={genre}
-            className="filter">
+            className="filter"
+            style={{fontSize: '20px'}}>
             {genre.split("-").join(" ")}
           </label>
         </div>

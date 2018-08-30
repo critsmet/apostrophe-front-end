@@ -1,6 +1,7 @@
 
 input[type="checkbox"],
 input[type="radio"] {
+  font-size: 1;
   position: absolute;
   clip: rect(0, 0, 0, 0);
 }
@@ -15,53 +16,94 @@ input[type="radio"] + label::before {
   line-height: .4em;
   transition: all .2s;
   border-radius: 50%;
-  border: 1.1px solid silver;
+  border: 1.1px solid black;
 }
 
 input[type="checkbox"]:checked + label::before,
 input[type="radio"]:checked + label::before {
   content: '\a0';
-  background: silver;
+  background: black;
 }
 
-.slide-enter {
-  position: relative;
-  transform: translateY(-2rem);
-  opacity: 0;
-  z-index: -1;
-  height: 0px;
+.browse-menu-enter {
+	left: -250px;
 }
 
-.slide-enter-active {
-  transform: translateY(0rem);
-  height: 2rem;
-  opacity: 1;
+.browse-menu-enter-active {
+	left: 0px;
   transition: 300ms ease-in;
 }
 
-.slide-exit {
-  position: relative;
-  transform: translateY(0rem);
-  z-index: -1;
-  opacity: 0.5;
-  height: 2rem;
+.browse-menu-exit {
+  left: 0px;
 }
 
-.slide-exit-active {
-  position: relative;
-  transform: translateY(-2rem);
-  z-index: -1;
-  opacity: 0;
-  height: 0;
+.browse-menu-exit-active {
+	left: -250px;
   transition: 300ms ease-in;
 }
 
-.pubtagline {
-  background-color: black;
-  color: white;
-  position: absolute;
-  left: 17.5%;
-  width: 66%;
+.push-body-enter {
+	left: 0px;
+}
+
+.push-body-enter-active {
+	left: 230px;
+  transition: 300ms ease-in;
+}
+
+.push-body-enter-done {
+	left: 230px;
+  height: 100%;
+}
+
+.push-body-exit {
+  left: 230px;
+}
+
+.push-body-exit-active {
+	left: 0px;
+  transition: 300ms ease-in;
+}
+
+.grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -40px; /* gutter size offset */
+}
+.grid-column {
+  padding-left: 40px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.grid-column > div { /* change div to reference your elements you put in <Masonry> */
+  margin-bottom: 30px;
+}
+
+.tagline {
+  font-family: 'Lato', sans-serif;
+}
+
+.title {
+  font-family: 'Lato', cursive;
+}
+
+label {
+  font-size: 100px;
+}
+
+#navbar {
+  font-family: 'Lato', sans-serif;
+}
+
+#browse {
+  font-family: 'Lato', sans-serif;
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 #default {
@@ -69,13 +111,20 @@ input[type="radio"]:checked + label::before {
   font-size: 2rem;
   width: 95%;
   height: 21rem;
-  padding-top: 10%;
+  padding-top: 15%;
 }
 
 #main {
   max-width: 1400px;
   width: 90%;
   margin: auto;
+  position: relative;
+  right: 0px;
+}
+
+#body {
+  overflow-x: hidden;
+  min-height: 100%;
 }
 
 span:hover {
@@ -107,21 +156,6 @@ input:focus{
     opacity: 1; /* Firefox */
 }
 
-.grid {
-  display: -webkit-box; /* Not needed if autoprefixing */
-  display: -ms-flexbox; /* Not needed if autoprefixing */
-  display: flex;
-  margin-left: -50px; /* gutter size offset */
-}
-.grid-column {
-  padding-left: 50px; /* gutter size */
-  background-clip: padding-box;
-}
-
-.grid-column > div { /* change div to reference your elements you put in <Masonry> */
-  margin-bottom: 30px;
-}
-
 .logo {
   width: 20%;
 }
@@ -132,11 +166,11 @@ input:focus{
 
 .words {
   font-family: 'Poiret One', cursive;
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 .symbol {
-  font-family: 'Nixie One', cursive;
+  font-family: 'Nixie One';
 }
 
 .bs {
@@ -145,6 +179,12 @@ input:focus{
 
 .ls {
   width: 40%;
+}
+
+.link {
+  height: 13px;
+  width: 13px;
+  transform: translateY(1px) rotate(-15deg)
 }
 
 @media screen and (max-width: 480px) {
@@ -165,7 +205,7 @@ input:focus{
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 768px) {
   .bs {
     width: 47.5%;
   }
@@ -175,5 +215,14 @@ input:focus{
   .logo {
     width: 5%;
     font-size: 80px;
+  }
+  #default {
+    padding-top: 20%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .filter {
+    font-size: .9rem;
   }
 }

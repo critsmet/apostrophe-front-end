@@ -4,7 +4,7 @@ import React from 'react'
 import BrowseFilter from './BrowseFilter'
 
 
-const BrowseContainer = () => {
+const BrowseContainer = ({ hideBrowse }) => {
 
   const filters = [
     "all",
@@ -17,18 +17,19 @@ const BrowseContainer = () => {
     ]
 
   return (
-    <div id="browse" className="flex justify-center avenir ttl mt2">
-      <div className="f6 dib pt1 tl bg-washed-green tc br3 w-100">
-        {filters.map((genre, index) => {
-          return (
-            <BrowseFilter
-              key={genre}
-              index={index}
-              genre={genre}
-              />
-            )}
-        )}
-      </div>
+    <div id="browse"
+      className="f1 pl2 tl br3"
+      onMouseLeave={hideBrowse}
+      >
+      {filters.map((genre, index) => {
+        return (
+          <BrowseFilter
+            key={genre}
+            index={index}
+            genre={genre}
+            />
+          )}
+      )}
     </div>
   )
 }

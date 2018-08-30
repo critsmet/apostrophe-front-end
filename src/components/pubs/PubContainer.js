@@ -19,7 +19,7 @@ class PubContainer extends React.Component{
     const DefaultSquare = () => {
       return(
         <div id="default">
-          apostrophe is an index of digital publications.
+          apostrophe is a directory of digital publications.
           these are some user favorites. <u>learn more</u>
         </div>
     )}
@@ -48,8 +48,8 @@ class PubContainer extends React.Component{
 
     const breakPoints = {
       default: 4,
-      1000: 3,
-      700: 2,
+      1024: 3,
+      768: 2,
       480: 1
     };
 
