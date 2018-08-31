@@ -25,25 +25,47 @@ input[type="radio"]:checked + label::before {
   background: black;
 }
 
-.fade-enter {
+.fade-out-enter {
 	opacity: 1.0;
 }
 
-.fade-enter-active {
+.fade-out-enter-active {
 	opacity: 0.0;
   transition: 300ms ease-in;
 }
 
-.fade-enter-done {
+.fade-out-enter-done {
   opacity: 0.0
 }
 
-.fade-exit {
+.fade-out-exit {
   opacity: 0.0;
 }
 
-.fade-exit-active {
+.fade-out-exit-active {
 	opacity:1.0;
+  transition: 300ms ease-in;
+}
+
+.fade-in-enter {
+	opacity: 0.0;
+}
+
+.fade-in-enter-active {
+	opacity: 1.0;
+  transition: 300ms ease-in;
+}
+
+.fade-in-enter-done {
+  opacity: 1.0
+}
+
+.fade-in-exit {
+  opacity: 1.0;
+}
+
+.fade-in-exit-active {
+	opacity:0.0;
   transition: 300ms ease-in;
 }
 
@@ -111,6 +133,16 @@ input[type="radio"]:checked + label::before {
   font-family: 'Lato', cursive;
 }
 
+.hidden {
+  opacity: 0;
+  transition: opacity 1000ms;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+
 
 #navbar {
   font-family: 'Lato', sans-serif;
@@ -176,6 +208,10 @@ input:focus{
 
 label {
   font-size: 100px;
+}
+
+.image-holder {
+  position: relative
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

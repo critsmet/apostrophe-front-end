@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Masonry from 'react-masonry-css'
+import { CSSTransition } from 'react-transition-group';
 //actions
 import { setPublications } from './pubMod'
 //components
@@ -14,9 +15,10 @@ class PubContainer extends React.Component{
   }
 
   render(){
+
     const { showDefault, pubs } = this.props
 
-    const DefaultSquare = () => {
+    const DefaultSquare = (props) => {
       return(
         <div id="default">
           apostrophe is a directory of digital publications.
@@ -27,12 +29,13 @@ class PubContainer extends React.Component{
     const NormalSquare = (props) => {
       return(
       <Pub
+        key={props.pub.attributes.title + ' card'}
         pub={props.pub.attributes} />
       )}
 
     const defaultList = pubs.map((pub, index) => {
         if (pub.id === '9'){
-          return <DefaultSquare key="defaultCard"/>
+          return <DefaultSquare key="defaultCard" checkLoaded={this.checkLoaded}/>
         } else {
           return <NormalSquare key={pub.attributes.title + ' card'} pub={pub}/>
         }
@@ -41,6 +44,7 @@ class PubContainer extends React.Component{
     const pubList = pubs.map(pub => {
       return(
         <Pub
+          title={pub.attributes.title}
           key={pub.attributes.title + ' card'}
           pub={pub.attributes} />
         )
@@ -54,14 +58,16 @@ class PubContainer extends React.Component{
     };
 
     return (
-      <Masonry
-        id="pubGrid"
-        breakpointCols={breakPoints}
-        className="grid mt4"
-        columnClassName="grid-column">
-        {showDefault ? defaultList : pubList}
-      </Masonry>
-
+      <div
+        ref={this.pubDisplay}
+        className="pub-display">
+        <Masonry
+          breakpointCols={breakPoints}
+          className="grid mt4"
+          columnClassName="grid-column">
+          {showDefault ? defaultList : pubList}
+        </Masonry>
+      </div>
     )
   }
 }

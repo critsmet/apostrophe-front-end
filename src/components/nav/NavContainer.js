@@ -26,7 +26,7 @@ const NavContainer = ({ showBrowse, toggleBrowse, hideBrowse, resetFilter, showD
       <CSSTransition
         in={showBrowse}
         timeout={300}
-        classNames="fade">
+        classNames="fade-out">
         <div className="pt3 pb3 f5 tl bs">
           <span id="browse-button" onClick={toggleBrowse}>browse / </span>
           <NavSearch />
@@ -65,7 +65,7 @@ const NavContainer = ({ showBrowse, toggleBrowse, hideBrowse, resetFilter, showD
       </MediaQuery>
       sign up
     </div>
-    
+
   </nav>
   )
 }

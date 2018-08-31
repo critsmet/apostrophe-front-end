@@ -33,8 +33,8 @@ class App extends React.Component {
           classNames="push-body"
           >
         <div id="main" className="pt1 pb4">
-            <NavContainer />
-            <PubContainer />
+          <NavContainer />
+          <PubContainer />
         </div>
         </CSSTransition>
       </div>

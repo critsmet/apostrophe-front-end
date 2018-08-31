@@ -15,7 +15,6 @@ export default (state = initialState, action) => {
         pubs: action.payload
       }
     case 'HIDE_DEFAULT':
-    console.log("hi")
       return {
         ...state,
         showDefault: false
