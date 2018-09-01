@@ -21,7 +21,7 @@ class PubContainer extends React.Component{
     const DefaultSquare = (props) => {
       return(
         <div id="default">
-          apostrophe is a directory of digital publications.
+          apostrophe is a catalog of digital publications.
           these are some user favorites. <u>learn more</u>
         </div>
     )}

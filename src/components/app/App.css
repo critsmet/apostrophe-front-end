@@ -134,13 +134,11 @@ input[type="radio"]:checked + label::before {
 }
 
 .hidden {
-  opacity: 0;
-  transition: opacity 1000ms;
+  display: none;
 }
 
 .visible {
-  opacity: 1;
-  transition: opacity 1000ms;
+  visibility: visible;
 }
 
 
