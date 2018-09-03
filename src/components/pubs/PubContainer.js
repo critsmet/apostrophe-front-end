@@ -6,7 +6,8 @@ import { CSSTransition } from 'react-transition-group';
 //actions
 import { setPublications } from './pubMod'
 //components
-import Pub from './Pub'
+import PubCard from './PubCard'
+import PubDisplay from './PubDisplay'
 
 class PubContainer extends React.Component{
 
@@ -18,37 +19,22 @@ class PubContainer extends React.Component{
 
     const { showDefault, pubs } = this.props
 
-    const DefaultSquare = (props) => {
+    const pubList = pubs.map((pub, index) => {
+      if (index === 5) {
+        return (
+          <div id="default">
+            apostrophe is a catalog of digital publications.
+            these are some user favorites. <u>learn more</u>
+          </div>)
+      } else {
       return(
-        <div id="default">
-          apostrophe is a catalog of digital publications.
-          these are some user favorites. <u>learn more</u>
-        </div>
-    )}
-
-    const NormalSquare = (props) => {
-      return(
-      <Pub
-        key={props.pub.attributes.title + ' card'}
-        pub={props.pub.attributes} />
-      )}
-
-    const defaultList = pubs.map((pub, index) => {
-        if (pub.id === '9'){
-          return <DefaultSquare key="defaultCard" checkLoaded={this.checkLoaded}/>
-        } else {
-          return <NormalSquare key={pub.attributes.title + ' card'} pub={pub}/>
-        }
-      })
-
-    const pubList = pubs.map(pub => {
-      return(
-        <Pub
+        <PubCard
           title={pub.attributes.title}
           key={pub.attributes.title + ' card'}
           pub={pub.attributes} />
         )
-      })
+      }
+    })
 
     const breakPoints = {
       default: 4,
@@ -65,7 +51,7 @@ class PubContainer extends React.Component{
           breakpointCols={breakPoints}
           className="grid mt4"
           columnClassName="grid-column">
-          {showDefault ? defaultList : pubList}
+          {pubList}
         </Masonry>
       </div>
     )

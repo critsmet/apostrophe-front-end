@@ -25,6 +25,10 @@ input[type="radio"]:checked + label::before {
   background: black;
 }
 
+label:hover {
+  cursor: pointer;
+}
+
 .fade-out-enter {
 	opacity: 1.0;
 }
@@ -125,22 +129,17 @@ input[type="radio"]:checked + label::before {
   margin-bottom: 30px;
 }
 
-.tagline {
+.text {
   font-family: 'Lato', sans-serif;
-}
-
-.title {
-  font-family: 'Lato', cursive;
 }
 
 .hidden {
   display: none;
 }
 
-.visible {
+.shown {
   visibility: visible;
 }
-
 
 #navbar {
   font-family: 'Lato', sans-serif;
@@ -178,6 +177,22 @@ input[type="radio"]:checked + label::before {
 #body {
   overflow-x: hidden;
   min-height: 100%;
+}
+
+#display-image {
+  width: 40%;
+  float: left;
+}
+
+#tags {
+  width: 60%;
+  padding-left: 3%;
+}
+
+.display-right {
+  width: 50%;
+  margin-left: 3%;
+  display: inline-block;
 }
 
 span:hover {
@@ -268,6 +283,24 @@ label {
   }
 }
 
+@media screen and (max-width: 530px) {
+  #display-image {
+    width: 100%;
+  }
+  .display-right {
+    width: 100%;
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #tags {
+    clear: left;
+    width: 100%;
+    padding-left: 0;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .grid {
     margin-left: -20px;
@@ -290,11 +323,5 @@ label {
   }
   #default {
     padding-top: 20%;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .filter {
-    font-size: .9rem;
   }
 }
