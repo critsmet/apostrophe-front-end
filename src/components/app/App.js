@@ -14,7 +14,16 @@ import './App.css'
 
 class App extends React.Component {
   render() {
-    const { showBrowse, hideBrowse } = this.props
+    const { showBrowse, hideBrowse, lastBodyPush } = this.props
+
+    function directionPush(){
+      if ((showBrowse && lastBodyPush == '') || lastBodyPush == "right"){
+        return "right"
+      } else {
+        return "left"
+      }
+    }
+
      return (
       <div id="body">
         <div className="browseMenu">
@@ -31,7 +40,7 @@ class App extends React.Component {
         <CSSTransition
           in={showBrowse}
           timeout={300}
-          classNames="push-body"
+          classNames={"push-body-" + directionPush()}
           >
         <div id="main" className="pt1 pb4">
           <NavContainer />
@@ -47,8 +56,9 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ browse }) => {
+const mapStateToProps = ({ app, browse }) => {
   return {
+    lastBodyPush: app.lastBodyPush,
     showBrowse: browse.showBrowse
   }
 }

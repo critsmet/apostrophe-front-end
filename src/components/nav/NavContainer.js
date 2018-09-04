@@ -6,17 +6,23 @@ import { CSSTransition } from 'react-transition-group';
 //actions
 import { toggleBrowse, hideBrowse, resetFilter } from '../browse/browseMod'
 import { showDefault, setPublications } from '../pubs/pubMod'
+import { changeLastBodyPush } from '../app/appMod'
 //components
 import NavSearch from './NavSearch'
 
 
-const NavContainer = ({ showBrowse, toggleBrowse, hideBrowse, resetFilter, showDefault, setPublications }) => {
+const NavContainer = ({ showBrowse, toggleBrowse, hideBrowse, resetFilter, showDefault, setPublications, changeLastBodyPush }) => {
 
   const resetPage = () => {
     hideBrowse()
     resetFilter()
     showDefault()
     setPublications(["default", ''])
+  }
+
+  const handleClick = () =>{
+    toggleBrowse()
+    changeLastBodyPush("right")
   }
 
   return (
@@ -28,7 +34,7 @@ const NavContainer = ({ showBrowse, toggleBrowse, hideBrowse, resetFilter, showD
         timeout={300}
         classNames="fade-out">
         <div className="pt3 pb3 f5 tl bs">
-          <span id="browse-button" onClick={toggleBrowse}>browse / </span>
+          <span id="browse-button" onClick={handleClick}>browse / </span>
           <NavSearch />
         </div>
       </CSSTransition>
@@ -76,4 +82,4 @@ const mapStateToProps = ({ browse }) => {
   }
 }
 
-export default connect(mapStateToProps, { toggleBrowse, hideBrowse, resetFilter, showDefault, setPublications })(NavContainer)
+export default connect(mapStateToProps, { toggleBrowse, hideBrowse, resetFilter, showDefault, setPublications, changeLastBodyPush })(NavContainer)

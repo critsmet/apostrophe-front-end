@@ -32,8 +32,7 @@ const BrowseFilter = ({ genre, index, checked, searchTerm, updateFilter, setPubl
             id={genre} />
         <label
           htmlFor={genre}
-          className="filter"
-          style={{fontSize: '20px'}}>
+          style={{fontSize: '17px'}}>
           {genre.split("-").join(" ")}
         </label>
         </div>

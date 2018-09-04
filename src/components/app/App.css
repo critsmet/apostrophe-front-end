@@ -91,25 +91,48 @@ label:hover {
   transition: 300ms ease-in;
 }
 
-.push-body-enter {
+.push-body-right-enter {
 	left: 0px;
 }
 
-.push-body-enter-active {
-	left: 230px;
+.push-body-right-enter-active {
+	left: 225px;
   transition: 300ms ease-in;
 }
 
-.push-body-enter-done {
-	left: 230px;
+.push-body-right-enter-done {
+	left: 225px;
   height: 100%;
 }
 
-.push-body-exit {
-  left: 230px;
+.push-body-right-exit {
+  left: 225px;
 }
 
-.push-body-exit-active {
+.push-body-right-exit-active {
+	left: 0px;
+  transition: 300ms ease-in;
+}
+
+.push-body-left-enter {
+	left: 0px;
+}
+
+.push-body-left-enter-active {
+	left: -225px;
+  transition: 300ms ease-in;
+}
+
+.push-body-left-enter-done {
+	left: -225px;
+  height: 100%;
+}
+
+.push-body-left-exit {
+  left: -225px;
+}
+
+.push-body-left-exit-active {
 	left: 0px;
   transition: 300ms ease-in;
 }
@@ -193,10 +216,6 @@ label:hover {
   width: 50%;
   margin-left: 3%;
   display: inline-block;
-}
-
-span:hover {
-  cursor: pointer;
 }
 
 a {

@@ -20,10 +20,10 @@ const BrowseContainer = ({ hideBrowse }) => {
 
   return (
     <div id="browse"
-      className="pt3 f1 pl2 tl"
+      className="f1 pl2 tl"
       onMouseLeave={hideBrowse}
       >
-      filters
+      <span className="ml2 words">filters</span>
       <br/>
       {filters.map((genre, index) => {
         return (
