@@ -48,10 +48,10 @@ const NavContainer = ({ showBrowse, toggleBrowse, hideBrowse, resetFilter, showD
 
     <div className="pt1 pb3 tc logo" onClick={resetPage}>
     <MediaQuery query="(min-width: 769px)">
-      <span className="words">apostrophe</span>
+      <a href="/" className="words">apostrophe</a>
     </MediaQuery>
     <MediaQuery query="(max-width: 768px)">
-      <span className="symbol">’</span>
+      <a href="/" className="symbol">’</a>
     </MediaQuery>
     </div>
 

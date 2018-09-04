@@ -11,6 +11,8 @@ const Pub = ({pub}) => {
       coverImg.current.setAttribute("class", "w-100 mb2 center cover-image shown")
     }
 
+    const slug = pub.title.split(" ").join("-").toLowerCase()
+
     return(
       <div className="ttl">
         <img
@@ -30,7 +32,7 @@ const Pub = ({pub}) => {
         <div className="f5 ilb ml1 tl w-80 text b">{pub.title}</div>
         <div className="ilb mt1 mr1 tr w-20">
           <a href="#">☆</a>
-          <a href={pub.url}>
+          <a href={"/publications/" + slug}>
             ↗
           </a>
         </div>
