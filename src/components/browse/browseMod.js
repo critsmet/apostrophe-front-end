@@ -1,7 +1,7 @@
 //initial state
 
 const initialState = {
-  showBrowse: false,
+  BrowseShown: false,
   filter: ''
 }
 
@@ -9,15 +9,15 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'TOGGLE_BROWSE':
+    case 'SHOW_BROWSE':
     return {
       ...state,
-      showBrowse: !state.showBrowse
+      BrowseShown: true
     }
     case 'HIDE_BROWSE':
     return {
       ...state,
-      showBrowse: false
+      BrowseShown: false
     }
     case 'UPDATE_FILTER':
     return {
@@ -36,9 +36,9 @@ export default (state = initialState, action) => {
 
 //action creators
 
-export const toggleBrowse = () => {
+export const showBrowse = () => {
   return {
-    type: 'TOGGLE_BROWSE'
+    type: 'SHOW_BROWSE'
   }
 }
 

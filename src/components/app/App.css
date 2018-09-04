@@ -82,12 +82,39 @@ label:hover {
   transition: 300ms ease-in;
 }
 
+.browse-menu-enter-done {
+  left: 0px;
+}
+
 .browse-menu-exit {
   left: 0px;
 }
 
 .browse-menu-exit-active {
 	left: -250px;
+  transition: 300ms ease-in;
+}
+
+.user-form-enter {
+	right: -250px;
+}
+
+.user-form-enter-active {
+	right: 0px;
+  transition: 300ms ease-in;
+}
+
+.user-form-enter-done {
+	right: 0px;
+  transition: 300ms ease-in;
+}
+
+.user-form-exit {
+  right: 0px;
+}
+
+.user-form-exit-active {
+	right: -250px;
   transition: 300ms ease-in;
 }
 
@@ -164,6 +191,11 @@ label:hover {
   visibility: visible;
 }
 
+.nav-button:hover {
+  color: grey;
+  cursor: pointer
+}
+
 #navbar {
   font-family: 'Lato', sans-serif;
 }
@@ -177,8 +209,18 @@ label:hover {
   z-index: 1000;
 }
 
+#user-form {
+  font-family: 'Lato', sans-serif;
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
 #browse-button:hover{
   color: grey;
+  cursor: pointer
 }
 
 #default {
