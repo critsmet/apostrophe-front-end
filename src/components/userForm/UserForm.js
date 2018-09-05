@@ -16,14 +16,16 @@ const UserForm = ({ whichForm, hideUserForm, setUser }) => {
 
   return (
     <div id="user-form"
-      className="f1 pl2 tr"
+      className="f1 mr3"
       onMouseLeave={hideUserForm}
       >
       <span className="ml2 words">
-      {whichForm == 'login' ? "login" : "sign up"}
+        {whichForm == 'login' ? "login" : "sign up"}
       </span>
       <br/>
-      {whichForm == 'login' ? <LoginForm onSubmit={setUser}/> : <SignupForm onSubmit={setUser}/>}
+      <div className="mt3">
+        {whichForm == 'login' ? <LoginForm onSubmit={setUser}/> : <SignupForm onSubmit={setUser}/>}
+      </div>
     </div>
   )
 }

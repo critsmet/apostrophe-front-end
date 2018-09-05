@@ -7,7 +7,7 @@ let LoginForm = ( props ) => {
     <form onSubmit={handleSubmit}>
       <Field name="username" component="input" type="text" placeholder="username" />
       <Field name="password" component="input" type="password" placeholder="password" />
-      <button className="submit" type="submit">Submit</button>
+      <button className="submit mt3" type="submit">submit</button>
     </form>
   )
 }

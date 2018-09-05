@@ -18,6 +18,11 @@ export default (state = initialState, action) => {
         ...state,
         user: action.payload
       }
+    case 'LOGOUT_USER':
+      return {
+        ...state,
+        user: null
+      }
     default:
       return state
   }
@@ -44,4 +49,11 @@ export const setUser = (inputs) => dispatch => {
     payload: user.data
   })
  )
+ dispatch({type: 'HIDE_USER_FORM'})
+}
+
+export const logoutUser = () => {
+  return {
+    type: 'LOGOUT_USER'
+  }
 }

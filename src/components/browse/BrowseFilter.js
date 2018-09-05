@@ -23,7 +23,7 @@ const BrowseFilter = ({ genre, index, checked, searchTerm, updateFilter, setPubl
   }
 
   return (
-        <div className="db mr1">
+        <div className="db">
           <input type="radio"
             name="genres"
             defaultChecked={genre === checked ? "checked" : ''}

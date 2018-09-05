@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import MediaQuery from 'react-responsive';
 import { CSSTransition } from 'react-transition-group';
 //actions
-import { changeLastBodyPush } from '../app/appMod'
+import { changeLastBodyPush, logoutUser } from '../app/appMod'
 import { showBrowse, hideBrowse, resetFilter } from '../browse/browseMod'
 import { showDefault, setPublications } from '../pubs/pubMod'
 import { showUserForm, hideUserForm, setForm } from '../userForm/userFormMod'
@@ -12,7 +12,20 @@ import { showUserForm, hideUserForm, setForm } from '../userForm/userFormMod'
 import NavSearch from './NavSearch'
 
 
-const NavContainer = ({ browseShown, userFormShown, showBrowse, hideBrowse, showUserForm, hideUserForm, setForm, resetFilter, showDefault, setPublications, changeLastBodyPush }) => {
+const NavContainer = ({
+  user,
+  browseShown,
+  userFormShown,
+  changeLastBodyPush,
+  logoutUser,
+  showBrowse,
+  hideBrowse,
+  resetFilter,
+  showDefault,
+  setPublications,
+  showUserForm,
+  hideUserForm,
+  setForm }) => {
 
   const resetPage = () => {
     hideBrowse()
@@ -31,6 +44,46 @@ const NavContainer = ({ browseShown, userFormShown, showBrowse, hideBrowse, show
     showUserForm()
     setForm(form)
     changeLastBodyPush("left")
+  }
+
+  const noLoggedInUser = () => {
+    return (
+      <CSSTransition
+        in={userFormShown}
+        timeout={300}
+        classNames="fade-out">
+        <div className="pt3 tr f5 ls">
+          <span className="nav-button" onClick={()=>handleUserFormClick("login")}>login</span>
+          <MediaQuery query="(min-width: 769px)">
+          <span> / </span>
+          </MediaQuery>
+          <MediaQuery query="(max-width: 768px)">
+            <br/>
+          </MediaQuery>
+          <span className="nav-button" onClick={()=>handleUserFormClick("signup")}>sign up</span>
+        </div>
+      </CSSTransition>
+    )
+  }
+
+  const loggedInUser = () => {
+    return (
+      <CSSTransition
+        in={userFormShown}
+        timeout={300}
+        classNames="fade-out">
+        <div className="pt3 tr f5 ls">
+          <span className="nav-button">{user.attributes.username}</span>
+          <MediaQuery query="(min-width: 769px)">
+          <span> / </span>
+          </MediaQuery>
+          <MediaQuery query="(max-width: 768px)">
+            <br/>
+          </MediaQuery>
+          <span className="nav-button" onClick={logoutUser}>logout</span>
+        </div>
+      </CSSTransition>
+    )
   }
 
   return (
@@ -69,31 +122,29 @@ const NavContainer = ({ browseShown, userFormShown, showBrowse, hideBrowse, show
     </MediaQuery>
     </div>
 
-    <CSSTransition
-      in={userFormShown}
-      timeout={300}
-      classNames="fade-out">
-      <div className="pt3 tr f5 ls">
-        <span className="nav-button" onClick={()=>handleUserFormClick("login")}>login</span>
-        <MediaQuery query="(min-width: 769px)">
-        <span> / </span>
-        </MediaQuery>
-        <MediaQuery query="(max-width: 768px)">
-          <br/>
-        </MediaQuery>
-        <span className="nav-button" onClick={()=>handleUserFormClick("signup")}>sign up</span>
-      </div>
-    </CSSTransition>
+    {user === null ? noLoggedInUser() : loggedInUser()}
 
   </nav>
   )
 }
 
-const mapStateToProps = ({ browse, userForm }) => {
+const mapStateToProps = ({ app, browse, userForm }) => {
   return {
-    browseShown: browse.BrowseShown,
+    user: app.user,
+    browseShown: browse.browseShown,
     userFormShown: userForm.userFormShown
   }
 }
 
-export default connect(mapStateToProps, { showBrowse, hideBrowse, showUserForm, hideUserForm, setForm, resetFilter, showDefault, setPublications, changeLastBodyPush })(NavContainer)
+export default connect(mapStateToProps,
+  { changeLastBodyPush,
+    logoutUser,
+    showBrowse,
+    hideBrowse,
+    resetFilter,
+    showDefault,
+    hideUserForm,
+    setPublications,
+    setForm,
+    showUserForm,
+  })(NavContainer)

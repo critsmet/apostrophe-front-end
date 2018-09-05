@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import square from '../../media/square.png'
 
 const PubCard = ({pub}) => {
@@ -42,4 +43,6 @@ const PubCard = ({pub}) => {
   )
  }
 
-export default PubCard
+ const mapStateToProps = ({ app }) => { user: app.user }
+
+export default connect(mapStateToProps)(PubCard)

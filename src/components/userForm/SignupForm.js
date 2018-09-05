@@ -8,7 +8,7 @@ let SignupForm = ( props ) => {
       <Field name="username" component="input" type="text" placeholder="username" />
       <Field name="email" component="input" type="text" placeholder="e-mail" />
       <Field name="password" component="input" type="password" placeholder="password" />
-      <button className="submit" type="submit">Submit</button>
+      <button className="submit mt3" type="submit">submit</button>
     </form>
   )
 }
