@@ -12,7 +12,7 @@ import { showUserForm, hideUserForm, setForm } from '../userForm/userFormMod'
 import NavSearch from './NavSearch'
 
 
-const NavContainer = ({ browseShown, userFormShown, showBrowse, hideBrowse, showUserForm, hideUserForm, resetFilter, showDefault, setPublications, changeLastBodyPush }) => {
+const NavContainer = ({ browseShown, userFormShown, showBrowse, hideBrowse, showUserForm, hideUserForm, setForm, resetFilter, showDefault, setPublications, changeLastBodyPush }) => {
 
   const resetPage = () => {
     hideBrowse()
@@ -28,7 +28,6 @@ const NavContainer = ({ browseShown, userFormShown, showBrowse, hideBrowse, show
   }
 
   const handleUserFormClick = (form) => {
-    console.log("hi")
     showUserForm()
     setForm(form)
     changeLastBodyPush("left")
@@ -93,8 +92,8 @@ const NavContainer = ({ browseShown, userFormShown, showBrowse, hideBrowse, show
 const mapStateToProps = ({ browse, userForm }) => {
   return {
     browseShown: browse.BrowseShown,
-    userFormShown: userForm.UserFormShown
+    userFormShown: userForm.userFormShown
   }
 }
 
-export default connect(mapStateToProps, { showBrowse, hideBrowse, showUserForm, hideUserForm, resetFilter, showDefault, setPublications, changeLastBodyPush })(NavContainer)
+export default connect(mapStateToProps, { showBrowse, hideBrowse, showUserForm, hideUserForm, setForm, resetFilter, showDefault, setPublications, changeLastBodyPush })(NavContainer)

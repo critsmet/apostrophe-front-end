@@ -1,7 +1,7 @@
 //initial state
 
 const initialState = {
-  BrowseShown: false,
+  browseShown: false,
   filter: ''
 }
 
@@ -12,12 +12,12 @@ export default (state = initialState, action) => {
     case 'SHOW_BROWSE':
     return {
       ...state,
-      BrowseShown: true
+      browseShown: true
     }
     case 'HIDE_BROWSE':
     return {
       ...state,
-      BrowseShown: false
+      browseShown: false
     }
     case 'UPDATE_FILTER':
     return {

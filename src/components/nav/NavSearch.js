@@ -30,14 +30,12 @@ const directSearch = (searchTerm) => {
 
   return (
         <div className="dib">
-          <form>
-            <input
-              onKeyUp={triggerUpdate}
-              type="text"
-              placeholder="search"
-              maxLength="25">
-              </input>
-            </form>
+          <input
+            onKeyUp={triggerUpdate}
+            type="text"
+            placeholder="search"
+            maxLength="25">
+            </input>
           </div>
     )
   }

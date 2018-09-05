@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
 import appReducer from './components/app/appMod'
 import browseReducer from './components/browse/browseMod'
 import navReducer from './components/nav/navMod'
@@ -10,5 +11,6 @@ export default combineReducers({
   browse: browseReducer,
   pub: pubReducer,
   nav: navReducer,
-  userForm: userFormReducer
+  userForm: userFormReducer,
+  form: formReducer
 });

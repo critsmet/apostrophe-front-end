@@ -1,7 +1,7 @@
 import React from 'react'
 import square from '../../media/square.png'
 
-const Pub = ({pub}) => {
+const PubCard = ({pub}) => {
 
     let coverImg = React.createRef()
     let defaultImg = React.createRef()
@@ -42,4 +42,4 @@ const Pub = ({pub}) => {
   )
  }
 
-export default Pub
+export default PubCard

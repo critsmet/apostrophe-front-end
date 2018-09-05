@@ -13,10 +13,10 @@ import './App.css'
 
 class App extends React.Component {
   render() {
-    const { lastBodyPush, BrowseShown, UserFormShown } = this.props
+    const { lastBodyPush, browseShown, userFormShown } = this.props
 
     const directionPush = () => {
-      if ((BrowseShown && lastBodyPush == '') || lastBodyPush == "right"){
+      if ((browseShown && lastBodyPush == '') || lastBodyPush == "right"){
         return "right"
       } else {
         return "left"
@@ -25,9 +25,9 @@ class App extends React.Component {
 
      return (
       <div id="body">
-        <div className="browseMenu">
+        <div className="browse-menu">
         <CSSTransition
-          in={BrowseShown}
+          in={browseShown}
           timeout={300}
           classNames="browse-menu"
           unmountOnExit
@@ -36,7 +36,7 @@ class App extends React.Component {
         </CSSTransition>
         </div>
         <CSSTransition
-          in={BrowseShown || UserFormShown}
+          in={browseShown || userFormShown}
           timeout={300}
           classNames={"push-body-" + directionPush()}
           >
@@ -49,9 +49,9 @@ class App extends React.Component {
           </Switch>
         </div>
         </CSSTransition>
-        <div className="userForm">
+        <div className="user-form">
         <CSSTransition
-          in={UserFormShown}
+          in={userFormShown}
           timeout={300}
           classNames="user-form"
           unmountOnExit
@@ -67,8 +67,8 @@ class App extends React.Component {
 const mapStateToProps = ({ app, browse, userForm }) => {
   return {
     lastBodyPush: app.lastBodyPush,
-    BrowseShown: browse.BrowseShown,
-    UserFormShown: userForm.UserFormShown
+    browseShown: browse.browseShown,
+    userFormShown: userForm.userFormShown
   }
 }
 
