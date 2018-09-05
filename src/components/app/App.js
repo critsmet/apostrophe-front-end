@@ -1,7 +1,7 @@
 //packages
-import React from 'react';
-import { connect } from 'react-redux';
-import { CSSTransition } from 'react-transition-group';
+import React from 'react'
+import { connect } from 'react-redux'
+import { CSSTransition } from 'react-transition-group'
 import { Route, Switch } from 'react-router-dom'
 //components
 import NavContainer from '../nav/NavContainer'
@@ -11,9 +11,7 @@ import PubDisplay from '../pubs/PubDisplay'
 import UserForm from '../userForm/UserForm'
 import './App.css'
 
-class App extends React.Component {
-  render() {
-    const { lastBodyPush, browseShown, userFormShown } = this.props
+const App = ({ lastBodyPush, browseShown, userFormShown }) => {
 
     const directionPush = () => {
       if ((browseShown && lastBodyPush == '') || lastBodyPush == "right"){
@@ -62,7 +60,6 @@ class App extends React.Component {
       </div>
     )
   }
-}
 
 const mapStateToProps = ({ app, browse, userForm }) => {
   return {

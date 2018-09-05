@@ -29,9 +29,8 @@ class PubContainer extends React.Component{
       } else {
       return(
         <PubCard
-          title={pub.attributes.title}
           key={pub.attributes.title + ' card'}
-          pub={pub.attributes} />
+          pub={pub} />
         )
       }
     })

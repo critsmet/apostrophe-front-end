@@ -1,8 +1,12 @@
+//packages
 import React from 'react'
 import { connect } from 'react-redux'
+import { CSSTransition } from 'react-transition-group'
+//components
 import square from '../../media/square.png'
+import PubStar from './PubStar'
 
-const PubCard = ({pub}) => {
+const PubCard = ({pub, user}) => {
 
     let coverImg = React.createRef()
     let defaultImg = React.createRef()
@@ -12,7 +16,7 @@ const PubCard = ({pub}) => {
       coverImg.current.setAttribute("class", "w-100 mb2 center cover-image shown")
     }
 
-    const slug = pub.title.split(" ").join("-").toLowerCase()
+    const slug = pub.attributes.title.split(" ").join("-").toLowerCase()
 
     return(
       <div className="ttl">
@@ -24,25 +28,36 @@ const PubCard = ({pub}) => {
           />
         <img
           ref={coverImg}
-          alt={pub.title}
+          alt={pub.attributes.title}
           className="w-100 mb2 center cover-image hidden"
-          src={pub['cover-image-url']}
+          src={pub.attributes['cover-image-url']}
           onLoad={handleLoad}
           />
         <div className="mt2 pt1 bg-washed-blue center flex justify-between">
-        <div className="f5 ilb ml1 tl w-80 text b">{pub.title}</div>
+        <div className="f5 ilb ml1 tl w-80 text b">{pub.attributes.title}</div>
         <div className="ilb mt1 mr1 tr w-20">
-          <a href="#">☆</a>
+        <CSSTransition
+          in={user !== null}
+          timeout={300}
+          classNames="fade-in"
+          unmountOnExit
+          >
+          <PubStar pubId={pub.id} userId={user == null ? null : user.id} />
+          </CSSTransition>
           <a href={"/publications/" + slug}>
             ↗
           </a>
         </div>
       </div>
-      <div className="f6 pt1 pl1 bg-washed-blue center text">{pub.tagline}</div>
+      <div className="f6 pt1 pl1 bg-washed-blue center text">{pub.attributes.tagline}</div>
     </div>
   )
  }
 
- const mapStateToProps = ({ app }) => { user: app.user }
+ const mapStateToProps = ({ app }) => {
+   return {
+     user: app.user
+   }
+ }
 
 export default connect(mapStateToProps)(PubCard)

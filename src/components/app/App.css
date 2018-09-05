@@ -196,6 +196,10 @@ label:hover {
   cursor: pointer
 }
 
+.star:hover {
+  cursor: pointer;
+}
+
 #navbar {
   font-family: 'Lato', sans-serif;
 }
