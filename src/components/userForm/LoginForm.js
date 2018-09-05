@@ -5,8 +5,9 @@ let LoginForm = ( props ) => {
   const { handleSubmit } = props
   return (
     <form onSubmit={handleSubmit}>
-      <Field name="inputEmail" component="input" type="text" placeholder="username" />
-      <Field name="inputPassword" component="input" type="password" placeholder="password" />
+      <Field name="username" component="input" type="text" placeholder="username" />
+      <Field name="password" component="input" type="password" placeholder="password" />
+      <button className="submit" type="submit">Submit</button>
     </form>
   )
 }
