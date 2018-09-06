@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
+import { Link, withRouter } from 'react-router-dom'
 //components
 import square from '../../media/square.png'
 import PubStar from './PubStar'
@@ -43,9 +44,9 @@ const MiniPubCard = ({pub, user}) => {
           >
           <PubStar pubId={pub.id} userId={user == null ? null : user.id} />
           </CSSTransition>
-          <a href={"/publications/" + slug}>
+          <Link to={"/publications/" + slug}>
             ↗
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -58,4 +59,4 @@ const MiniPubCard = ({pub, user}) => {
    }
  }
 
-export default connect(mapStateToProps)(MiniPubCard)
+export default withRouter(connect(mapStateToProps)(MiniPubCard))

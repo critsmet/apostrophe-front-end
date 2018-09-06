@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 //components
 import NavContainer from '../nav/NavContainer'
 import BrowseContainer from '../browse/BrowseContainer'
@@ -41,9 +41,9 @@ const App = ({ lastBodyPush, browseShown, userFormShown }) => {
         <div id="main" className="pt1 pb4">
           <NavContainer />
           <Switch>
-          <Route path='/publications/:slug' render={(props) =>
-            <PubDisplay slug={props.match.params.slug} /> } />
-          <Route path='/' component={PubContainer} />
+            <Route path='/publications/:slug' render={(props) =>
+              <PubDisplay slug={props.match.params.slug} /> } />
+            <Route path='/' component={PubContainer} />
           </Switch>
         </div>
         </CSSTransition>
@@ -69,4 +69,4 @@ const mapStateToProps = ({ app, browse, userForm }) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));

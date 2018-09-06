@@ -4,14 +4,15 @@ import { connect } from 'react-redux'
 import MediaQuery from 'react-responsive';
 //actions
 import { updateFilter, hideBrowse } from './browseMod'
-import { setPublications, hideDefault } from '../pubs/pubMod'
+import { setPublications, hideDefault, clearPublications } from '../pubs/pubMod'
 
 
-const BrowseFilter = ({ genre, index, checked, searchTerm, updateFilter, setPublications, hideDefault, hideBrowse }) => {
+const BrowseFilter = ({ genre, index, checked, searchTerm, updateFilter, hideBrowse, setPublications, hideDefault, clearPublications }) => {
 
   const setFilterPubs = (e) => {
     let browseFilter = e.target.id
     updateFilter(browseFilter)
+    clearPublications()
     setPublications([searchTerm, browseFilter])
     hideDefault()
   }
@@ -46,4 +47,4 @@ const mapStateToProps = ({ browse, nav }) => {
   }
 }
 
-export default connect(mapStateToProps, { updateFilter, setPublications, hideDefault, hideBrowse })(BrowseFilter)
+export default connect(mapStateToProps, { updateFilter, setPublications, hideBrowse, hideDefault, clearPublications })(BrowseFilter)

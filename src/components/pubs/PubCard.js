@@ -2,11 +2,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
+import { Link } from 'react-router-dom'
+//actions
+import { clearPublications } from './pubMod'
 //components
 import square from '../../media/square.png'
 import PubStar from './PubStar'
 
-const PubCard = ({pub, user}) => {
+const PubCard = ({pub, user, clearPublications}) => {
 
     let coverImg = React.createRef()
     let defaultImg = React.createRef()
@@ -43,9 +46,9 @@ const PubCard = ({pub, user}) => {
           >
           <PubStar pubId={pub.id} userId={user == null ? null : user.id} />
           </CSSTransition>
-          <a href={"/publications/" + slug}>
+          <Link onClick={clearPublications} to={"/publications/" + slug}>
             ↗
-          </a>
+          </Link>
         </div>
       </div>
       <div className="f6 pt1 pl1 bg-washed-blue center text">{pub.tagline}</div>
@@ -59,4 +62,4 @@ const PubCard = ({pub, user}) => {
    }
  }
 
-export default connect(mapStateToProps)(PubCard)
+export default connect(mapStateToProps, { clearPublications })(PubCard)

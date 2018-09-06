@@ -1,6 +1,7 @@
 //packages
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 //actions
 import { setShowPubs } from './pubMod'
 //components
@@ -12,8 +13,13 @@ class PubDisplay extends React.Component {
     this.props.setShowPubs([this.props.slug, 'show'])
   }
 
-  render(){
+  componentDidUpdate(prevProps){
+    if (prevProps.slug !== this.props.slug){
+      this.props.setShowPubs([this.props.slug, 'show'])
+    }
+  }
 
+  render(){
     const { pubs } = this.props
 
     const recs = this.props.pubs.recs.concat(this.props.pubs.fillers)
@@ -65,4 +71,4 @@ const mapStateToProps = ({ pub }) => {
   }
 }
 
-export default connect(mapStateToProps, { setShowPubs })(PubDisplay)
+export default withRouter(connect(mapStateToProps, { setShowPubs })(PubDisplay))

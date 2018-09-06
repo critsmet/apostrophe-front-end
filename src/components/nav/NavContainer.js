@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import MediaQuery from 'react-responsive';
 import { CSSTransition } from 'react-transition-group';
+import { Link } from 'react-router-dom'
 //actions
 import { changeLastBodyPush, logoutUser } from '../app/appMod'
 import { showBrowse, hideBrowse, resetFilter } from '../browse/browseMod'
@@ -113,9 +114,9 @@ const NavContainer = ({
       </CSSTransition>
     </MediaQuery>
 
-    <div className="pt1 pb3 tc logo" onClick={resetPage}>
+    <div className="pt1 pb3 tc logo words" onClick={resetPage}>
     <MediaQuery query="(min-width: 769px)">
-      <a href="/" className="words">apostrophe</a>
+      <Link to='/'>apostrophe</Link>
     </MediaQuery>
     <MediaQuery query="(max-width: 768px)">
       <a href="/" className="symbol">’</a>

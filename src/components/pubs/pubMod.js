@@ -19,10 +19,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         showPubs: {
-          pub: [action.payload.pub],
+          pub: action.payload.pub,
           fillers: action.payload.fillers,
           recs: action.payload.recs
         }
+      }
+    case 'CLEAR_PUBLICATIONS':
+      return {
+        ...state,
+        pubs: [],
+        showPubs: {pub: [], fillers: [], recs: []}
       }
     case 'HIDE_DEFAULT':
       return {
@@ -79,4 +85,10 @@ export const setShowPubs = (terms) => dispatch => {
       payload: pubs
     })
   );
+}
+
+export const clearPublications = () => {
+  return {
+    type: 'CLEAR_PUBLICATIONS'
+  }
 }

@@ -16,7 +16,6 @@ class PubContainer extends React.Component{
   }
 
   render(){
-
     const { showDefault, pubs } = this.props
 
     const pubList = pubs.map((pub, index) => {
