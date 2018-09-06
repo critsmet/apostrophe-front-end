@@ -21,7 +21,7 @@ class PubDisplay extends React.Component {
 
   render(){
     const { pubs } = this.props
-
+    console.log(pubs)
     const recs = this.props.pubs.recs.concat(this.props.pubs.fillers)
 
     const recCards = recs.map(pub => <MiniPubCard pub={pub} />)

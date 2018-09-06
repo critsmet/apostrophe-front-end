@@ -20,6 +20,7 @@ const PubCard = ({pub, user, clearPublications}) => {
     }
 
     const slug = pub.title.split(" ").join("-").toLowerCase()
+    console.log(pub)
     return(
       <div className="ttl">
         <img

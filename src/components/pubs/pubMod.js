@@ -19,16 +19,17 @@ export default (state = initialState, action) => {
       return {
         ...state,
         showPubs: {
-          pub: action.payload.pub,
+          pub: [action.payload.pub],
           fillers: action.payload.fillers,
-          recs: action.payload.recs
+          recs: action.payload.recs,
+          users: action.payload.users
         }
       }
     case 'CLEAR_PUBLICATIONS':
       return {
         ...state,
         pubs: [],
-        showPubs: {pub: [], fillers: [], recs: []}
+        showPubs: {pub: [], fillers: [], recs: [], users: []}
       }
     case 'HIDE_DEFAULT':
       return {
