@@ -6,7 +6,7 @@ import { CSSTransition } from 'react-transition-group'
 import square from '../../media/square.png'
 import PubStar from './PubStar'
 
-const PubCard = ({pub, user}) => {
+const MiniPubCard = ({pub, user}) => {
 
     let coverImg = React.createRef()
     let defaultImg = React.createRef()
@@ -18,7 +18,7 @@ const PubCard = ({pub, user}) => {
 
     const slug = pub.title.split(" ").join("-").toLowerCase()
     return(
-      <div className="ttl">
+      <div className="w-20-l w-40-m w-100 mt3">
         <img
           ref={defaultImg}
           alt={"default-image"}
@@ -32,8 +32,8 @@ const PubCard = ({pub, user}) => {
           src={pub.cover_image_url}
           onLoad={handleLoad}
           />
-        <div className="mt2 pt1 bg-washed-blue center flex justify-between">
-        <div className="f5 ilb ml1 tl w-80 text i">{pub.title}</div>
+        <div className="mt2 pt1 bg-washed-blue center flex justify-between ttl f5 f6-ns">
+        <div className="ilb ml1 tl w-80 text i">{pub.title}</div>
         <div className="ilb mt1 mr1 tr w-20">
         <CSSTransition
           in={user !== null}
@@ -48,7 +48,6 @@ const PubCard = ({pub, user}) => {
           </a>
         </div>
       </div>
-      <div className="f6 pt1 pl1 bg-washed-blue center text">{pub.tagline}</div>
     </div>
   )
  }
@@ -59,4 +58,4 @@ const PubCard = ({pub, user}) => {
    }
  }
 
-export default connect(mapStateToProps)(PubCard)
+export default connect(mapStateToProps)(MiniPubCard)

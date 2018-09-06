@@ -2,7 +2,8 @@
 
 const initialState = {
   showDefault: true,
-  pubs: []
+  pubs: [],
+  showPubs: {pub: [], fillers: [], recs: []}
 }
 
 //reducer
@@ -13,6 +14,15 @@ export default (state = initialState, action) => {
       return {
         ...state,
         pubs: action.payload
+      }
+    case 'SET_SHOW_PUBS':
+      return {
+        ...state,
+        showPubs: {
+          pub: [action.payload.pub],
+          fillers: action.payload.fillers,
+          recs: action.payload.recs
+        }
       }
     case 'HIDE_DEFAULT':
       return {
@@ -52,7 +62,21 @@ export const setPublications = (terms) => dispatch => {
     .then(resp => resp.json())
     .then(pubs => dispatch({
       type: 'SET_PUBLICATIONS',
-      payload: pubs.data
+      payload: pubs.pubs
+    })
+  );
+}
+
+export const setShowPubs = (terms) => dispatch => {
+  fetch('http://localhost:3000/api/v1/publications/search',
+  {method: "POST",
+     headers: {"Content-Type": "application/json", "Accept": "application/json"},
+     body: JSON.stringify({terms})
+    })
+    .then(resp => resp.json())
+    .then(pubs => dispatch({
+      type: 'SET_SHOW_PUBS',
+      payload: pubs
     })
   );
 }

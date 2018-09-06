@@ -2,33 +2,39 @@
 import React from 'react'
 import { connect } from 'react-redux'
 //actions
-import { setPublications } from './pubMod'
+import { setShowPubs } from './pubMod'
+//components
+import MiniPubCard from './MiniPubCard'
 
 class PubDisplay extends React.Component {
 
   componentDidMount(){
-    this.props.setPublications([this.props.slug.split('-').join(' '), ''])
+    this.props.setShowPubs([this.props.slug, 'show'])
   }
 
   render(){
 
-    const { pub } = this.props
+    const { pubs } = this.props
 
-    const PubDisplayDiv = pub.map(pub => {
+    const recs = this.props.pubs.recs.concat(this.props.pubs.fillers)
+
+    const recCards = recs.map(pub => <MiniPubCard pub={pub} />)
+
+    const PubDisplayDiv = pubs.pub.map(pub => {
       return (
         <div id="display-div" className="mt4 flex flex-wrap justify-between">
          <div className="flex flex-column w-30-l w-40-m w-100">
            <div className="w-100 center">
-             <img src={pub.attributes["cover-image-url"]} />
+             <img src={pub.cover_image_url} />
             </div>
           </div>
           <div className="flex flex-column w-40-l w-60-m w-100 pl3-ns">
            <div className="w-100 f3 i ttl tl bg-washed-blue text">
-             {pub.attributes.title}
+             {pub.title}
             </div>
             <div className="w-100 ttl tl mt3 text">
-             <div className="f5">{pub.attributes.description}</div>
-             <div className="flex flex-wrap w-100 mt3 f6">{pub.attributes.tags.split(", ").map(tag => <div className="flex mt1 mr2">{"#" + tag}</div>)}</div>
+             <div className="f5">{pub.description}</div>
+             <div className="flex flex-wrap w-100 mt3 f6">{pub.tags.split(", ").map(tag => <div className="flex mt1 mr2">{"#" + tag}</div>)}</div>
            </div>
           </div>
           <div className="flex-m flex-column-l w-30-l w-100 pl3-l justify-center text">
@@ -39,55 +45,8 @@ class PubDisplay extends React.Component {
              <div className="w-100 i">
              similar publications
              </div>
-             <div className="w-20-l w-40-m w-100 tc mt3">
-                <img src={pub.attributes['cover-image-url']} />
-                <div className="mt2 pt1 bg-washed-blue center flex justify-between ttl f5 f6-ns">
-                <div className="ilb ml1 tl w-80 text b">{pub.attributes.title}</div>
-                <div className="ilb mt1 mr1 tr w-20">
-                  <a href="#">☆</a>
-                  <a href={pub.attributes.url}>
-                    ↗
-                  </a>
-                </div>
-              </div>
-             </div>
-             <div className="w-20-l w-40-m w-100 tc mt3">
-                <img src={pub.attributes['cover-image-url']} />
-                <div className="mt2 pt1 bg-washed-blue center flex justify-between ttl f5 f6-ns">
-                <div className="ilb ml1 tl w-80 text b">{pub.attributes.title}</div>
-                <div className="ilb mt1 mr1 tr w-20">
-                  <a href="#">☆</a>
-                  <a href={pub.attributes.url}>
-                    ↗
-                  </a>
-                </div>
-              </div>
-             </div>
-             <div className="w-20-l w-40-m w-100 tc mt3">
-                <img src={pub.attributes['cover-image-url']} />
-                <div className="mt2 pt1 bg-washed-blue center flex justify-between ttl f5 f6-ns">
-                <div className="ilb ml1 tl w-80 text b">{pub.attributes.title}</div>
-                <div className="ilb mt1 mr1 tr w-20">
-                  <a href="#">☆</a>
-                  <a href={pub.attributes.url}>
-                    ↗
-                  </a>
-                </div>
-              </div>
-             </div>
-             <div className="w-20-l w-40-m w-100 tc mt3">
-                <img src={pub.attributes['cover-image-url']} />
-                <div className="mt2 pt1 bg-washed-blue center flex justify-between ttl f5 f6-ns">
-                <div className="ilb ml1 tl w-80 text b">{pub.attributes.title}</div>
-                <div className="ilb mt1 mr1 tr w-20">
-                  <a href="#">☆</a>
-                  <a href={pub.attributes.url}>
-                    ↗
-                  </a>
-                </div>
-              </div>
-             </div>
-            </div>
+             {recCards}
+           </div>
          </div>
       )
     })
@@ -102,8 +61,8 @@ class PubDisplay extends React.Component {
 
 const mapStateToProps = ({ pub }) => {
   return {
-    pub: pub.pubs
+    pubs: pub.showPubs
   }
 }
 
-export default connect(mapStateToProps, { setPublications })(PubDisplay)
+export default connect(mapStateToProps, { setShowPubs })(PubDisplay)
