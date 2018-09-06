@@ -2,12 +2,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Masonry from 'react-masonry-css'
-import { CSSTransition } from 'react-transition-group';
 //actions
 import { setPublications } from './pubMod'
 //components
 import PubCard from './PubCard'
-import PubDisplay from './PubDisplay'
 
 class PubContainer extends React.Component{
 
@@ -16,12 +14,12 @@ class PubContainer extends React.Component{
   }
 
   render(){
-    const { showDefault, pubs } = this.props
+    const { pubs } = this.props
 
     const pubList = pubs.map((pub, index) => {
       if (index === 5) {
         return (
-          <div id="default">
+          <div key="default" id="default">
             apostrophe is a catalog of digital publications.
             these are some user favorites. <u>learn more</u>
           </div>)
@@ -43,7 +41,6 @@ class PubContainer extends React.Component{
 
     return (
       <div
-        ref={this.pubDisplay}
         className="pub-display">
         <Masonry
           breakpointCols={breakPoints}
@@ -59,7 +56,6 @@ class PubContainer extends React.Component{
 const mapStateToProps = ({ pub }) => {
   return {
     pubs: pub.pubs,
-    showDefault: pub.showDefault
   }
 }
 

@@ -20,8 +20,6 @@ class PubStar extends React.Component{
 
   render(){
 
-    const { id } = this.state
-
     const unfav = () => {
       fetch('http://localhost:3000/api/v1/likes/',
         {method: 'DELETE',

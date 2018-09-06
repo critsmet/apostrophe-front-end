@@ -14,7 +14,7 @@ import './App.css'
 const App = ({ lastBodyPush, browseShown, userFormShown }) => {
 
     const directionPush = () => {
-      if ((browseShown && lastBodyPush == '') || lastBodyPush == "right"){
+      if ((browseShown && lastBodyPush === '') || lastBodyPush === "right"){
         return "right"
       } else {
         return "left"

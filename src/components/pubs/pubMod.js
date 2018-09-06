@@ -3,7 +3,7 @@
 const initialState = {
   showDefault: true,
   pubs: [],
-  showPubs: {pub: [], fillers: [], recs: []}
+  showPubs: {pub: [], fillers: [], recs: [], users: []}
 }
 
 //reducer

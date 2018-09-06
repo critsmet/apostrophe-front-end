@@ -22,7 +22,7 @@ const MiniPubCard = ({pub, user}) => {
       <div className="w-20-l w-40-m w-100 mt3">
         <img
           ref={defaultImg}
-          alt={"default-image"}
+          alt="default"
           className="w-100 shown mb2"
           src={square}
           />

@@ -1,12 +1,12 @@
 //packages
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 //actions
 import { updateSearch } from './navMod'
 import { setPublications, hideDefault, clearPublications } from '../pubs/pubMod'
 
-
-const NavSearch = ({ searchTerm, browseFilter, updateSearch, setPublications, hideDefault, clearPublications }) => {
+const NavSearch = ({ searchTerm, browseFilter, updateSearch, setPublications, hideDefault, clearPublications, history}) => {
 
 let timeout
 
@@ -26,6 +26,7 @@ const handleUpdate = (searchTerm) => {
 
 const directSearch = (searchTerm) => {
   clearPublications()
+  history.push('/')
   setPublications([searchTerm, browseFilter])
 }
 
@@ -49,4 +50,4 @@ const directSearch = (searchTerm) => {
     }
   }
 
-  export default connect(mapStateToProps, { updateSearch, setPublications, hideDefault, clearPublications })(NavSearch)
+  export default withRouter(connect(mapStateToProps, { updateSearch, setPublications, hideDefault, clearPublications })(NavSearch))

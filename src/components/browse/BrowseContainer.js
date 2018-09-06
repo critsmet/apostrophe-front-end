@@ -1,8 +1,6 @@
 //packages
 import React from 'react'
 import { connect } from 'react-redux'
-import MediaQuery from 'react-responsive';
-import { CSSTransition } from 'react-transition-group';
 //actions
 import { hideBrowse } from '../browse/browseMod'
 //components
