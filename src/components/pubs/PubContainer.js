@@ -14,10 +14,10 @@ class PubContainer extends React.Component{
   }
 
   render(){
-    const { pubs } = this.props
+    const { showDefault, pubs } = this.props
 
     const pubList = pubs.map((pub, index) => {
-      if (index === 5) {
+      if (showDefault && index === 5) {
         return (
           <div key="default" id="default">
             apostrophe is a catalog of digital publications.
@@ -55,7 +55,8 @@ class PubContainer extends React.Component{
 
 const mapStateToProps = ({ pub }) => {
   return {
-    pubs: pub.pubs,
+    showDefault: pub.showDefault,
+    pubs: pub.pubs
   }
 }
 
