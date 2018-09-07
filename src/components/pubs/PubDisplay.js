@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import Masonry from 'react-masonry-css'
 //actions
 import { setShowPubs } from './pubMod'
 //components
@@ -27,6 +28,12 @@ class PubDisplay extends React.Component {
     const recCards = recs.map(pub => <MiniPubCard key={pub.title} pub={pub} />)
 
     const pubDisplayDiv = pubs.pub.map(pub => {
+
+      const breakPoints = {
+        default: 4,
+        960: 2,
+        480: 1
+      };
 
       const tags = pub.tags.split(", ").map(tag => <div key={tag} className="flex mt1 mr2">{"#" + tag}</div>)
 
@@ -64,7 +71,12 @@ class PubDisplay extends React.Component {
           <div className="w-100 i">
             similar publications
           </div>
+          <Masonry
+            breakpointCols={breakPoints}
+            className="grid mt4"
+            columnClassName="grid-column">
             {recCards}
+          </Masonry>
           </div>
         </div>
       )

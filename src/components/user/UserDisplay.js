@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import Masonry from 'react-masonry-css'
 //actions
 import { setUserDisplay } from './userMod'
 //components
@@ -23,6 +24,16 @@ class UserDisplay extends React.Component {
     const { user } = this.props
 
     const userDisplayDiv = user.map(user => {
+
+      const favCards = user.attributes.publications.map(pub => <MiniPubCard key={pub.title} pub={pub} />)
+
+      const breakPoints = {
+        default: 4,
+        960: 3,
+        720: 2,
+        480: 1
+      };
+
       return (
       <div key={user.username} id="display-div" className="mt4 flex flex-wrap justify-between">
         <div className="flex flex-column w-30-l w-40-m w-100">
@@ -55,7 +66,12 @@ class UserDisplay extends React.Component {
         <div className="w-100 i">
           faved publications
         </div>
-          favs
+        <Masonry
+          breakpointCols={breakPoints}
+          className="grid mt4"
+          columnClassName="grid-column">
+          {favCards}
+        </Masonry>
         </div>
       </div>
       )

@@ -74,7 +74,7 @@ const NavContainer = ({
         timeout={300}
         classNames="fade-out">
         <div className="pt3 tr f5 ls">
-          <span className="nav-button">{user.attributes.username}</span>
+          <Link to={"/users/" + user.attributes.username} className="nav-button">{user.attributes.username}</Link>
           <MediaQuery query="(min-width: 769px)">
           <span> / </span>
           </MediaQuery>

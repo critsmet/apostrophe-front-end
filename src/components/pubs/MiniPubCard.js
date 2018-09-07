@@ -19,7 +19,7 @@ const MiniPubCard = ({pub, user}) => {
 
     const slug = pub.title.split(" ").join("-").toLowerCase()
     return(
-      <div className="w-20-l w-40-m w-100 mt3">
+      <div className="w-100">
         <img
           ref={defaultImg}
           alt="default"
