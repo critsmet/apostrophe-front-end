@@ -1,5 +1,4 @@
 //initial state
-
 const initialState = {
   browseShown: false,
   filter: ''
@@ -10,29 +9,29 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'SHOW_BROWSE':
-    return {
-      ...state,
-      browseShown: true
-    }
+      return {
+        ...state,
+        browseShown: true
+      }
     case 'HIDE_BROWSE':
-    return {
-      ...state,
-      browseShown: false
-    }
+      return {
+        ...state,
+        browseShown: false
+      }
     case 'UPDATE_FILTER':
-    return {
-      ...state,
-      filter: action.payload
-    }
+      return {
+        ...state,
+        filter: action.payload
+      }
     case 'RESET_FILTER':
-    return {
-      ...state,
-      filter: ''
-    }
+      return {
+        ...state,
+        filter: ''
+      }
     default:
-    return state;
+      return state;
+    }
   }
-}
 
 //action creators
 

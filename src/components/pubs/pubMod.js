@@ -42,7 +42,7 @@ export default (state = initialState, action) => {
         showDefault: true
       }
     default:
-    return state;
+      return state;
   }
 }
 

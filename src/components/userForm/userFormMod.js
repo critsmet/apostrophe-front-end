@@ -25,8 +25,8 @@ export default (state = initialState, action) => {
         form: action.payload
       }
     default:
-    return state;
-  }
+      return state;
+    }
 }
 
 //actions

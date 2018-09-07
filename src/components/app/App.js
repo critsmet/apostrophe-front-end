@@ -8,6 +8,7 @@ import NavContainer from '../nav/NavContainer'
 import BrowseContainer from '../browse/BrowseContainer'
 import PubContainer from '../pubs/PubContainer'
 import PubDisplay from '../pubs/PubDisplay'
+import UserDisplay from '../user/UserDisplay'
 import UserForm from '../userForm/UserForm'
 import './App.css'
 
@@ -41,6 +42,8 @@ const App = ({ lastBodyPush, browseShown, userFormShown }) => {
         <div id="main" className="pt1 pb4">
           <NavContainer />
           <Switch>
+            <Route path='/users/:slug' render={(props) =>
+              <UserDisplay slug={props.match.params.slug} /> } />
             <Route path='/publications/:slug' render={(props) =>
               <PubDisplay slug={props.match.params.slug} /> } />
             <Route path='/' component={PubContainer} />
