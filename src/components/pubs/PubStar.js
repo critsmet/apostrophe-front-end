@@ -9,7 +9,7 @@ class PubStar extends React.Component{
   }
 
   componentDidMount(){
-    fetch('http://localhost:3000/api/v1/likes/find',
+  fetch('http://localhost:3000/api/v1/likes/find',
   {method: 'POST',
   headers: {"Content-Type": "application/json", "Accept": "application/json"},
   body: JSON.stringify({pub: this.props.pubId, user: this.props.userId})

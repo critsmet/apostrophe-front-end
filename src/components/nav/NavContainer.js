@@ -68,6 +68,7 @@ const NavContainer = ({
   }
 
   const loggedInUser = () => {
+    console.log(user)
     return (
       <CSSTransition
         in={userFormShown}

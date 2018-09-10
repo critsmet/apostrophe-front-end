@@ -4,9 +4,11 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import Masonry from 'react-masonry-css'
 //actions
-import { setUserDisplay } from './userMod'
+import { setUserDisplay, editUserDescription } from './userMod'
+import { showEditUser, hideEditUser } from '../userForm/userFormMod'
 //components
 import MiniPubCard from '../pubs/MiniPubCard'
+import EditDescription from './EditDescription'
 
 class UserDisplay extends React.Component {
 
@@ -21,7 +23,7 @@ class UserDisplay extends React.Component {
   }
 
   render(){
-    const { user } = this.props
+    const { editUserDescription, loggedInUser, user, editForm, showEditUser, hideEditUser } = this.props
 
     const userDisplayDiv = user.map(user => {
 
@@ -35,22 +37,26 @@ class UserDisplay extends React.Component {
       };
 
       return (
-      <div key={user.username} id="display-div" className="mt4 flex flex-wrap justify-between">
+      <div key={user.attributes.username} id="display-div" className="mt4 flex flex-wrap justify-between">
         <div className="flex flex-column w-30-l w-40-m w-100">
           <div className="w-100 center">
-            image goes here
+            <img src={user.attributes['image-url']}/>
           </div>
         </div>
         <div className="flex flex-column w-40-l w-60-m w-100 pl3-ns">
           <div className="w-100 f3 i ttl tl bg-washed-blue text">
-            {user.username}
+            @{user.attributes.username}
           </div>
         <div className="w-100 ttl tl mt3 text">
           <div className="f5">
-            name
-          </div>
-          <div className="flex flex-wrap w-100 mt3 f6">
-            description
+            {editForm ? <EditDescription onSubmit={editUserDescription}/> : user.attributes.description}
+            {loggedInUser && loggedInUser.attributes.username === this.props.slug ?
+            <div className="f6 mt2">
+              <br/>
+              { editForm ?
+                null
+                : <span onClick={showEditUser} className=" nav-button">edit profile</span> }
+            </div> : null }
           </div>
         </div>
       </div>
@@ -85,10 +91,12 @@ class UserDisplay extends React.Component {
   }
 
 
-const mapStateToProps = ({ user }) => {
+const mapStateToProps = ({ app, user, userForm }) => {
   return {
-    user: user.userDisplay
+    loggedInUser: app.user,
+    user: user.userDisplay,
+    editForm : userForm.showEditForm
   }
 }
 
-export default withRouter(connect(mapStateToProps, { setUserDisplay })(UserDisplay))
+export default withRouter(connect(mapStateToProps, { setUserDisplay, editUserDescription, showEditUser, hideEditUser })(UserDisplay))

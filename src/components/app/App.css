@@ -241,6 +241,24 @@ label:hover {
   cursor: pointer
 }
 
+#edit-description input[type="text"]{
+  text-transform: lowercase;
+  width: 100%
+}
+
+#edit-description button{
+  text-decoration: none;
+  text-align: left;
+  border: none;
+  margin-left: -6px;
+  background: none;
+}
+
+#edit-description button:hover{
+  color: grey;
+  cursor: pointer
+}
+
 #browse-button:hover{
   color: grey;
   cursor: pointer

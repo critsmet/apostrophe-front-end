@@ -2,6 +2,7 @@
 
 const initialState = {
   userFormShown: false,
+  showEditForm: false,
   form: null
 }
 
@@ -23,6 +24,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         form: action.payload
+      }
+    case 'SHOW_EDIT_USER':
+      return {
+        ...state,
+        showEditForm: true
+      }
+    case 'HIDE_EDIT_USER':
+      return {
+        ...state,
+        showEditForm: false
       }
     default:
       return state;
@@ -47,5 +58,17 @@ export const setForm = (form) => {
   return {
     type: 'SET_FORM',
     payload: form
+  }
+}
+
+export const showEditUser = () => {
+  return {
+    type: 'SHOW_EDIT_USER'
+  }
+}
+
+export const hideEditUser = () => {
+  return {
+    type: 'HIDE_EDIT_USER'
   }
 }
