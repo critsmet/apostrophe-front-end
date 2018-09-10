@@ -54,6 +54,24 @@ export const editUserDescription = (inputs) => dispatch => {
   dispatch({type: 'HIDE_EDIT_USER'})
 }
 
+export const editUserPhoto = (file, id) => dispatch => {
+  const imageData = new FormData()
+
+  imageData.append("image_file", file[0])
+  imageData.append("user_id", id)
+
+  fetch('http://localhost:3000/api/v1/users/photo',
+  {method: 'POST',
+    body: imageData
+  })
+  .then(resp => resp.json())
+  .then(user => dispatch({
+    type: 'SET_USER_DISPLAY',
+    payload: [user.data]
+  })
+  )
+}
+
 export const showEditUser = () => {
   return {
     type: 'SHOW_EDIT_USER'

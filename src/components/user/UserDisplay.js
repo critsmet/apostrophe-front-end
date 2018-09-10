@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import Masonry from 'react-masonry-css'
 //actions
-import { setUserDisplay, editUserDescription, showEditUser, hideEditUser } from './userMod'
+import { setUserDisplay, editUserDescription, editUserPhoto, showEditUser, hideEditUser } from './userMod'
 //components
 import MiniPubCard from '../pubs/MiniPubCard'
 import EditDescription from './EditDescription'
@@ -26,7 +26,7 @@ class UserDisplay extends React.Component {
   }
 
   render(){
-    const { editUserDescription, loggedInUser, user, editForm, showEditUser } = this.props
+    const { editUserDescription, editUserPhoto, loggedInUser, user, editForm, showEditUser } = this.props
 
     const userDisplayDiv = user.map(user => {
 
@@ -48,7 +48,7 @@ class UserDisplay extends React.Component {
             <img src={user.attributes['image-url']}/>
             {loggedInUser && loggedInUser.attributes.username === this.props.slug ?
               <React.Fragment>
-               <input type="file" ref={fileForm} style={ {display: "none"} } onChange={e => console.log(e.target.files)}/>
+               <input type="file" ref={fileForm} style={ {display: "none"} } onChange={(e) => editUserPhoto(e.target.files, user.id)}/>
                <div className="f6 nav-button text tr" onClick={() => fileForm.current.click()}>
                 change photo
                 </div>
@@ -111,4 +111,4 @@ const mapStateToProps = ({ app, user }) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { setUserDisplay, editUserDescription, showEditUser })(UserDisplay))
+export default withRouter(connect(mapStateToProps, { setUserDisplay, editUserDescription, editUserPhoto, showEditUser })(UserDisplay))
