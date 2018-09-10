@@ -1,7 +1,8 @@
 //state
 
 const initialState = {
-  userDisplay: []
+  userDisplay: [],
+  showEditForm: false
 }
 
 //reducer
@@ -11,6 +12,16 @@ export default (state = initialState, action) => {
     case 'SET_USER_DISPLAY':
       return {
         userDisplay: action.payload,
+      }
+    case 'SHOW_EDIT_USER':
+      return {
+        ...state,
+        showEditForm: true
+      }
+    case 'HIDE_EDIT_USER':
+      return {
+        ...state,
+        showEditForm: false
       }
     default:
       return state;
@@ -41,4 +52,16 @@ export const editUserDescription = (inputs) => dispatch => {
   })
   )
   dispatch({type: 'HIDE_EDIT_USER'})
+}
+
+export const showEditUser = () => {
+  return {
+    type: 'SHOW_EDIT_USER'
+  }
+}
+
+export const hideEditUser = () => {
+  return {
+    type: 'HIDE_EDIT_USER'
+  }
 }

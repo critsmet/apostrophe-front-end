@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import Masonry from 'react-masonry-css'
 //actions
-import { setUserDisplay, editUserDescription } from './userMod'
-import { showEditUser, hideEditUser } from '../userForm/userFormMod'
+import { setUserDisplay, editUserDescription, showEditUser, hideEditUser } from './userMod'
 //components
 import MiniPubCard from '../pubs/MiniPubCard'
 import EditDescription from './EditDescription'
@@ -22,10 +21,16 @@ class UserDisplay extends React.Component {
     }
   }
 
+  componentWillUnmount(){
+    hideEditUser()
+  }
+
   render(){
-    const { editUserDescription, loggedInUser, user, editForm, showEditUser, hideEditUser } = this.props
+    const { editUserDescription, loggedInUser, user, editForm, showEditUser } = this.props
 
     const userDisplayDiv = user.map(user => {
+
+      let fileForm = React.createRef()
 
       const favCards = user.attributes.publications.map(pub => <MiniPubCard key={pub.title} pub={pub} />)
 
@@ -41,6 +46,13 @@ class UserDisplay extends React.Component {
         <div className="flex flex-column w-30-l w-40-m w-100">
           <div className="w-100 center">
             <img src={user.attributes['image-url']}/>
+            {loggedInUser && loggedInUser.attributes.username === this.props.slug ?
+              <React.Fragment>
+               <input type="file" ref={fileForm} style={ {display: "none"} } onChange={e => console.log(e.target.files)}/>
+               <div className="f6 nav-button text tr" onClick={() => fileForm.current.click()}>
+                change photo
+                </div>
+               </React.Fragment>: null }
           </div>
         </div>
         <div className="flex flex-column w-40-l w-60-m w-100 pl3-ns">
@@ -55,7 +67,7 @@ class UserDisplay extends React.Component {
               <br/>
               { editForm ?
                 null
-                : <span onClick={showEditUser} className=" nav-button">edit profile</span> }
+                : <span onClick={showEditUser} className="nav-button">edit profile</span> }
             </div> : null }
           </div>
         </div>
@@ -91,12 +103,12 @@ class UserDisplay extends React.Component {
   }
 
 
-const mapStateToProps = ({ app, user, userForm }) => {
+const mapStateToProps = ({ app, user }) => {
   return {
     loggedInUser: app.user,
     user: user.userDisplay,
-    editForm : userForm.showEditForm
+    editForm : user.showEditForm
   }
 }
 
-export default withRouter(connect(mapStateToProps, { setUserDisplay, editUserDescription, showEditUser, hideEditUser })(UserDisplay))
+export default withRouter(connect(mapStateToProps, { setUserDisplay, editUserDescription, showEditUser })(UserDisplay))
