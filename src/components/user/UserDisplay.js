@@ -2,12 +2,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
 import Masonry from 'react-masonry-css'
 //actions
 import { setUserDisplay, editUserDescription, editUserPhoto, showEditUser, hideEditUser } from './userMod'
 //components
 import MiniPubCard from '../pubs/MiniPubCard'
 import EditDescription from './EditDescription'
+import FollowersGrid from './FollowersGrid'
+import FollowingGrid from './FollowingGrid'
+import UserStar from './UserStar'
 
 class UserDisplay extends React.Component {
 
@@ -19,10 +23,6 @@ class UserDisplay extends React.Component {
     if (prevProps.slug !== this.props.slug){
       this.props.setUserDisplay(this.props.slug)
     }
-  }
-
-  componentWillUnmount(){
-    hideEditUser()
   }
 
   render(){
@@ -73,16 +73,30 @@ class UserDisplay extends React.Component {
         </div>
       </div>
       <div className="flex-m flex-column-l w-30-l w-100 pl3-l justify-center text">
-        <div className="flex flex-column justify-center h4-l h3 f5 ttl tc i w-100-l w-50-m pt4">
-          following
+        <div className="flex flex-column h4-l h3 f5 ttl tl i w-100-l w-50-m">
+          <span className="text bg-washed-blue">following</span>
+          <FollowingGrid />
         </div>
-        <div className="flex flex-column justify-center h4-l h3 mt4-l f5 ttl tc i w-100-l w-50-m">
-          followers
+        <div className="flex flex-column h4-l h3 mt4-l f5 ttl tl i w-100-l w-50-m">
+        <div className="pt1 bg-washed-blue flex justify-between">
+          <span className="text w-80">followers</span>
+          <span className="w-20 tr">
+            <CSSTransition
+              in={loggedInUser !== null && loggedInUser.id !== user.id}
+              timeout={300}
+              classNames="fade-in"
+              unmountOnExit
+              >
+                <UserStar loggedInUser={loggedInUser} userToFollow={user} />
+            </CSSTransition>
+            </span>
+          </div>
+          <FollowersGrid />
         </div>
       </div>
       <div className="flex flex-wrap f5 w-100 text pt3 justify-between">
         <div className="w-100 i">
-          faved publications
+          liked publications
         </div>
         <Masonry
           breakpointCols={breakPoints}

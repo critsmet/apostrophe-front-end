@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 //actions
 import { clearPublications } from './pubMod'
 //components
@@ -38,16 +38,18 @@ const PubCard = ({pub, user, clearPublications}) => {
             />
         </a>
         <div className="mt2 pt1 bg-washed-blue center flex justify-between">
-        <div className="f5 ilb ml1 tl w-80 text i">{pub.title}</div>
-        <div className="ilb mt1 mr1 tr w-20">
-        <CSSTransition
-          in={user !== null}
-          timeout={300}
-          classNames="fade-in"
-          unmountOnExit
-          >
-          <PubStar pubId={pub.id} userId={user == null ? null : user.id} />
-          </CSSTransition>
+          <div className="f5 ilb ml1 tl w-80 text i">
+            {pub.title}
+          </div>
+          <div className="ilb mt1 mr1 tr w-20">
+            <CSSTransition
+              in={user !== null}
+              timeout={300}
+              classNames="fade-in"
+              unmountOnExit
+              >
+              <PubStar pubId={pub.id} userId={user == null ? null : user.id} />
+            </CSSTransition>
           <Link onClick={clearPublications} to={"/publications/" + slug}>
             ↗
           </Link>
