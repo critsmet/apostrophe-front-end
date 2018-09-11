@@ -9,7 +9,6 @@ class UserStar extends React.Component{
   }
 
   componentDidMount(){
-  console.log(this.props)
   fetch('http://localhost:3000/api/v1/relationships/find',
   {method: 'POST',
   headers: {"Content-Type": "application/json", "Accept": "application/json"},
@@ -20,6 +19,7 @@ class UserStar extends React.Component{
 )}
 
   render(){
+    console.log(this.props)
     const unfav = () => {
       fetch('http://localhost:3000/api/v1/relationships/',
         {method: 'DELETE',
@@ -27,6 +27,7 @@ class UserStar extends React.Component{
         body: JSON.stringify({loggedInUser: this.props.loggedInUser.id, userToUnfollow: this.props.userToFollow.id})
       })
       this.setState({faved: false})
+      this.props.updateFollowers(false)
     }
 
     const fav = () => {
@@ -36,6 +37,7 @@ class UserStar extends React.Component{
         body: JSON.stringify({loggedInUser: this.props.loggedInUser.id, userToFollow: this.props.userToFollow.id})
       })
       this.setState({faved: true})
+      this.props.updateFollowers(true)
     }
 
     return (

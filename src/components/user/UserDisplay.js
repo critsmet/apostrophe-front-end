@@ -15,6 +15,8 @@ import UserStar from './UserStar'
 
 class UserDisplay extends React.Component {
 
+  state = { following: null }
+
   componentDidMount(){
     this.props.setUserDisplay(this.props.slug)
   }
@@ -23,6 +25,10 @@ class UserDisplay extends React.Component {
     if (prevProps.slug !== this.props.slug){
       this.props.setUserDisplay(this.props.slug)
     }
+  }
+
+  updateFollowers = (boolean) => {
+    this.setState({ following: boolean })
   }
 
   render(){
@@ -87,11 +93,11 @@ class UserDisplay extends React.Component {
               classNames="fade-in"
               unmountOnExit
               >
-                <UserStar loggedInUser={loggedInUser} userToFollow={user} />
+                <UserStar updateFollowers={this.updateFollowers} loggedInUser={loggedInUser} userToFollow={user} />
             </CSSTransition>
             </span>
           </div>
-          <FollowersGrid />
+          <FollowersGrid following={this.state.following}/>
         </div>
       </div>
       <div className="flex flex-wrap f5 w-100 text pt3 justify-between">
