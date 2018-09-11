@@ -30,9 +30,9 @@ class FollowersGrid extends React.Component {
 
   render(){
     const { followers } = this.state
-    const imageSquares = followers.map(follower => <Link to={"/users/" + follower.attributes.username}><img key={follower.attributes.username} style={ {width: '75px', height: '75px'}} src={follower.attributes['image-url']} /></Link>)
+    const imageSquares = followers.map(follower => <Link to={"/users/" + follower.attributes.username}><img key={follower.attributes.username} style={ {width: '14.28%'} } src={follower.attributes['image-url']} /></Link>)
     return(
-      <div className="flex flex-wrap">
+      <div>
         {imageSquares}
       </div>
     )

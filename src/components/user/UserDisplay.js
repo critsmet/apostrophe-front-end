@@ -78,23 +78,27 @@ class UserDisplay extends React.Component {
           </div>
         </div>
       </div>
-      <div className="flex-m flex-column-l w-30-l w-100 pl3-l justify-center text">
-        <div className="flex flex-column h4-l h3 f5 ttl tl i w-100-l w-50-m">
-          <span className="text bg-washed-blue">following</span>
+      <div className="flex-m flex-column-l w-30-l w-100 pl3-l text">
+        <div className="f5 mt1 ttl tl i w-100-l w-50-m">
+          <div className="w-100 bg-washed-blue">
+            following
+          </div>
           <FollowingGrid />
         </div>
-        <div className="flex flex-column h4-l h3 mt4-l f5 ttl tl i w-100-l w-50-m">
-        <div className="pt1 bg-washed-blue flex justify-between">
-          <span className="text w-80">followers</span>
-          <span className="w-20 tr">
-            <CSSTransition
-              in={loggedInUser !== null && loggedInUser.id !== user.id}
-              timeout={300}
-              classNames="fade-in"
-              unmountOnExit
-              >
-                <UserStar updateFollowers={this.updateFollowers} loggedInUser={loggedInUser} userToFollow={user} />
-            </CSSTransition>
+        <div className="mt4-l f5 ttl tl i w-100-l w-50-m">
+          <div className="mt1 bg-washed-blue justify-between">
+            <span className="text w-80">
+              followers
+            </span>
+            <span className="w-20 tr">
+              <CSSTransition
+                in={loggedInUser !== null && loggedInUser.id !== user.id}
+                timeout={300}
+                classNames="fade-in"
+                unmountOnExit
+                >
+                  <UserStar updateFollowers={this.updateFollowers} loggedInUser={loggedInUser} userToFollow={user} />
+              </CSSTransition>
             </span>
           </div>
           <FollowersGrid following={this.state.following}/>

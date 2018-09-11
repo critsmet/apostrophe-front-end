@@ -20,9 +20,9 @@ class FollowingGrid extends React.Component {
 
   render(){
     const { following } = this.state
-    const imageSquares = following.map(following => <Link to={"/users/" + following.attributes.username}><img key={following.attributes.username} style={ {width: '75px', height: '75px'}} src={following.attributes['image-url']} /></Link>)
+    const imageSquares = following.map(following => <Link to={"/users/" + following.attributes.username}><img key={following.attributes.username} style={ {width: '14.28%'} } src={following.attributes['image-url']} /></Link>)
     return(
-      <div className="flex flex-wrap">
+      <div>
         {imageSquares}
       </div>
     )
