@@ -42,8 +42,7 @@ class UserDisplay extends React.Component {
 
       const breakPoints = {
         default: 4,
-        960: 3,
-        720: 2,
+        1260: 2,
         480: 1
       };
 
@@ -104,13 +103,13 @@ class UserDisplay extends React.Component {
           <FollowersGrid following={this.state.following}/>
         </div>
       </div>
-      <div className="flex flex-wrap f5 w-100 text pt3 justify-between">
+      <div className="flex flex-wrap f5 w-100 text pt2 justify-between">
         <div className="w-100 i">
           liked publications
         </div>
         <Masonry
           breakpointCols={breakPoints}
-          className="grid mt4"
+          className="grid"
           columnClassName="grid-column">
           {favCards}
         </Masonry>

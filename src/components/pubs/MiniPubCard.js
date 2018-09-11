@@ -19,41 +19,50 @@ const MiniPubCard = ({pub, user}) => {
 
     const slug = pub.title.split(" ").join("-").toLowerCase()
     return(
-      <div className="w-100">
-        <img
-          ref={defaultImg}
-          alt="default"
-          className="w-100 shown mb2"
-          src={square}
-          />
-        <a href={pub.url}>
+      <div className="w-100 flex mt2">
+        <div className="flex flex-column w-50">
           <img
-            ref={coverImg}
-            alt={pub.title}
-            className="w-100 mb2 center cover-image hidden"
-            src={pub.cover_image_url}
-            onLoad={handleLoad}
+            ref={defaultImg}
+            alt="default"
+            className="dib w-100 shown mb2"
+            src={square}
             />
-        </a>
-        <div className="mt2 pt1 bg-washed-blue center flex justify-between ttl f5 f6-ns">
-        <div className="ilb ml1 tl w-80 text i">{pub.title}</div>
-        <div className="ilb mt1 mr1 tr w-20">
-        <CSSTransition
-          in={user !== null}
-          timeout={300}
-          classNames="fade-in"
-          unmountOnExit
-          >
-          <PubStar pubId={pub.id} userId={user == null ? null : user.id} />
-          </CSSTransition>
-          <Link to={"/publications/" + slug}>
-            ↗
-          </Link>
+          <a href={pub.url}>
+            <img
+              ref={coverImg}
+              alt={pub.title}
+              className="w-100 dib mb2 cover-image hidden"
+              src={pub.cover_image_url}
+              onLoad={handleLoad}
+              />
+          </a>
+        </div>
+        <div className="flex-column w-50 pl1">
+          <div className="w-100 bg-washed-blue center flex justify-between ttl f5 f6-ns">
+            <div className="ilb ml1 tl w-90 text i">
+              {pub.title}
+            </div>
+            <div className="ilb mt1 mr1 tr w-10">
+              <CSSTransition
+                in={user !== null}
+                timeout={300}
+                classNames="fade-in"
+                unmountOnExit
+                >
+                <PubStar pubId={pub.id} userId={user == null ? null : user.id} />
+              </CSSTransition>
+              <Link to={"/publications/" + slug}>
+                ↗
+              </Link>
+            </div>
+          </div>
+          <div className="w-100 f6 ttl">
+            {pub.tagline}
+          </div>
         </div>
       </div>
-    </div>
-  )
- }
+    )
+    }
 
  const mapStateToProps = ({ app }) => {
    return {

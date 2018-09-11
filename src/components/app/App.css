@@ -200,6 +200,16 @@ label:hover {
   cursor: pointer;
 }
 
+.hide {
+  opacity: 0;
+  transition: 1000ms
+}
+
+.donthide {
+  opacity: 1;
+  transition: 1000ms 
+}
+
 #navbar {
   font-family: 'Lato', sans-serif;
 }
