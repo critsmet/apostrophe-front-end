@@ -3,12 +3,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import Masonry from 'react-masonry-css'
+import { CSSTransition } from 'react-transition-group'
 //actions
-import { setShowPubs } from './pubMod'
+import { setPublications, setShowPubs, hideDefault, clearPublications } from './pubMod'
 //components
+import LikesGrid from './LikesGrid'
 import MiniPubCard from './MiniPubCard'
+import PubStar from './PubStar'
 
 class PubDisplay extends React.Component {
+
+  state = { liked: null }
 
   componentDidMount(){
     this.props.setShowPubs([this.props.slug, 'show'])
@@ -20,8 +25,12 @@ class PubDisplay extends React.Component {
     }
   }
 
+  updateLiked = (boolean) => {
+    this.setState({ liked: boolean }, () => console.log(this.state))
+  }
+
   render(){
-    const { pubs } = this.props
+    const { pubs, loggedInUser, hideDefault, setPublications, history } = this.props
 
     const recs = this.props.pubs.recs.concat(this.props.pubs.fillers)
 
@@ -35,7 +44,14 @@ class PubDisplay extends React.Component {
         480: 1
       };
 
-      const tags = pub.tags.split(", ").map(tag => <div key={tag} className="flex mt1 mr2">{"#" + tag}</div>)
+      const tagSearch = (tag) => {
+        hideDefault()
+        history.push('/')
+        clearPublications()
+        setPublications([tag, ''])
+      }
+
+      const tags = pub.tags.split(", ").map(tag => <div key={tag} onClick={()=>tagSearch(tag)} className="flex mt1 mr2 nav-button">{"#" + tag}</div>)
 
       return (
         <div key={pub.title} id="display-div" className="mt4 flex flex-wrap justify-between">
@@ -54,18 +70,28 @@ class PubDisplay extends React.Component {
             <div className="f5">
               {pub.description}
             </div>
-            <div className="flex flex-wrap w-100 mt3 f6">
+            <div className="flex flex-wrap w-100 mt3 mb2 f6">
               {tags}
             </div>
           </div>
         </div>
-        <div className="flex-m flex-column-l w-30-l w-100 pl3-l justify-center text">
-          <div className="flex flex-column justify-center h4-l h3 f5 ttl tc i w-100-l w-50-m pt4">
-            be the first to like
+        <div className="flex flex-column w-30-l w-100 pl3-l text">
+          <div className="mt1 flex flex-wrap bg-washed-blue justify-between">
+            <span className="text i w-80">
+              likes
+            </span>
+            <span className="w-20 tr">
+              <CSSTransition
+                in={loggedInUser !== null}
+                timeout={300}
+                classNames="fade-in"
+                unmountOnExit
+                >
+                  <PubStar slug={this.props.slug} updateLiked={this.updateLiked} user={loggedInUser} pubId={pub.id} />
+              </CSSTransition>
+            </span>
           </div>
-          <div className="flex flex-column justify-center h4-l h3 mt4-l f5 ttl tc i w-100-l w-50-m">
-            be the first to leave a comment
-          </div>
+          <LikesGrid pubId={pub.id} liked={this.state.liked} />
         </div>
         <div className="flex flex-wrap f5 w-100 text pt3 justify-between">
           <div className="w-100 i">
@@ -90,10 +116,11 @@ class PubDisplay extends React.Component {
   }
 
 
-const mapStateToProps = ({ pub }) => {
+const mapStateToProps = ({ app, pub }) => {
   return {
+    loggedInUser: app.user,
     pubs: pub.showPubs
   }
 }
 
-export default withRouter(connect(mapStateToProps, { setShowPubs })(PubDisplay))
+export default withRouter(connect(mapStateToProps, { setShowPubs, setPublications, hideDefault, clearPublications })(PubDisplay))

@@ -48,7 +48,7 @@ const PubCard = ({pub, user, clearPublications}) => {
               classNames="fade-in"
               unmountOnExit
               >
-              <PubStar pubId={pub.id} userId={user == null ? null : user.id} />
+              <PubStar pubId={pub.id} userId={user} />
             </CSSTransition>
           <Link onClick={clearPublications} to={"/publications/" + slug}>
             ↗

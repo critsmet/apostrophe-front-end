@@ -18,7 +18,8 @@ class FollowersGrid extends React.Component {
     .then(followers => followers === null ? null : this.setState({followers: followers.data})
     )}
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps){
+      if (prevProps.following !== this.props.following){
       fetch('http://localhost:3000/api/v1/followers',
       {method: 'POST',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
@@ -27,6 +28,7 @@ class FollowersGrid extends React.Component {
       .then(resp => resp.json())
       .then(followers => followers === null ? null : this.setState({followers: followers.data})
       )}
+    }
 
   render(){
     const { followers } = this.state

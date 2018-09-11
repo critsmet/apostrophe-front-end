@@ -12,7 +12,7 @@ class PubStar extends React.Component{
   fetch('http://localhost:3000/api/v1/likes/find',
   {method: 'POST',
   headers: {"Content-Type": "application/json", "Accept": "application/json"},
-  body: JSON.stringify({pub: this.props.pubId, user: this.props.userId})
+  body: JSON.stringify({pub: this.props.pubId, user: this.props.user.id})
   })
   .then(resp => resp.json())
   .then(resp => resp === null ? null : this.setState({faved: true})
@@ -24,18 +24,21 @@ class PubStar extends React.Component{
       fetch('http://localhost:3000/api/v1/likes/',
         {method: 'DELETE',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
-        body: JSON.stringify({pub: this.props.pubId, user: this.props.userId})
+        body: JSON.stringify({pub: this.props.pubId, user: this.props.user.id})
       })
       this.setState({faved: false})
+      console.log(this.props.slug)
+      this.props.slug ? this.props.updateLiked(false) : null
     }
 
     const fav = () => {
       fetch('http://localhost:3000/api/v1/likes/',
         {method: 'POST',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
-        body: JSON.stringify({pub: this.props.pubId, user: this.props.userId})
+        body: JSON.stringify({pub: this.props.pubId, user: this.props.user.id})
       })
       this.setState({faved: true})
+      this.props.slug ? this.props.updateLiked(true) : null
     }
 
     return (
