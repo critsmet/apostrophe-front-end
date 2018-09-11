@@ -179,10 +179,6 @@ label:hover {
   margin-bottom: 30px;
 }
 
-.text {
-  font-family: 'Lato', sans-serif;
-}
-
 .hidden {
   display: none;
 }
@@ -198,16 +194,6 @@ label:hover {
 
 .star:hover {
   cursor: pointer;
-}
-
-.hide {
-  opacity: 0;
-  transition: 1000ms
-}
-
-.donthide {
-  opacity: 1;
-  transition: 1000ms 
 }
 
 #navbar {
@@ -279,7 +265,8 @@ label:hover {
   font-size: 2rem;
   width: 95%;
   height: 21rem;
-  padding-top: 15%;
+  padding-top: 20%;
+  margin-bottom: 30%;
 }
 
 #main {
@@ -362,6 +349,17 @@ label {
   font-size: 2rem;
 }
 
+.text {
+  font-family: 'Lato', sans-serif;
+}
+
+.info {
+  font-family: 'lato', cursive;
+  font-size: 1.15rem;
+  line-height: 2rem;
+  letter-spacing: .015rem;
+}
+
 .symbol {
   font-family: 'Nixie One';
 }
@@ -435,5 +433,6 @@ label {
   }
   #default {
     padding-top: 20%;
+    margin-bottom: 20%;
   }
 }

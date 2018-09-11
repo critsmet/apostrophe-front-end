@@ -6,6 +6,7 @@ import Masonry from 'react-masonry-css'
 import { CSSTransition } from 'react-transition-group'
 //actions
 import { setPublications, setShowPubs, hideDefault, clearPublications } from './pubMod'
+import { clearUserDisplay } from '../user/userMod'
 //components
 import LikesGrid from './LikesGrid'
 import MiniPubCard from './MiniPubCard'
@@ -16,6 +17,7 @@ class PubDisplay extends React.Component {
   state = { liked: null }
 
   componentDidMount(){
+    this.props.clearUserDisplay()
     this.props.setShowPubs([this.props.slug, 'show'])
   }
 
@@ -123,4 +125,4 @@ const mapStateToProps = ({ app, pub }) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { setShowPubs, setPublications, hideDefault, clearPublications })(PubDisplay))
+export default withRouter(connect(mapStateToProps, { setShowPubs, setPublications, hideDefault, clearPublications, clearUserDisplay })(PubDisplay))

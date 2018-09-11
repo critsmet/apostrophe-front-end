@@ -6,6 +6,7 @@ import { CSSTransition } from 'react-transition-group'
 import Masonry from 'react-masonry-css'
 //actions
 import { setUserDisplay, editUserDescription, editUserPhoto, showEditUser, hideEditUser } from './userMod'
+import { clearPublications } from '../pubs/pubMod'
 //components
 import MiniPubCard from '../pubs/MiniPubCard'
 import EditDescription from './EditDescription'
@@ -18,6 +19,7 @@ class UserDisplay extends React.Component {
   state = { following: null }
 
   componentDidMount(){
+    this.props.clearPublications()
     this.props.setUserDisplay(this.props.slug)
   }
 
@@ -134,4 +136,4 @@ const mapStateToProps = ({ app, user }) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { setUserDisplay, editUserDescription, editUserPhoto, showEditUser })(UserDisplay))
+export default withRouter(connect(mapStateToProps, { setUserDisplay, editUserDescription, editUserPhoto, showEditUser, clearPublications })(UserDisplay))

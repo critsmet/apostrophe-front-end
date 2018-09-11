@@ -10,6 +10,7 @@ import PubContainer from '../pubs/PubContainer'
 import PubDisplay from '../pubs/PubDisplay'
 import UserDisplay from '../user/UserDisplay'
 import UserForm from '../userForm/UserForm'
+import Info from './Info'
 import './App.css'
 
 const App = ({ lastBodyPush, browseShown, showUserForm }) => {
@@ -46,6 +47,7 @@ const App = ({ lastBodyPush, browseShown, showUserForm }) => {
               <UserDisplay slug={props.match.params.slug} /> } />
             <Route path='/publications/:slug' render={(props) =>
               <PubDisplay slug={props.match.params.slug} /> } />
+            <Route path='/info' component={Info} />
             <Route path='/' component={PubContainer} />
           </Switch>
         </div>

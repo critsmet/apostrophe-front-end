@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Masonry from 'react-masonry-css'
+import { Link } from 'react-router-dom'
 //actions
 import { setPublications } from './pubMod'
 //components
@@ -22,7 +23,7 @@ class PubContainer extends React.Component{
         return (
           <div key="default" id="default">
             apostrophe is a catalog of digital publications.
-            these are some user favorites. <u>learn more</u>
+            these are our favorites. <Link to={'/info'}><u>learn more</u></Link>
           </div>)
       } else {
       return(

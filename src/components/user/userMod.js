@@ -11,7 +11,11 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case 'SET_USER_DISPLAY':
       return {
-        userDisplay: action.payload,
+        userDisplay: action.payload
+      }
+    case 'CLEAR_USER_DISPLAY':
+      return {
+        userDisplay: []
       }
     case 'SHOW_EDIT_USER':
       return {
@@ -70,6 +74,12 @@ export const editUserPhoto = (file, id) => dispatch => {
     payload: [user.data]
   })
   )
+}
+
+export const clearUserDisplay = () => {
+  return {
+    type: 'CLEAR_USER_DISPLAY'
+  }
 }
 
 export const showEditUser = () => {
