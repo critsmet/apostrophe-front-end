@@ -35,11 +35,12 @@ class FollowersGrid extends React.Component {
     const imageSquares = followers.map(follower => {
       return <Link to={"/users/" + follower.attributes.username}>
              <img
-             alt={follower.attributes.username} 
+             alt={follower.attributes.username}
              key={follower.attributes.username}
              style={ {width: '14.28%'} }
              src={follower.attributes['image-url']} />
-             </Link>)
+             </Link>
+         })
     return(
       <div>
         {imageSquares}
