@@ -61,7 +61,7 @@ export const showDefault = () => {
 }
 
 export const setPublications = (terms) => dispatch => {
-  fetch('https://apostrophe-back-end.herokuapp.com/api/v1/publications/search',
+  fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/publications/search',
   {method: "POST",
   headers: {"Content-Type": "application/json", "Accept": "application/json"},
   body: JSON.stringify({terms})
@@ -75,9 +75,8 @@ export const setPublications = (terms) => dispatch => {
 }
 
 export const setShowPubs = (terms) => dispatch => {
-  fetch('https://apostrophe-back-end.herokuapp.com/api/v1/publications/search',
+  fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/publications/search',
   {method: "POST",
-  mode: 'no-cors',
   headers: {"Content-Type": "application/json", "Accept": "application/json"},
   body: JSON.stringify({terms})
     })

@@ -9,7 +9,7 @@ class UserStar extends React.Component{
   }
 
   componentDidMount(){
-  fetch('http://localhost:3000/api/v1/relationships/find',
+  fetch('https://cors-anywhere.herokuapp.com/http://localhost:3000/api/v1/relationships/find',
   {method: 'POST',
   mode: 'no-cors',
   headers: {"Content-Type": "application/json", "Accept": "application/json"},
@@ -22,7 +22,7 @@ class UserStar extends React.Component{
   render(){
     console.log(this.props)
     const unfav = () => {
-      fetch('https://apostrophe-back-end.herokuapp.com/api/v1/relationships/',
+      fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/relationships/',
         {method: 'DELETE',
         mode: 'no-cors',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
@@ -33,7 +33,7 @@ class UserStar extends React.Component{
     }
 
     const fav = () => {
-      fetch('https://apostrophe-back-end.herokuapp.com/api/v1/relationships/',
+      fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/relationships/',
         {method: 'POST',
         mode: 'no-cors',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},

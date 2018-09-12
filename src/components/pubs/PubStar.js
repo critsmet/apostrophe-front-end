@@ -9,7 +9,7 @@ class PubStar extends React.Component{
   }
 
   componentDidMount(){
-  fetch('https://apostrophe-back-end.herokuapp.com/api/v1/likes/find',
+  fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/likes/find',
   {method: 'POST',
   mode: 'no-cors',
   headers: {"Content-Type": "application/json", "Accept": "application/json"},
@@ -22,7 +22,7 @@ class PubStar extends React.Component{
   render(){
 
     const unfav = () => {
-      fetch('https://apostrophe-back-end.herokuapp.com/api/v1/likes/',
+      fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/likes/',
         {method: 'DELETE',
         mode: 'no-cors',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
@@ -34,7 +34,7 @@ class PubStar extends React.Component{
     }
 
     const fav = () => {
-      fetch('https://apostrophe-back-end.herokuapp.com/api/v1/likes/',
+      fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/likes/',
         {method: 'POST',
         mode: 'no-cors',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
