@@ -23,19 +23,17 @@ const PubCard = ({pub, user, clearPublications}) => {
     return(
       <div className="ttl">
         <img
-          ref={defaultImg}
-          alt="default"
-          className="w-100 shown mb2"
-          src={square}
-          />
+        ref={defaultImg}
+        alt="default"
+        className="w-100 shown mb2"
+        src={square}/>
         <a href={pub.url}>
           <img
-            ref={coverImg}
-            alt={pub.title}
-            className="w-100 mb2 center cover-image hidden"
-            src={pub.cover_image_url}
-            onLoad={handleLoad}
-            />
+          ref={coverImg}
+          alt={pub.title}
+          className="w-100 mb2 center cover-image hidden"
+          src={pub.cover_image_url}
+          onLoad={handleLoad}/>
         </a>
         <div className="mt2 pt1 bg-washed-blue center flex justify-between">
           <div className="f5 ilb ml1 tl w-80 text i">
@@ -43,11 +41,10 @@ const PubCard = ({pub, user, clearPublications}) => {
           </div>
           <div className="ilb mt1 mr1 tr w-20">
             <CSSTransition
-              in={user !== null}
-              timeout={300}
-              classNames="fade-in"
-              unmountOnExit
-              >
+            in={user !== null}
+            timeout={300}
+            classNames="fade-in"
+            unmountOnExit>
               <PubStar pubId={pub.id} userId={user} />
             </CSSTransition>
           <Link onClick={clearPublications} to={"/publications/" + slug}>

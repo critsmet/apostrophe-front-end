@@ -13,7 +13,7 @@ import UserForm from '../userForm/UserForm'
 import Info from './Info'
 import './App.css'
 
-const App = ({ lastBodyPush, browseShown, showUserForm }) => {
+const App = ({ lastBodyPush, browseShown, userFormShown }) => {
 
     const directionPush = () => {
       if ((browseShown && lastBodyPush === '') || lastBodyPush === "right"){
@@ -36,7 +36,7 @@ const App = ({ lastBodyPush, browseShown, showUserForm }) => {
         </CSSTransition>
         </div>
         <CSSTransition
-          in={browseShown || showUserForm}
+          in={browseShown || userFormShown}
           timeout={300}
           classNames={"push-body-" + directionPush()}
           >
@@ -54,7 +54,7 @@ const App = ({ lastBodyPush, browseShown, showUserForm }) => {
         </CSSTransition>
         <div className="user-form">
         <CSSTransition
-          in={showUserForm}
+          in={userFormShown}
           timeout={300}
           classNames="user-form"
           unmountOnExit
@@ -70,7 +70,7 @@ const mapStateToProps = ({ app, browse, userForm }) => {
   return {
     lastBodyPush: app.lastBodyPush,
     browseShown: browse.browseShown,
-    showUserForm: userForm.showUserForm
+    userFormShown: userForm.userFormShown
   }
 }
 

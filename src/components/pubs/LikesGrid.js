@@ -9,7 +9,6 @@ class LikesGrid extends React.Component {
   }
 
   componentDidMount(){
-    console.log(this.props)
     fetch('http://localhost:3000/api/v1/publications/likes',
     {method: 'POST',
       headers: {"Content-Type": "application/json", "Accept": "application/json"},
@@ -20,7 +19,6 @@ class LikesGrid extends React.Component {
     )}
 
     componentDidUpdate(prevProps){
-      console.log(prevProps.liked, this.props.liked)
       if (prevProps.liked !== this.props.liked){
       fetch('http://localhost:3000/api/v1/publications/likes',
       {method: 'POST',
@@ -34,7 +32,16 @@ class LikesGrid extends React.Component {
 
   render(){
     const { likes } = this.state
-    const imageSquares = likes.map(like => <Link to={"/users/" + like.attributes.username}><img key={like.attributes.username} style={ {width: '14.28%'} } src={like.attributes['image-url']} /></Link>)
+    const imageSquares = likes.map(like => {
+      return <Link
+              to={"/users/" + like.attributes.username}>
+                <img
+                key={like.attributes.username}
+                style={ {width: '14.28%'} }
+                src={like.attributes['image-url']} />
+             </Link>
+           })
+           
     return(
       <div>
         {imageSquares}

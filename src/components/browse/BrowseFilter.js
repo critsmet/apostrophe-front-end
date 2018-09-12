@@ -7,7 +7,18 @@ import { updateFilter, hideBrowse } from './browseMod'
 import { setPublications, hideDefault, clearPublications } from '../pubs/pubMod'
 
 
-const BrowseFilter = ({ genre, index, checked, searchTerm, updateFilter, hideBrowse, setPublications, hideDefault, clearPublications, history }) => {
+const BrowseFilter = ({
+  genre,
+  index,
+  checked,
+  searchTerm,
+  updateFilter,
+  hideBrowse,
+  setPublications,
+  hideDefault,
+  clearPublications,
+  history
+  }) => {
 
   const setFilterPubs = (e) => {
     let browseFilter = e.target.id

@@ -34,7 +34,14 @@ class UserDisplay extends React.Component {
   }
 
   render(){
-    const { editUserDescription, editUserPhoto, loggedInUser, user, editForm, showEditUser } = this.props
+    const {
+      editUserDescription,
+      editUserPhoto,
+      loggedInUser,
+      user,
+      editForm,
+      showEditUser
+      } = this.props
 
     const userDisplayDiv = user.map(user => {
 
@@ -55,11 +62,11 @@ class UserDisplay extends React.Component {
             <img src={user.attributes['image-url']}/>
             {loggedInUser && loggedInUser.attributes.username === this.props.slug ?
               <React.Fragment>
-               <input type="file" ref={fileForm} style={ {display: "none"} } onChange={(e) => editUserPhoto(e.target.files, user.id)}/>
-               <div className="f6 nav-button text tr" onClick={() => fileForm.current.click()}>
-                change photo
+                <input type="file" ref={fileForm} style={ {display: "none"} } onChange={(e) => editUserPhoto(e.target.files, user.id)}/>
+                <div className="f6 nav-button text tr" onClick={() => fileForm.current.click()}>
+                  change photo
                 </div>
-               </React.Fragment>: null }
+              </React.Fragment>: null }
           </div>
         </div>
         <div className="flex flex-column w-40-l w-60-m w-100 pl3-ns">
@@ -68,14 +75,17 @@ class UserDisplay extends React.Component {
           </div>
         <div className="w-100 ttl tl mt3 text">
           <div className="f5">
-            {editForm ? <EditDescription onSubmit={editUserDescription}/> : user.attributes.description}
-            {loggedInUser && loggedInUser.attributes.username === this.props.slug ?
-            <div className="f6 mt2">
+            {editForm
+              ? <EditDescription onSubmit={editUserDescription}/>
+              : user.attributes.description}
+            {loggedInUser && loggedInUser.attributes.username === this.props.slug
+              ? <div className="f6 mt2">
               <br/>
-              { editForm ?
-                null
+              { editForm
+                ? null
                 : <span onClick={showEditUser} className="nav-button">edit profile</span> }
-            </div> : null }
+            </div>
+              : null }
           </div>
         </div>
       </div>
@@ -93,12 +103,11 @@ class UserDisplay extends React.Component {
             </span>
             <span className="w-20 tr">
               <CSSTransition
-                in={loggedInUser !== null && loggedInUser.id !== user.id}
-                timeout={300}
-                classNames="fade-in"
-                unmountOnExit
-                >
-                  <UserStar updateFollowers={this.updateFollowers} loggedInUser={loggedInUser} userToFollow={user} />
+              in={loggedInUser !== null && loggedInUser.id !== user.id}
+              timeout={300}
+              classNames="fade-in"
+              unmountOnExit>
+                <UserStar updateFollowers={this.updateFollowers} loggedInUser={loggedInUser} userToFollow={user} />
               </CSSTransition>
             </span>
           </div>
@@ -110,9 +119,9 @@ class UserDisplay extends React.Component {
           liked publications
         </div>
         <Masonry
-          breakpointCols={breakPoints}
-          className="grid"
-          columnClassName="grid-column">
+        breakpointCols={breakPoints}
+        className="grid"
+        columnClassName="grid-column">
           {favCards}
         </Masonry>
         </div>
@@ -132,7 +141,7 @@ const mapStateToProps = ({ app, user }) => {
   return {
     loggedInUser: app.user,
     user: user.userDisplay,
-    editForm : user.showEditForm
+    editForm : user.editFormShown
   }
 }
 

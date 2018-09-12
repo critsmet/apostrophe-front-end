@@ -4,7 +4,7 @@ const initialState = {
   filter: ''
 }
 
-//reducers
+//reducer
 
 export default (state = initialState, action) => {
   switch (action.type) {

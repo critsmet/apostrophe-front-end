@@ -1,7 +1,7 @@
 //initial state
 
 const initialState = {
-  showUserForm: false,
+  userFormShown: false,
   form: null
 }
 
@@ -12,12 +12,12 @@ export default (state = initialState, action) => {
     case 'SHOW_USER_FORM':
       return {
         ...state,
-        showUserForm: true
+        userFormShown: true
       }
     case 'HIDE_USER_FORM':
       return {
         ...state,
-        showUserForm: false
+        userFormShown: false
       }
     case 'SET_FORM':
       return {

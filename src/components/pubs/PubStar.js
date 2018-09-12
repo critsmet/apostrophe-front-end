@@ -43,7 +43,9 @@ class PubStar extends React.Component{
 
     return (
       <span>
-      {this.state.faved ? <span className="star" onClick={unfav}>★</span> : <span className="star" onClick={fav}>☆</span>}
+      {this.state.faved
+        ? <span className="star" onClick={unfav}>★</span>
+        : <span className="star" onClick={fav}>☆</span>}
       </span>
     )
   }

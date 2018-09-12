@@ -54,14 +54,21 @@ const NavContainer = ({
         timeout={300}
         classNames="fade-out">
         <div className="pt3 tr f5 ls">
-          <span className="nav-button" onClick={()=>handleUserFormClick("login")}>login</span>
+          <span
+          className="nav-button"
+          onClick={()=>handleUserFormClick("login")}>
+            login
+          </span>
           <MediaQuery query="(min-width: 769px)">
-          <span> / </span>
+            <span> / </span>
           </MediaQuery>
           <MediaQuery query="(max-width: 768px)">
             <br/>
           </MediaQuery>
-          <span className="nav-button" onClick={()=>handleUserFormClick("signup")}>sign up</span>
+          <span className="nav-button"
+          onClick={()=>handleUserFormClick("signup")}>
+            sign up
+          </span>
         </div>
       </CSSTransition>
     )
@@ -74,9 +81,12 @@ const NavContainer = ({
         timeout={300}
         classNames="fade-out">
         <div className="pt3 tr f5 ls">
-          <Link to={"/users/" + user.attributes.username} className="nav-button">{user.attributes.username}</Link>
+          <Link to={"/users/" + user.attributes.username}
+          className="nav-button">
+            {user.attributes.username}
+          </Link>
           <MediaQuery query="(min-width: 769px)">
-          <span> / </span>
+            <span> / </span>
           </MediaQuery>
           <MediaQuery query="(max-width: 768px)">
             <br/>
@@ -96,7 +106,12 @@ const NavContainer = ({
         timeout={300}
         classNames="fade-out">
         <div className="pt3 pb3 f5 tl bs">
-          <span id="browse-button" onClick={handleBrowseClick}>browse</span> /
+          <span
+          id="browse-button"
+          onClick={handleBrowseClick}>
+            browse
+          </span>
+            /
           <NavSearch />
         </div>
       </CSSTransition>
@@ -109,17 +124,24 @@ const NavContainer = ({
         classNames="fade-out">
         <div className="pt3 pb3 f5 tl bs">
           <NavSearch /><br/>
-          <span id="browse-button" onClick={handleBrowseClick}>browse</span>
+          <span id="browse-button"
+          onClick={handleBrowseClick}>
+            browse
+          </span>
         </div>
       </CSSTransition>
     </MediaQuery>
 
     <div className="pt1 pb3 tc logo words" onClick={resetPage}>
     <MediaQuery query="(min-width: 769px)">
-      <Link to='/'>apostrophe</Link>
+      <Link to='/'>
+        apostrophe
+      </Link>
     </MediaQuery>
     <MediaQuery query="(max-width: 768px)">
-      <a href="/" className="symbol">’</a>
+      <a href="/" className="symbol">
+        ’
+      </a>
     </MediaQuery>
     </div>
 

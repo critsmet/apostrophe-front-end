@@ -23,13 +23,16 @@ class PubContainer extends React.Component{
         return (
           <div key="default" id="default">
             apostrophe is a catalog of digital publications.
-            these are our favorites. <Link to={'/info'}><u>learn more</u></Link>
+            these are our favorites.
+            <Link to={'/info'}>
+              <u>
+                learn more
+              </u>
+            </Link>
           </div>)
       } else {
       return(
-        <PubCard
-          key={pub.title + ' card'}
-          pub={pub} />
+        <PubCard key={pub.title + ' card'} pub={pub}/>
         )
       }
     })
@@ -45,9 +48,9 @@ class PubContainer extends React.Component{
       <div
         className="pub-display">
         <Masonry
-          breakpointCols={breakPoints}
-          className="grid mt4"
-          columnClassName="grid-column">
+        breakpointCols={breakPoints}
+        className="grid mt4"
+        columnClassName="grid-column">
           {pubList}
         </Masonry>
       </div>

@@ -22,19 +22,17 @@ const MiniPubCard = ({pub, user}) => {
       <div className="w-100 flex mt2">
         <div className="flex flex-column w-50">
           <img
-            ref={defaultImg}
-            alt="default"
-            className="dib w-100 shown mb2"
-            src={square}
-            />
+          ref={defaultImg}
+          alt="default"
+          className="dib w-100 shown mb2"
+          src={square}/>
           <a href={pub.url}>
             <img
-              ref={coverImg}
-              alt={pub.title}
-              className="w-100 dib mb2 cover-image hidden"
-              src={pub.cover_image_url}
-              onLoad={handleLoad}
-              />
+            ref={coverImg}
+            alt={pub.title}
+            className="w-100 dib mb2 cover-image hidden"
+            src={pub.cover_image_url}
+            onLoad={handleLoad}/>
           </a>
         </div>
         <div className="flex-column w-50 pl1">
@@ -44,11 +42,10 @@ const MiniPubCard = ({pub, user}) => {
             </div>
             <div className="ilb mt1 mr1 tr w-10">
               <CSSTransition
-                in={user !== null}
-                timeout={300}
-                classNames="fade-in"
-                unmountOnExit
-                >
+              in={user !== null}
+              timeout={300}
+              classNames="fade-in"
+              unmountOnExit>
                 <PubStar pubId={pub.id} userId={user == null ? null : user.id} />
               </CSSTransition>
               <Link to={"/publications/" + slug}>

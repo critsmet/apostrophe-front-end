@@ -1,8 +1,8 @@
-//state
+//initial state
 
 const initialState = {
   userDisplay: [],
-  showEditForm: false
+  editFormShown: false
 }
 
 //reducer
@@ -20,12 +20,12 @@ export default (state = initialState, action) => {
     case 'SHOW_EDIT_USER':
       return {
         ...state,
-        showEditForm: true
+        editFormShown: true
       }
     case 'HIDE_EDIT_USER':
       return {
         ...state,
-        showEditForm: false
+        editFormShown: false
       }
     default:
       return state;

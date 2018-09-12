@@ -12,9 +12,8 @@ const UserForm = ({ whichForm, hideUserForm, setUser }) => {
 
   return (
     <div id="user-form"
-      className="f1 mr3"
-      onMouseLeave={hideUserForm}
-      >
+    className="f1 mr3"
+    onMouseLeave={hideUserForm}>
       {whichForm === 'login' ? <LoginForm onSubmit={setUser}/> : <SignupForm onSubmit={setUser}/>}
     </div>
   )

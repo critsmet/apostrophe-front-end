@@ -84,12 +84,11 @@ class PubDisplay extends React.Component {
             </span>
             <span className="w-20 tr">
               <CSSTransition
-                in={loggedInUser !== null}
-                timeout={300}
-                classNames="fade-in"
-                unmountOnExit
-                >
-                  <PubStar slug={this.props.slug} updateLiked={this.updateLiked} user={loggedInUser} pubId={pub.id} />
+              in={loggedInUser !== null}
+              timeout={300}
+              classNames="fade-in"
+              unmountOnExit>
+                <PubStar slug={this.props.slug} updateLiked={this.updateLiked} user={loggedInUser} pubId={pub.id} />
               </CSSTransition>
             </span>
           </div>
