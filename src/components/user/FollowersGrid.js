@@ -9,7 +9,7 @@ class FollowersGrid extends React.Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:3000/api/v1/followers',
+    fetch('https://apostrophe-back-end.herokuapp.com/api/v1/followers',
     {method: 'POST',
       headers: {"Content-Type": "application/json", "Accept": "application/json"},
       body: JSON.stringify({user: this.props.user[0].id})
@@ -20,7 +20,7 @@ class FollowersGrid extends React.Component {
 
     componentDidUpdate(prevProps){
       if (prevProps.following !== this.props.following){
-      fetch('http://localhost:3000/api/v1/followers',
+      fetch('https://apostrophe-back-end.herokuapp.com/api/v1/followers',
       {method: 'POST',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({user: this.props.user[0].id})

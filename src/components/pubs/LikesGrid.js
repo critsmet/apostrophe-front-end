@@ -9,7 +9,7 @@ class LikesGrid extends React.Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:3000/api/v1/publications/likes',
+    fetch('https://apostrophe-back-end.herokuapp.com/api/v1/publications/likes',
     {method: 'POST',
       headers: {"Content-Type": "application/json", "Accept": "application/json"},
       body: JSON.stringify({publication: this.props.pubId})
@@ -20,7 +20,7 @@ class LikesGrid extends React.Component {
 
     componentDidUpdate(prevProps){
       if (prevProps.liked !== this.props.liked){
-      fetch('http://localhost:3000/api/v1/publications/likes',
+      fetch('https://apostrophe-back-end.herokuapp.com/api/v1/publications/likes',
       {method: 'POST',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({publication: this.props.pubId})
@@ -41,7 +41,7 @@ class LikesGrid extends React.Component {
                 src={like.attributes['image-url']} />
              </Link>
            })
-           
+
     return(
       <div>
         {imageSquares}

@@ -9,7 +9,7 @@ class PubStar extends React.Component{
   }
 
   componentDidMount(){
-  fetch('http://localhost:3000/api/v1/likes/find',
+  fetch('https://apostrophe-back-end.herokuapp.com/api/v1/likes/find',
   {method: 'POST',
   headers: {"Content-Type": "application/json", "Accept": "application/json"},
   body: JSON.stringify({pub: this.props.pubId, user: this.props.user.id})
@@ -21,7 +21,7 @@ class PubStar extends React.Component{
   render(){
 
     const unfav = () => {
-      fetch('http://localhost:3000/api/v1/likes/',
+      fetch('https://apostrophe-back-end.herokuapp.com/api/v1/likes/',
         {method: 'DELETE',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({pub: this.props.pubId, user: this.props.user.id})
@@ -32,7 +32,7 @@ class PubStar extends React.Component{
     }
 
     const fav = () => {
-      fetch('http://localhost:3000/api/v1/likes/',
+      fetch('https://apostrophe-back-end.herokuapp.com/api/v1/likes/',
         {method: 'POST',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({pub: this.props.pubId, user: this.props.user.id})

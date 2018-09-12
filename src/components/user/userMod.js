@@ -35,7 +35,7 @@ export default (state = initialState, action) => {
 //actions
 
 export const setUserDisplay = (id) => dispatch => {
-  fetch('http://localhost:3000/api/v1/users/' + id)
+  fetch('https://apostrophe-back-end.herokuapp.com/api/v1/users/' + id)
   .then(resp => resp.json())
   .then(user => dispatch({
     type: 'SET_USER_DISPLAY',
@@ -44,7 +44,7 @@ export const setUserDisplay = (id) => dispatch => {
 }
 
 export const editUserDescription = (inputs) => dispatch => {
-  fetch('http://localhost:3000/api/v1/users/edit/',
+  fetch('https://apostrophe-back-end.herokuapp.com/api/v1/users/edit/',
   {method: 'POST',
     headers: {"Content-Type": "application/json", "Accept": "application/json"},
     body: JSON.stringify({inputs})
@@ -64,7 +64,7 @@ export const editUserPhoto = (file, id) => dispatch => {
   imageData.append("image_file", file[0])
   imageData.append("user_id", id)
 
-  fetch('http://localhost:3000/api/v1/users/photo',
+  fetch('https://apostrophe-back-end.herokuapp.com/api/v1/users/photo',
   {method: 'POST',
     body: imageData
   })
