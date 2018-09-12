@@ -38,21 +38,26 @@ export const changeLastBodyPush = (dir) => {
 }
 
 export const setUser = (inputs) => dispatch => {
+  const setUser = user => {
+    console.log(user)
+    localStorage.setItem('token', user.data.attributes.username)
+    dispatch({
+      type: 'SET_USER',
+      payload: user.data
+    })
+  }
   fetch('http://localhost:3000/api/v1/users/',
   {method: 'POST',
     headers: {"Content-Type": "application/json", "Accept": "application/json"},
     body: JSON.stringify({inputs})
   })
   .then(resp => resp.json())
-  .then(user => dispatch({
-    type: 'SET_USER',
-    payload: user.data
-  })
- )
+  .then(user => setUser(user))
  dispatch({type: 'HIDE_USER_FORM'})
 }
 
 export const logoutUser = () => {
+  localStorage.removeItem('token')
   return {
     type: 'LOGOUT_USER'
   }

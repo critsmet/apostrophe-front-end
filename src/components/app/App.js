@@ -3,6 +3,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import { Route, Switch, withRouter } from 'react-router-dom'
+//actions
+import { setUser } from './appMod'
 //components
 import NavContainer from '../nav/NavContainer'
 import BrowseContainer from '../browse/BrowseContainer'
@@ -13,7 +15,17 @@ import UserForm from '../userForm/UserForm'
 import Info from './Info'
 import './App.css'
 
-const App = ({ lastBodyPush, browseShown, userFormShown }) => {
+class App extends React.Component {
+
+    componentDidMount(){
+      if (localStorage.getItem('token')){
+        this.props.setUser({username: localStorage.getItem('token')})
+      }
+    }
+
+    render(){
+
+    const { lastBodyPush, browseShown, userFormShown } = this.props
 
     const directionPush = () => {
       if ((browseShown && lastBodyPush === '') || lastBodyPush === "right"){
@@ -65,13 +77,15 @@ const App = ({ lastBodyPush, browseShown, userFormShown }) => {
       </div>
     )
   }
+}
 
 const mapStateToProps = ({ app, browse, userForm }) => {
   return {
+    loggedInUser: app.user,
     lastBodyPush: app.lastBodyPush,
     browseShown: browse.browseShown,
     userFormShown: userForm.userFormShown
   }
 }
 
-export default withRouter(connect(mapStateToProps)(App));
+export default withRouter(connect(mapStateToProps, { setUser })(App));
