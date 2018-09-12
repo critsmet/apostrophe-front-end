@@ -11,6 +11,7 @@ class UserStar extends React.Component{
   componentDidMount(){
   fetch('http://localhost:3000/api/v1/relationships/find',
   {method: 'POST',
+  mode: 'no-cors',
   headers: {"Content-Type": "application/json", "Accept": "application/json"},
   body: JSON.stringify({loggedInUser: this.props.loggedInUser.id, userToFollow: this.props.userToFollow.id})
   })
@@ -23,6 +24,7 @@ class UserStar extends React.Component{
     const unfav = () => {
       fetch('https://apostrophe-back-end.herokuapp.com/api/v1/relationships/',
         {method: 'DELETE',
+        mode: 'no-cors',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({loggedInUser: this.props.loggedInUser.id, userToUnfollow: this.props.userToFollow.id})
       })
@@ -33,6 +35,7 @@ class UserStar extends React.Component{
     const fav = () => {
       fetch('https://apostrophe-back-end.herokuapp.com/api/v1/relationships/',
         {method: 'POST',
+        mode: 'no-cors',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({loggedInUser: this.props.loggedInUser.id, userToFollow: this.props.userToFollow.id})
       })

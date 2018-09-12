@@ -11,6 +11,7 @@ class LikesGrid extends React.Component {
   componentDidMount(){
     fetch('https://apostrophe-back-end.herokuapp.com/api/v1/publications/likes',
     {method: 'POST',
+      mode: 'no-cors',
       headers: {"Content-Type": "application/json", "Accept": "application/json"},
       body: JSON.stringify({publication: this.props.pubId})
     })
@@ -22,6 +23,7 @@ class LikesGrid extends React.Component {
       if (prevProps.liked !== this.props.liked){
       fetch('https://apostrophe-back-end.herokuapp.com/api/v1/publications/likes',
       {method: 'POST',
+        mode: 'no-cors',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({publication: this.props.pubId})
       })

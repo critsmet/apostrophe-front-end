@@ -39,7 +39,6 @@ export const changeLastBodyPush = (dir) => {
 
 export const setUser = (inputs) => dispatch => {
   const setUser = user => {
-    console.log(user)
     localStorage.setItem('token', user.data.attributes.username)
     dispatch({
       type: 'SET_USER',
@@ -48,8 +47,9 @@ export const setUser = (inputs) => dispatch => {
   }
   fetch('https://apostrophe-back-end.herokuapp.com/api/v1/users/',
   {method: 'POST',
-    headers: {"Content-Type": "application/json", "Accept": "application/json"},
-    body: JSON.stringify({inputs})
+  mode: 'no-cors',
+  headers: {"Content-Type": "application/json", "Accept": "application/json"},
+  body: JSON.stringify({inputs})
   })
   .then(resp => resp.json())
   .then(user => setUser(user))

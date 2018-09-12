@@ -11,8 +11,9 @@ class FollowingGrid extends React.Component {
   componentDidMount(){
     fetch('https://apostrophe-back-end.herokuapp.com/api/v1/following',
     {method: 'POST',
-      headers: {"Content-Type": "application/json", "Accept": "application/json"},
-      body: JSON.stringify({user: this.props.user[0].id})
+    mode: 'no-cors',
+    headers: {"Content-Type": "application/json", "Accept": "application/json"},
+    body: JSON.stringify({user: this.props.user[0].id})
     })
     .then(resp => resp.json())
     .then(following => following === null ? null : this.setState({following: following.data})
