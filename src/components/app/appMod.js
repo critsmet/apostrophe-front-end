@@ -45,9 +45,8 @@ export const setUser = (inputs) => dispatch => {
       payload: user.data
     })
   }
-  fetch('https://apostrophe-back-end.herokuapp.com/api/v1/users/',
+  fetch('http://localhost:3000/api/v1/users/',
   {method: 'POST',
-  mode: 'no-cors',
   headers: {"Content-Type": "application/json", "Accept": "application/json"},
   body: JSON.stringify({inputs})
   })

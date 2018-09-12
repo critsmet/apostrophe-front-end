@@ -11,7 +11,6 @@ class PubStar extends React.Component{
   componentDidMount(){
   fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/likes/find',
   {method: 'POST',
-  mode: 'no-cors',
   headers: {"Content-Type": "application/json", "Accept": "application/json"},
   body: JSON.stringify({pub: this.props.pubId, user: this.props.user.id})
   })
@@ -24,19 +23,16 @@ class PubStar extends React.Component{
     const unfav = () => {
       fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/likes/',
         {method: 'DELETE',
-        mode: 'no-cors',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({pub: this.props.pubId, user: this.props.user.id})
       })
       this.setState({faved: false})
-      console.log(this.props.slug)
       this.props.slug ? this.props.updateLiked(false) : null
     }
 
     const fav = () => {
       fetch('https://apostrophe-back-end.herokuapp.com/api/v1/likes/',
         {method: 'POST',
-        mode: 'no-cors',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({pub: this.props.pubId, user: this.props.user.id})
       })
