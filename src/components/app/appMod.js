@@ -45,7 +45,7 @@ export const setUser = (inputs) => dispatch => {
       payload: user.data
     })
   }
-  fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/users/',
+  fetch('https://apostrophe-back-end.herokuapp.com/api/v1/users/',
   {method: 'POST',
   mode: 'no-cors',
   headers: {"Content-Type": "application/json", "Accept": "application/json"},

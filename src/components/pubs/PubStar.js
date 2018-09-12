@@ -34,7 +34,7 @@ class PubStar extends React.Component{
     }
 
     const fav = () => {
-      fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/likes/',
+      fetch('https://apostrophe-back-end.herokuapp.com/api/v1/likes/',
         {method: 'POST',
         mode: 'no-cors',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
