@@ -9,7 +9,7 @@ class FollowingGrid extends React.Component {
   }
 
   componentDidMount(){
-    fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/following',
+    fetch('https://apostrophe-back-end.herokuapp.com/api/v1/following',
     {method: 'POST',
     headers: {"Content-Type": "application/json", "Accept": "application/json"},
     body: JSON.stringify({user: this.props.user[0].id})
@@ -22,7 +22,9 @@ class FollowingGrid extends React.Component {
     const { following } = this.state
     const imageSquares = following.map(following => {
       return <Link to={"/users/" + following.attributes.username}>
-              <img key={following.attributes.username}
+              <img
+               alt={following.attributes.username}
+               key={following.attributes.username}
                style={ {width: '14.28%'} }
                src={following.attributes['image-url']} />
              </Link>

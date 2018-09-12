@@ -36,6 +36,7 @@ class LikesGrid extends React.Component {
       return <Link
               to={"/users/" + like.attributes.username}>
                 <img
+                alt={like.attributes.username}
                 key={like.attributes.username}
                 style={ {width: '14.28%'} }
                 src={like.attributes['image-url']} />

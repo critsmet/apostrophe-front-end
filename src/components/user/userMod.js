@@ -64,7 +64,7 @@ export const editUserPhoto = (file, id) => dispatch => {
   imageData.append("image_file", file[0])
   imageData.append("user_id", id)
 
-  fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/users/photo',
+  fetch('https://apostrophe-back-end.herokuapp.com/api/v1/users/photo',
   {method: 'POST',
   body: imageData
   })

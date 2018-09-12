@@ -9,7 +9,7 @@ class UserStar extends React.Component{
   }
 
   componentDidMount(){
-  fetch('https://cors-anywhere.herokuapp.com/http://localhost:3000/api/v1/relationships/find',
+  fetch('https://apostrophe-back-end.herokuapp.com/api/v1/relationships/find',
   {method: 'POST',
   headers: {"Content-Type": "application/json", "Accept": "application/json"},
   body: JSON.stringify({loggedInUser: this.props.loggedInUser.id, userToFollow: this.props.userToFollow.id})
@@ -20,7 +20,7 @@ class UserStar extends React.Component{
 
   render(){
     const unfav = () => {
-      fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/relationships/',
+      fetch('https://apostrophe-back-end.herokuapp.com/api/v1/relationships/',
         {method: 'DELETE',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({loggedInUser: this.props.loggedInUser.id, userToUnfollow: this.props.userToFollow.id})
@@ -30,7 +30,7 @@ class UserStar extends React.Component{
     }
 
     const fav = () => {
-      fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/relationships/',
+      fetch('https://apostrophe-back-end.herokuapp.com/api/v1/relationships/',
         {method: 'POST',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({loggedInUser: this.props.loggedInUser.id, userToFollow: this.props.userToFollow.id})

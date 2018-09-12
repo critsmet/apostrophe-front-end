@@ -9,7 +9,7 @@ class FollowersGrid extends React.Component {
   }
 
   componentDidMount(){
-    fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/followers',
+    fetch('https://apostrophe-back-end.herokuapp.com/api/v1/followers',
     {method: 'POST',
     headers: {"Content-Type": "application/json", "Accept": "application/json"},
     body: JSON.stringify({user: this.props.user[0].id})
@@ -20,7 +20,7 @@ class FollowersGrid extends React.Component {
 
     componentDidUpdate(prevProps){
       if (prevProps.following !== this.props.following){
-      fetch('https://cors-anywhere.herokuapp.com/https://apostrophe-back-end.herokuapp.com/api/v1/followers',
+      fetch('https://apostrophe-back-end.herokuapp.com/api/v1/followers',
       {method: 'POST',
       headers: {"Content-Type": "application/json", "Accept": "application/json"},
       body: JSON.stringify({user: this.props.user[0].id})
@@ -32,7 +32,14 @@ class FollowersGrid extends React.Component {
 
   render(){
     const { followers } = this.state
-    const imageSquares = followers.map(follower => <Link to={"/users/" + follower.attributes.username}><img key={follower.attributes.username} style={ {width: '14.28%'} } src={follower.attributes['image-url']} /></Link>)
+    const imageSquares = followers.map(follower => {
+      return <Link to={"/users/" + follower.attributes.username}>
+             <img
+             alt={follower.attributes.username} 
+             key={follower.attributes.username}
+             style={ {width: '14.28%'} }
+             src={follower.attributes['image-url']} />
+             </Link>)
     return(
       <div>
         {imageSquares}
