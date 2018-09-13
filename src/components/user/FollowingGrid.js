@@ -31,7 +31,7 @@ class FollowingGrid extends React.Component {
     })
     return(
       <div>
-        {imageSquares}
+        {following === [] ? 'not following anyone yet' : imageSquares}
       </div>
     )
   }

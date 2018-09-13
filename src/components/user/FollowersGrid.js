@@ -43,7 +43,7 @@ class FollowersGrid extends React.Component {
          })
     return(
       <div>
-        {imageSquares}
+        {followers === [] ? 'no followers yet' : imageSquares}
       </div>
     )
   }
