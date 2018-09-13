@@ -220,6 +220,7 @@ label:hover {
 }
 
 #user-form input{
+  -webkit-appearance: none;
   text-align: right;
   font-size: 1.5rem;
 }
@@ -240,6 +241,7 @@ label:hover {
 #edit-description input[type="text"]{
   text-transform: lowercase;
   width: 100%
+  -webkit-appearance: none;
 }
 
 #edit-description button{
@@ -309,6 +311,7 @@ u {
 }
 
 input {
+  -webkit-appearance: none;
   width: 200px;
   outline: none;
   border: 0px;

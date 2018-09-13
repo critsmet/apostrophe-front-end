@@ -83,7 +83,7 @@ class UserDisplay extends React.Component {
               <br/>
               { editForm
                 ? null
-                : <span onClick={showEditUser} className="nav-button">edit profile</span> }
+                : <span onClick={showEditUser} className="nav-button mb2">edit profile</span> }
             </div>
               : null }
           </div>
