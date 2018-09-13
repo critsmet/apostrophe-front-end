@@ -90,8 +90,8 @@ class UserDisplay extends React.Component {
         </div>
       </div>
       <div className="flex-m flex-column-l w-30-l w-100 pl3-l text">
-        <div className="f5 mt1 ttl tl i w-100-l w-50-m">
-          <div className="w-100 bg-washed-blue">
+        <div className="f5 mt1 ttl tl w-100-l w-50-m">
+          <div className="w-100 i bg-washed-blue">
             following
           </div>
           <FollowingGrid />
