@@ -118,12 +118,14 @@ class UserDisplay extends React.Component {
         <div className="w-100 i">
           liked publications
         </div>
+        { user.attributes.publications.length === 0 ? <span><br/>no publications yet</span> :
         <Masonry
         breakpointCols={breakPoints}
         className="grid"
         columnClassName="grid-column">
           {favCards}
         </Masonry>
+        }
         </div>
       </div>
       )
