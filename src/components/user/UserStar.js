@@ -18,15 +18,21 @@ class UserStar extends React.Component{
   .then(resp => resp === null ? null : this.setState({faved: true})
 )}
 
+  update(boolean){
+    this.props.updateFollowers(boolean);
+    this.setState({faved: boolean});
+  }
+
+
   render(){
+
     const unfav = () => {
       fetch('https://apostrophe-back-end.herokuapp.com/api/v1/relationships/',
         {method: 'DELETE',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({loggedInUser: this.props.loggedInUser.id, userToUnfollow: this.props.userToFollow.id})
-      })
-      this.setState({faved: false})
-      this.props.updateFollowers(false)
+        })
+        .then(()=>this.update(false))
     }
 
     const fav = () => {
@@ -34,9 +40,8 @@ class UserStar extends React.Component{
         {method: 'POST',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({loggedInUser: this.props.loggedInUser.id, userToFollow: this.props.userToFollow.id})
-      })
-      this.setState({faved: true})
-      this.props.updateFollowers(true)
+        })
+        .then(()=>this.update(true))
     }
 
     return (

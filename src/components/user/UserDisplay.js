@@ -96,8 +96,8 @@ class UserDisplay extends React.Component {
           </div>
           <FollowingGrid />
         </div>
-        <div className="mt4-l f5 ttl tl w-100-l w-50-m">
-          <div className="mt1 flex flex-wrap bg-washed-blue justify-between">
+        <div className="f5 ttl tl w-100-l w-50-m">
+          <div className="mt3-l mt1 flex flex-wrap bg-washed-blue justify-between">
             <span className="text i w-80">
               followers
             </span>

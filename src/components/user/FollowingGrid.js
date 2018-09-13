@@ -15,11 +15,12 @@ class FollowingGrid extends React.Component {
     body: JSON.stringify({user: this.props.user[0].id})
     })
     .then(resp => resp.json())
-    .then(following => following === null ? null : this.setState({following: following.data})
+    .then(following => following.length === 0 ? null : this.setState({following: following.data})
     )}
 
   render(){
     const { following } = this.state
+    console.log(following.length === 0 )
     const imageSquares = following.map(following => {
       return <Link to={"/users/" + following.attributes.username}>
               <img
@@ -31,7 +32,7 @@ class FollowingGrid extends React.Component {
     })
     return(
       <div>
-        {following === [] ? 'not following anyone yet' : imageSquares}
+        {following.length === 0 ? <span><br/>not following anyone yet</span> : imageSquares}
       </div>
     )
   }

@@ -18,6 +18,11 @@ class PubStar extends React.Component{
   .then(resp => resp === null ? null : this.setState({faved: true})
 )}
 
+  update(boolean){
+    this.setState({faved: boolean})
+    this.props.slug ? this.props.updateLiked(boolean) : null
+  }
+
   render(){
 
     const unfav = () => {
@@ -25,20 +30,17 @@ class PubStar extends React.Component{
         {method: 'DELETE',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({pub: this.props.pubId, user: this.props.user.id})
-      })
-      this.setState({faved: false})
-      this.props.slug ? this.props.updateLiked(false) : null
-    }
+      }).then(() => this.update(false))
+      }
 
     const fav = () => {
       fetch('https://apostrophe-back-end.herokuapp.com/api/v1/likes/',
         {method: 'POST',
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({pub: this.props.pubId, user: this.props.user.id})
-      })
-      this.setState({faved: true})
-      this.props.slug ? this.props.updateLiked(true) : null
-    }
+        })
+        .then(() => this.update(true))
+      }
 
     return (
       <span>

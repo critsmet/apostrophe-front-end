@@ -15,7 +15,7 @@ class FollowersGrid extends React.Component {
     body: JSON.stringify({user: this.props.user[0].id})
     })
     .then(resp => resp.json())
-    .then(followers => followers === null ? null : this.setState({followers: followers.data})
+    .then(followers => followers.length === 0 ? null : this.setState({followers: followers.data})
     )}
 
     componentDidUpdate(prevProps){
@@ -26,7 +26,7 @@ class FollowersGrid extends React.Component {
       body: JSON.stringify({user: this.props.user[0].id})
       })
       .then(resp => resp.json())
-      .then(followers => followers === null ? null : this.setState({followers: followers.data})
+      .then(followers => followers.length === 0 ? null : this.setState({followers: followers.data})
       )}
     }
 
@@ -43,7 +43,7 @@ class FollowersGrid extends React.Component {
          })
     return(
       <div>
-        {followers === [] ? 'no followers yet' : imageSquares}
+        {followers.length === 0 ? <span><br/>no followers yet</span> : imageSquares}
       </div>
     )
   }

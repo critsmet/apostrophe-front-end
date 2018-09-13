@@ -28,7 +28,7 @@ class PubDisplay extends React.Component {
   }
 
   updateLiked = (boolean) => {
-    this.setState({ liked: boolean }, () => console.log(this.state))
+    this.setState({ liked: boolean })
   }
 
   render(){
