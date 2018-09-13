@@ -240,7 +240,7 @@ label:hover {
 
 #edit-description input[type="text"]{
   text-transform: lowercase;
-  width: 100%
+  width: 100%;
   -webkit-appearance: none;
 }
 
