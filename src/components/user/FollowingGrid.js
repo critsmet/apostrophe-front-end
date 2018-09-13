@@ -20,7 +20,6 @@ class FollowingGrid extends React.Component {
 
   render(){
     const { following } = this.state
-    console.log(following.length === 0 )
     const imageSquares = following.map(following => {
       return <Link to={"/users/" + following.attributes.username}>
               <img

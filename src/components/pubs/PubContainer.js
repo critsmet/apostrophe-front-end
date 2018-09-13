@@ -11,7 +11,7 @@ import PubCard from './PubCard'
 class PubContainer extends React.Component{
 
   componentDidMount(){
-    this.props.showDefault ? this.props.setPublications(["default", '']) : null
+    this.props.showDefault && this.props.setPublications(["default", ''])
   }
 
   render(){

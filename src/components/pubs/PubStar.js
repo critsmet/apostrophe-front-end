@@ -20,7 +20,7 @@ class PubStar extends React.Component{
 
   update(boolean){
     this.setState({faved: boolean})
-    this.props.slug ? this.props.updateLiked(boolean) : null
+    this.props.slug && this.props.updateLiked(boolean)
   }
 
   render(){

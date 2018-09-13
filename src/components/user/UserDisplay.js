@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
 import Masonry from 'react-masonry-css'
 //actions
-import { setUserDisplay, editUserDescription, editUserPhoto, showEditUser, hideEditUser } from './userMod'
+import { setUserDisplay, editUserDescription, editUserPhoto, showEditUser } from './userMod'
 import { clearPublications } from '../pubs/pubMod'
 //components
 import MiniPubCard from '../pubs/MiniPubCard'
@@ -59,7 +59,7 @@ class UserDisplay extends React.Component {
       <div key={user.attributes.username} id="display-div" className="mt4 flex flex-wrap justify-between">
         <div className="flex flex-column w-30-l w-40-m w-100">
           <div className="w-100 center">
-            <img src={user.attributes['image-url']}/>
+            <img alt={user.attributes.username} src={user.attributes['image-url']}/>
             {loggedInUser && loggedInUser.attributes.username === this.props.slug ?
               <React.Fragment>
                 <input type="file" ref={fileForm} style={ {display: "none"} } onChange={(e) => editUserPhoto(e.target.files, user.id)}/>
@@ -76,7 +76,7 @@ class UserDisplay extends React.Component {
         <div className="w-100 ttl tl mt3 text">
           <div className="f5">
             {editForm
-              ? <EditDescription onSubmit={editUserDescription}/>
+              ? <EditDescription username={user.attributes.username} onSubmit={editUserDescription}/>
               : user.attributes.description}
             {loggedInUser && loggedInUser.attributes.username === this.props.slug
               ? <div className="f6 mt2">
