@@ -44,8 +44,8 @@ class LikesGrid extends React.Component {
            })
 
     return(
-      <div>
-        {likes.length === 0 ? <span><br/>no likes yet<br/></span> : imageSquares}
+      <div className="mb1">
+        {likes.length === 0 ? <span>no likes yet</span> : imageSquares}
       </div>
     )
   }
