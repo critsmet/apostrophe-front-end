@@ -22,7 +22,7 @@ class PubContainer extends React.Component{
         return (
           <div key="default" id="default">
             apostrophe is a catalog of digital publications.
-            these are our favorites. &nbsp;
+            these are our favorites.&nbsp;
             <Link to={'/info'}>
               <u>
                 learn more
