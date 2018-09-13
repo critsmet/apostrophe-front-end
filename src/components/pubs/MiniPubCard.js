@@ -37,10 +37,10 @@ const MiniPubCard = ({pub, user}) => {
         </div>
         <div className="flex-column w-50 pl1">
           <div className="w-100 bg-washed-blue center flex justify-between ttl f5 f6-ns">
-            <div className="ilb ml1 tl w-90 text i">
+            <div className="ilb ml1 tl w-80 text i">
               {pub.title}
             </div>
-            <div className="ilb mt1 mr1 tr w-10">
+            <div className="ilb mt1 mr1 tr w-20">
               <CSSTransition
               in={user !== null}
               timeout={300}
