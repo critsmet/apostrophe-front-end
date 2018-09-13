@@ -49,7 +49,7 @@ const MiniPubCard = ({pub, user}) => {
                 <PubStar pubId={pub.id} userId={user == null ? null : user.id} />
               </CSSTransition>
               <Link to={"/publications/" + slug}>
-                &#8599;
+                &#x2197;
               </Link>
             </div>
           </div>

@@ -48,7 +48,7 @@ const PubCard = ({pub, user, clearPublications}) => {
               <PubStar pubId={pub.id} userId={user} />
             </CSSTransition>
           <Link onClick={clearPublications} to={"/publications/" + slug}>
-            &#8599;
+            &#x2197;
           </Link>
         </div>
       </div>
