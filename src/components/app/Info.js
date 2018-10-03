@@ -18,6 +18,9 @@ const Info = () => {
           apostrophe shares publications that are primarily digital, or have a digital version of a print publication that provides online access to most or all of the same material.
           this is the first iteration of apostrophe and new ideas are already being sketched.
           feel free to send a message if you are interested in getting involved with the project.
+          <br/>
+          <br/>
+          apostrophe was created by <u><a href="http://chrismetzger.site">chris metzger</a></u>
         </span>
       </div>
     </div>
