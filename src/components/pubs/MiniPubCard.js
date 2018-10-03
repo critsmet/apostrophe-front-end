@@ -26,14 +26,14 @@ const MiniPubCard = ({pub, user}) => {
           alt="default"
           className="dib w-100 shown mb2"
           src={square}/>
-          <a href={pub.url}>
+          <Link to={"/publications/" + slug}>
             <img
             ref={coverImg}
             alt={pub.title}
             className="w-100 dib mb2 cover-image hidden"
             src={pub.cover_image_url}
             onLoad={handleLoad}/>
-          </a>
+          </Link>
         </div>
         <div className="flex-column w-50 pl1">
           <div className="w-100 bg-washed-blue center flex justify-between ttl f5 f6-ns">
@@ -48,9 +48,9 @@ const MiniPubCard = ({pub, user}) => {
               unmountOnExit>
                 <PubStar pubId={pub.id} userId={user == null ? null : user.id} />
               </CSSTransition>
-              <Link to={"/publications/" + slug}>
+              <a href={pub.url}>
                 &#x2197;&#xFE0E;
-              </Link>
+              </a>
             </div>
           </div>
           <div className="w-100 f6 ttl">

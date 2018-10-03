@@ -65,8 +65,15 @@ class PubDisplay extends React.Component {
             </div>
           </div>
           <div className="flex flex-column w-40-l w-60-m w-100 pl3-ns">
-            <div className="w-100 f3 i ttl tl bg-washed-blue text">
-              {pub.title}
+            <div className="flex w-100 f3 i ttl tl bg-washed-blue text">
+              <div className="w-90">
+                {pub.title}
+              </div>
+              <div className="w-10">
+                <a href={pub.url}>
+                  &#x2197;&#xFE0E;
+                </a>
+              </div>
             </div>
           <div className="w-100 ttl tl mt3 text">
             <div className="f5">
