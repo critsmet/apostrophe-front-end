@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Info = () => {
+  window.scrollTo(0, 0)
   return (
     <div className="flex flexbox flex-wrap justify-center w-100">
       <div className="flex mt4-ns mt3 w-100 flex-column-ns w-30-l w-40-m ml3">
