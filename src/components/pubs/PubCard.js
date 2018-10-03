@@ -27,14 +27,14 @@ const PubCard = ({pub, user, clearPublications}) => {
         alt="default"
         className="w-100 shown mb2"
         src={square}/>
-        <a href={pub.url}>
+        <Link onClick={clearPublications} to={"/publications/" + slug}>
           <img
           ref={coverImg}
           alt={pub.title}
           className="w-100 mb2 center cover-image hidden"
           src={pub.cover_image_url}
           onLoad={handleLoad}/>
-        </a>
+        </Link>
         <div className="mt2 pt1 bg-washed-blue center flex justify-between">
           <div className="f5 ilb ml1 tl w-80 text i">
             {pub.title}
@@ -47,9 +47,9 @@ const PubCard = ({pub, user, clearPublications}) => {
             unmountOnExit>
               <PubStar pubId={pub.id} userId={user} />
             </CSSTransition>
-          <Link onClick={clearPublications} to={"/publications/" + slug}>
+          <a href={pub.url}>
             &#x2197;&#xFE0E;
-          </Link>
+          </a>
         </div>
       </div>
       <div className="f6 pt1 pl1 bg-washed-blue center text">{pub.tagline}</div>
