@@ -21,8 +21,8 @@ class PubContainer extends React.Component{
       if (showDefault && index === 5) {
         return (
           <div key="default" id="default">
-            apostrophe is a catalog of digital publications.
-            these are our favorites.&nbsp;
+            apostrophe is a digital publication catalog.
+            here are some favorites.&nbsp;
             <Link to={'/info'}>
               <u>
                 learn more

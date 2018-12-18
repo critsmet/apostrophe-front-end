@@ -81,11 +81,7 @@ export const setShowPubs = (terms) => dispatch => {
   body: JSON.stringify({terms})
     })
     .then(resp => resp.json())
-    .then(pubs => dispatch({
-      type: 'SET_SHOW_PUBS',
-      payload: pubs
-    })
-  );
+    .then(console.log);
 }
 
 export const clearPublications = () => {
