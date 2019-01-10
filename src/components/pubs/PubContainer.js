@@ -15,26 +15,23 @@ class PubContainer extends React.Component{
   }
 
   render(){
+
     const { showDefault, pubs } = this.props
 
-    const pubList = pubs.map((pub, index) => {
-      if (showDefault && index === 5) {
-        return (
-          [<div key="default" id="default">
-            apostrophe is a digital publication catalog.
-            here are some favorites.&nbsp;
-            <Link to={'/info'}>
-              <u>
-                more info
-              </u>
-            </Link>
-          </div>, <PubCard key={pub.title + ' card'} pub={pub}/>])
-      } else {
-      return(
-        <PubCard key={pub.title + ' card'} pub={pub}/>
-        )
-      }
-    }).flat()
+    const learnMore = (<div key="default" id="default">
+    apostrophe is a digital publication catalog.
+    here are some favorites.&nbsp;
+    <Link to={'/info'}>
+      <u>
+        more info
+      </u>
+    </Link>
+    </div>)
+
+    const pubList = pubs.map((pub) => {
+      console.log("map")
+      return <PubCard key={pub.title + ' card'} pub={pub}/>
+      })
 
     const breakPoints = {
       default: 4,
@@ -50,7 +47,7 @@ class PubContainer extends React.Component{
         breakpointCols={breakPoints}
         className="grid mt4"
         columnClassName="grid-column">
-          {pubList}
+          {showDefault && pubList.length !== 0 ? (pubList.splice(5, 0, learnMore) && pubList) : pubList}
         </Masonry>
       </div>
     )
