@@ -311,6 +311,7 @@ u {
 }
 
 input {
+  border-radius: 0;
   -webkit-appearance: none;
   width: 200px;
   outline: none;
