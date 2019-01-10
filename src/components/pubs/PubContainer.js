@@ -20,25 +20,21 @@ class PubContainer extends React.Component{
     const pubList = pubs.map((pub, index) => {
       if (showDefault && index === 5) {
         return (
-          <React.Fragment>
-            <div key="default" id="default">
-              apostrophe is a digital publication catalog.
-              here are some favorites.&nbsp;
-              <Link to={'/info'}>
-                <u>
-                  learn more
-                </u>
-              </Link>
-            </div>
-            <PubCard key={pub.title + ' card'} pub={pub}/>
-            </React.Fragment>
-          )
+          [<div key="default" id="default">
+            apostrophe is a digital publication catalog.
+            here are some favorites.&nbsp;
+            <Link to={'/info'}>
+              <u>
+                more info
+              </u>
+            </Link>
+          </div>, <PubCard key={pub.title + ' card'} pub={pub}/>])
       } else {
       return(
         <PubCard key={pub.title + ' card'} pub={pub}/>
         )
       }
-    })
+    }).flat()
 
     const breakPoints = {
       default: 4,
