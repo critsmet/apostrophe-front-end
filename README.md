@@ -5,11 +5,11 @@ This React web app was deisgned to be the responsive front-end for its eponym Ap
 ## Contents
 
 - [Libraries & Middleware](#libraries--middleware)
-- [Installation](https://github.com/critsmet/apostrophe-front-end#installation)
-- [Structure](https://github.com/critsmet/apostrophe-front-end#structure)
-- [Components](https://github.com/critsmet/apostrophe-front-end#components)
-- [User Accounts](https://github.com/critsmet/apostrophe-front-end#user-accounts)
-- [Future Development](https://github.com/critsmet/apostrophe-front-end#future-development)
+- [Installation](#installation)
+- [Structure](#structure)
+- [Components](#components)
+- [User Accounts](#user-accounts)
+- [Future Development](#future-development)
 
 ## Libraries & Middleware
 
