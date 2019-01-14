@@ -62,12 +62,12 @@ Users do not experience many obstacles regarding sign-up: there are no requireme
 
 ## Future Development
 
-Some ideas for features to add in the future 
+Some ideas for features to add in the future:
 
 ### Accepting Contributions Through A Form
 
 For the sake of regulating what is saved to the database, there is no form available to contribute to the list of publications. Right now, the users are suggested in the `info` page to submit an e-mail to a given address with information regarding a publication that should be included. I'd like to create a modal form that generates an e-mail that I can approve from my inbox so that people can submit new publications more quickly. 
 
-### Include Recent Article Headlines from Publications
+### Including Recent Article Headlines from Publications
 
 Publication pages should dynamically update to include recent or all article titles from each publication's page, perhaps through a scraping mechanism. Users should also be able to save these as favorites. 
