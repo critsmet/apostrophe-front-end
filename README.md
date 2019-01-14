@@ -29,7 +29,7 @@ Each sub-folder in `components` is, *surprise*, divided into the main components
 
 ## Components
 
-Apostrophe is composed of six main components 
+Apostrophe is composed of six main components:
 
 ### app 
 
