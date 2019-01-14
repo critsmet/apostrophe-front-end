@@ -17,7 +17,7 @@ Apostrophe was built using [create-react-app](https://github.com/facebook/create
 
 ## Installation 
 
-To get started with Apostrophe, fork this repository and clone it to your hard drive. CD into the folder and run ```npm install```. Once the dependencies have beene installed, you can run ```npm start``` to get your app running. Your locally-hosted version of the app, like the live version, will receive information from a Ruby on Rails backend hosted at htttp://apostrophe-back-end.herokuapp.com. For more information about how the back-end is structured, visit [this](https://github.com/critsmet/apostrophe-back-end) repository. 
+To get started with Apostrophe, fork this repository and clone it to your hard drive. CD into the folder and run ```npm install```. Once the dependencies have beene installed, you can run ```npm start``` to get your app running. Your locally-hosted version of the app, like the live version, will receive information from a Ruby on Rails backend hosted at apostrophe-back-end.herokuapp.com. For more information about how the back-end is structured, visit [this](https://github.com/critsmet/apostrophe-back-end) repository. 
 
 ## Structure
 
