@@ -37,11 +37,11 @@ The `app` component houses the entire application. All other components will be 
 
 ### browse
 
-This component is responsible for the side-panel that appears when someone clicks `browse` in thee nav component. Selecting a filter/category sends a string of the filter's name to the back-end where a databse is queried based on the selected filter. The compent is designed to unmount when the user's mouse has moved outside of it. *This feature is not well suited to mobile devices and needs to be redone*
+This component is responsible for the side-panel that appears when someone clicks `browse` in the nav component. Selecting a filter/category sends a string of the filter's name to the backend and tthe databse is queried based on the selected filter. The compent is designed to unmount when the user's mouse has moved outside of it. *This feature is not well suited to mobile devices and needs to be redone*
 
 ### nav
 
-The `nav` component is responsible for the main navigation/component rendering within the app. It holds a special sub-component, `navSearch.js`, which is a search bar that is built right into the component itself. There is no submit button for the search bar. Instead, the component waits a few seconds after the user's final keystroke before sending the input to the backend to query the databse. 
+The `nav` component is responsible for the main navigation/component rendering within the app. It holds a special sub-component, `navSearch.js`, which is a search bar that is built right into the component itself. There is no submit button for the search bar. Instead, the component waits a few seconds after the user's final keystroke before sending the input to the backend to query the database. 
 
 ### pubs
 
