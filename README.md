@@ -17,7 +17,7 @@ Apostrophe was built using [create-react-app](https://github.com/facebook/create
 
 ## Installation 
 
-To get started with Apostrophe, fork this repository and clone it to your hard drive. CD into the folder and run ```npm install```. Once the dependencies have beene installed, you can run ```npm start``` to get your app running. Your locally-hosted version of the app, like the live version, will receive information from a Ruby on Rails backend hosted at apostrophe-back-end.herokuapp.com. For more information about how the back-end is structured, visit [this](https://github.com/critsmet/apostrophe-back-end) repository. 
+To get started with Apostrophe, fork this repository and clone it to your hard drive. CD into the folder and run ```npm install```. Once the dependencies have been installed, you can run ```npm start``` to get your app running. Your locally-hosted version of the app, like the live version, will receive information from a Ruby on Rails backend hosted at apostrophe-back-end.herokuapp.com. For more information about how the back-end is structured, visit [this](https://github.com/critsmet/apostrophe-back-end) repository. *The app currently does not provide a variable that changes the location of the fetch request depending on environment being production or development. This will be updated soon.* 
 
 ## Structure
 
@@ -25,7 +25,7 @@ The top-level folder of Apostrophe includes a `public` folder, which holds the `
 
 The `src` folder includes one main folders: `components`, which organizes the bulk of the app's logic and content, and `store`, which organizes the Redux logic responsible for the app's state management. `index.js` handles how the app is mounted into the `index.html` file in the top-level folder. 
 
-Each sub-folder in `components` is, *surprise*, divided into the main components of the app. Files within each sub-folder that end with the term 'Mod' contain the Redux logic for the respective component. The majority of fetch requests occur in here. Files that end with `Container` house the highest-level responsibilitty for each component, and demonstrate the context for which other sub-components might be rendered within. Sub-component files end with a descriptive tag of their responsibility. For instance: `NavSearch.js` is a component that is responsible for the search feature within the app, and is invoked inside `NavContainer.js`. 
+Each sub-folder in `components` is, *surprise*, divided into the main components of the app. The file within each sub-folder that ends with the term 'Mod' contains the Redux logic for that respective component. The majority of fetch requests occur in here. Files that end with `Container` house the highest-level responsibilitty for each component, and demonstrate the context for which other sub-components might be rendered within. Sub-component files end with a descriptive tag of their responsibility. For instance: `NavSearch.js` is a component that is responsible for the search feature within the app, and is invoked inside `NavContainer.js`. 
 
 ## Components
 
