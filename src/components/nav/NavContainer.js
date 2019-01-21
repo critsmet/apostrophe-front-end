@@ -99,7 +99,7 @@ const NavContainer = ({
 
   return (
    <nav id="navbar" className="flex justify-between h2 mb3 bg-white">
-
+  {console.log("OMG")}
     <MediaQuery query="(min-width: 769px)">
       <CSSTransition
         in={browseShown}

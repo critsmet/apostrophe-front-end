@@ -24,7 +24,6 @@ class App extends React.Component {
     }
 
     render(){
-
     const { lastBodyPush, browseShown, userFormShown } = this.props
 
     const directionPush = () => {

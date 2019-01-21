@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 //actions
 import { clearPublications } from './pubMod'
 //components
-import square from '../../media/square.png'
 import PubStar from './PubStar'
 
 const PubCard = ({pub, user, clearPublications}) => {
@@ -26,7 +25,7 @@ const PubCard = ({pub, user, clearPublications}) => {
         ref={defaultImg}
         alt="default"
         className="w-100 shown mb2"
-        src={square}/>
+        src="https://res.cloudinary.com/apostrophe/image/upload/v1548042467/square.png"/>
         <Link onClick={clearPublications} to={"/publications/" + slug}>
           <img
           ref={coverImg}
