@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import { Link, withRouter } from 'react-router-dom'
 //components
-import square from '../../media/square.png'
 import PubStar from './PubStar'
 
 const MiniPubCard = ({pub, user}) => {
@@ -25,7 +24,7 @@ const MiniPubCard = ({pub, user}) => {
           ref={defaultImg}
           alt="default"
           className="dib w-100 shown mb2"
-          src={square}/>
+          src="https://res.cloudinary.com/apostrophe/image/upload/v1548042467/square.png"/>
           <Link to={"/publications/" + slug}>
             <img
             ref={coverImg}
