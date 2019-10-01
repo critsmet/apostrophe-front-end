@@ -1,6 +1,6 @@
 # Apostrophe: The Front End
 
-This React web app was deisgned to be the responsive front-end for its eponym Apostrophe, a digital publication library live at http://www.apostrophe.online. It can be used as a template for similarly-modeled projects. This repository welcomes contributions, so feel free to submit a pull request! 
+This React web app was deisgned to be the responsive front-end for its eponym Apostrophe, a digital publication library live at http://apostrophe-front-end.herokuapp.com. It can be used as a template for similarly-modeled projects. This repository welcomes contributions, so feel free to submit a pull request! 
 
 ## Contents
 
