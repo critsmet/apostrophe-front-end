@@ -294,6 +294,10 @@ label:hover {
   padding-left: 3%;
 }
 
+#loading {
+  font-family: 'Lato', sans-serif;
+}
+
 .display-right {
   width: 50%;
   margin-left: 3%;

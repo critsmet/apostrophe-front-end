@@ -2,6 +2,7 @@
 
 const initialState = {
   showDefault: true,
+  connectedToServer: false,
   pubs: [],
   showPubs: {pub: [], fillers: [], recs: [], users: []}
 }
@@ -13,6 +14,7 @@ export default (state = initialState, action) => {
     case 'SET_PUBLICATIONS':
       return {
         ...state,
+        connectedToServer: true,
         pubs: action.payload
       }
     case 'SET_SHOW_PUBS':

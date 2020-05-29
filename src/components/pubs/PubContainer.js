@@ -16,7 +16,7 @@ class PubContainer extends React.Component{
 
   render(){
 
-    const { showDefault, pubs } = this.props
+    const { showDefault, pubs, connected } = this.props
 
     const learnMore = (<div key="default" id="default">
     apostrophe is a digital publication catalog.
@@ -40,14 +40,14 @@ class PubContainer extends React.Component{
       480: 1
     };
 
-    return (
+    return !connected ? <div id="loading">Connecting to the server...</div> : (
       <div
         className="pub-display">
         <Masonry
         breakpointCols={breakPoints}
         className="grid mt4"
         columnClassName="grid-column">
-          {showDefault && pubList.length !== 0 ? (pubList.splice(5, 0, learnMore) && pubList) : pubList}
+          {showDefault ? (pubList.splice(5, 0, learnMore) && pubList) : pubList}
         </Masonry>
       </div>
     )
@@ -56,6 +56,7 @@ class PubContainer extends React.Component{
 
 const mapStateToProps = ({ pub }) => {
   return {
+    connected: pub.connectedToServer,
     showDefault: pub.showDefault,
     pubs: pub.pubs
   }
