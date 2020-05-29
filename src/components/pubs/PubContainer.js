@@ -47,7 +47,7 @@ class PubContainer extends React.Component{
         breakpointCols={breakPoints}
         className="grid mt4"
         columnClassName="grid-column">
-          {showDefault && publist.length !== 0 ? (pubList.splice(5, 0, learnMore) && pubList) : pubList}
+          {showDefault && pubs.length !== 0 ? (pubList.splice(5, 0, learnMore) && pubList) : pubList}
         </Masonry>
       </div>
     )
